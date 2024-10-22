@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="822px" preserveAspectRatio="none" style="width:2286px;height:822px;background:#FFFFFF;" version="1.1" viewBox="0 0 2286 822" width="2286px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="638.8125" style="stroke:#181818;stroke-width:1.0;" width="10" x="44.5" y="92.6094"/><rect fill="#FFFFFF" height="288.5547" style="stroke:#181818;stroke-width:1.0;" width="10" x="434.5" y="114.9609"/><rect fill="#FFFFFF" height="288.5547" style="stroke:#181818;stroke-width:1.0;" width="10" x="434.5" y="433.8672"/><rect fill="#FFFFFF" height="227.8516" style="stroke:#181818;stroke-width:1.0;" width="10" x="716.5" y="145.3125"/><rect fill="#FFFFFF" height="227.8516" style="stroke:#181818;stroke-width:1.0;" width="10" x="716.5" y="464.2188"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="942.5" y="175.6641"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="942.5" y="494.5703"/><rect fill="#FFFFFF" height="76.7969" style="stroke:#181818;stroke-width:1.0;" width="10" x="1039" y="296.3672"/><rect fill="#FFFFFF" height="76.7969" style="stroke:#181818;stroke-width:1.0;" width="10" x="1160.5" y="615.2734"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="2105" y="236.0156"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="2216.5" y="554.9219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="49" x2="49" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="439" x2="439" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="721" x2="721" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="947.5" x2="947.5" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1043.5" x2="1043.5" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1165.5" x2="1165.5" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1302.5" x2="1302.5" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1453.5" x2="1453.5" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1645.5" x2="1645.5" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1802.5" x2="1802.5" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1893.5" x2="1893.5" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1999.5" x2="1999.5" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="2109.5" x2="2109.5" y1="82.6094" y2="740.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="2221.5" x2="2221.5" y1="82.6094" y2="740.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="5" y="79.5332">Administrator</text><ellipse cx="49.5" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M49.5,21.5 L49.5,48.5 M36.5,29.5 L62.5,29.5 M49.5,48.5 L36.5,63.5 M49.5,48.5 L62.5,63.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="5" y="753.9551">Administrator</text><ellipse cx="49.5" cy="765.5313" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M49.5,773.5313 L49.5,800.5313 M36.5,781.5313 L62.5,781.5313 M49.5,800.5313 L36.5,815.5313 M49.5,800.5313 L62.5,815.5313 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="75" x="402" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="409" y="71.5332">:GetListUI</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="75" x="402" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="409" y="760.9551">:GetListUI</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="125" x="659" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="666" y="71.5332">:GetListController</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="125" x="659" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="666" y="760.9551">:GetListController</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="78" x="908.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="915.5" y="71.5332">:Company</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="78" x="908.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="915.5" y="760.9551">:Company</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="95" x="996.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="1003.5" y="71.5332">:RoleMapper</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="95" x="996.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="1003.5" y="760.9551">:RoleMapper</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="128" x="1101.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="1108.5" y="71.5332">:EmployeeMapper</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="128" x="1101.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="1108.5" y="760.9551">:EmployeeMapper</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="126" x="1239.5" y="32.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="1268" y="53.9238">:lEmployee</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="1250.5" y="71.5332">:List &lt;Employee&gt;</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="126" x="1239.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="1268" y="760.9551">:lEmployee</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="1250.5" y="778.5645">:List &lt;Employee&gt;</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="1375.5" y="32.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="1404" y="53.9238">:lEmployeeDTO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1386.5" y="71.5332">:List &lt;EmployeeDTO&gt;</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="1375.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="1404" y="760.9551">:lEmployeeDTO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1386.5" y="778.5645">:List &lt;EmployeeDTO&gt;</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="209" x="1541.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="195" x="1548.5" y="71.5332">:employeeDTO: EmployeeDTO</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="209" x="1541.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="195" x="1548.5" y="760.9551">:employeeDTO: EmployeeDTO</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="85" x="1760.5" y="32.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="1799" y="53.9238">lr</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="1767.5" y="71.5332">:List&lt;Role&gt;</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="85" x="1760.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="1799" y="760.9551">lr</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="1767.5" y="778.5645">:List&lt;Role&gt;</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="77" x="1855.5" y="32.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="1867" y="53.9238">roleDTO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="1862.5" y="71.5332">:RoleDTO</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="77" x="1855.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="1867" y="760.9551">roleDTO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="1862.5" y="778.5645">:RoleDTO</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="115" x="1942.5" y="32.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="1981" y="53.9238">lrDTO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="1949.5" y="71.5332">:List&lt;RoleDTO&gt;</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="115" x="1942.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="1981" y="760.9551">lrDTO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="1949.5" y="778.5645">:List&lt;RoleDTO&gt;</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="85" x="2067.5" y="32.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="2081" y="53.9238">roleStore</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="2074.5" y="71.5332">: RoleStore</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="85" x="2067.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="2081" y="760.9551">roleStore</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="2074.5" y="778.5645">: RoleStore</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="118" x="2162.5" y="32.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="2191" y="53.9238">empStore</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="2169.5" y="71.5332">: EmployeeStore</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="118" x="2162.5" y="739.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="2191" y="760.9551">empStore</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="2169.5" y="778.5645">: EmployeeStore</text><rect fill="#FFFFFF" height="638.8125" style="stroke:#181818;stroke-width:1.0;" width="10" x="44.5" y="92.6094"/><rect fill="#FFFFFF" height="288.5547" style="stroke:#181818;stroke-width:1.0;" width="10" x="434.5" y="114.9609"/><rect fill="#FFFFFF" height="288.5547" style="stroke:#181818;stroke-width:1.0;" width="10" x="434.5" y="433.8672"/><rect fill="#FFFFFF" height="227.8516" style="stroke:#181818;stroke-width:1.0;" width="10" x="716.5" y="145.3125"/><rect fill="#FFFFFF" height="227.8516" style="stroke:#181818;stroke-width:1.0;" width="10" x="716.5" y="464.2188"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="942.5" y="175.6641"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="942.5" y="494.5703"/><rect fill="#FFFFFF" height="76.7969" style="stroke:#181818;stroke-width:1.0;" width="10" x="1039" y="296.3672"/><rect fill="#FFFFFF" height="76.7969" style="stroke:#181818;stroke-width:1.0;" width="10" x="1160.5" y="615.2734"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="2105" y="236.0156"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="2216.5" y="554.9219"/><polygon fill="#181818" points="422.5,110.9609,432.5,114.9609,422.5,118.9609,426.5,114.9609" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="54.5" x2="428.5" y1="114.9609" y2="114.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="61.5" y="110.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="180" x="72.5" y="110.1045">asks to get a list of Employees</text><polygon fill="#181818" points="704.5,141.3125,714.5,145.3125,704.5,149.3125,708.5,145.3125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="444.5" x2="710.5" y1="145.3125" y2="145.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="451.5" y="140.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="462.5" y="140.4561">getRoleList()</text><polygon fill="#181818" points="930.5,171.6641,940.5,175.6641,930.5,179.6641,934.5,175.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="726.5" x2="936.5" y1="175.6641" y2="175.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="733.5" y="170.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="744.5" y="170.8076">roleStore=getRoleStore()</text><polygon fill="#181818" points="2093,232.0156,2103,236.0156,2093,240.0156,2097,236.0156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="726.5" x2="2099" y1="236.0156" y2="236.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="733.5" y="231.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="101" x="744.5" y="231.1592">lr=getListOfRole()</text><polygon fill="#181818" points="1027,292.3672,1037,296.3672,1027,300.3672,1031,296.3672" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="726.5" x2="1033" y1="296.3672" y2="296.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="733.5" y="291.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="76" x="744.5" y="291.5107">roleToDTO(lr)</text><a href="US011_SD_roleMapper_roleToDTO.puml" target="_top" title="US011_SD_roleMapper_roleToDTO.puml" xlink:actuate="onRequest" xlink:href="US011_SD_roleMapper_roleToDTO.puml" xlink:show="new" xlink:title="US011_SD_roleMapper_roleToDTO.puml" xlink:type="simple"><rect height="41.4453" style="stroke:#000000;stroke-width:1.5;fill:none;" width="239" x="993.5" y="304.3672"/><path d="M993.5,304.3672 L1055.5,304.3672 L1055.5,312.3672 L1045.5,322.3672 L993.5,322.3672 L993.5,304.3672 " fill="#EEEEEE" style="stroke:#000000;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="17" x="1006.5" y="319.8623">ref</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="198" x="1014" y="338.8242">US011_SD_roleMapper_roleToDTO</text></a><polygon fill="#181818" points="732.5,369.1641,722.5,373.1641,732.5,377.1641,728.5,373.1641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="726.5" x2="1043" y1="373.1641" y2="373.1641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="738.5" y="368.3076">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="33" x="749.5" y="368.3076">lrDTO</text><polygon fill="#181818" points="65.5,399.5156,55.5,403.5156,65.5,407.5156,61.5,403.5156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="59.5" x2="438.5" y1="403.5156" y2="403.5156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="71.5" y="398.6592">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="112" x="82.5" y="398.6592">requests data (role)</text><polygon fill="#181818" points="422.5,429.8672,432.5,433.8672,422.5,437.8672,426.5,433.8672" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="54.5" x2="428.5" y1="433.8672" y2="433.8672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="61.5" y="429.0107">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="67" x="72.5" y="429.0107">selects role</text><polygon fill="#181818" points="704.5,460.2188,714.5,464.2188,704.5,468.2188,708.5,464.2188" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="444.5" x2="710.5" y1="464.2188" y2="464.2188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="451.5" y="459.3623">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="242" x="462.5" y="459.3623">getListOfEmployeesByRole(selectedRole)</text><polygon fill="#181818" points="930.5,490.5703,940.5,494.5703,930.5,498.5703,934.5,494.5703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="726.5" x2="936.5" y1="494.5703" y2="494.5703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="733.5" y="489.7139">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="179" x="751.5" y="489.7139">empStore=getEmployeeStore()</text><polygon fill="#181818" points="2204.5,550.9219,2214.5,554.9219,2204.5,558.9219,2208.5,554.9219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="726.5" x2="2210.5" y1="554.9219" y2="554.9219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="733.5" y="550.0654">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="208" x="751.5" y="550.0654">listEmployee=getListOfEmployees()</text><polygon fill="#181818" points="1148.5,611.2734,1158.5,615.2734,1148.5,619.2734,1152.5,615.2734" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="726.5" x2="1154.5" y1="615.2734" y2="615.2734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="733.5" y="610.417">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="290" x="751.5" y="610.417">listOfEmployeeToDTO(listEmployee,selectedRole)</text><a href="US011_SD_EmployeeMapper_listOfEmployeeToDTO.puml" target="_top" title="US011_SD_EmployeeMapper_listOfEmployeeToDTO.puml" xlink:actuate="onRequest" xlink:href="US011_SD_EmployeeMapper_listOfEmployeeToDTO.puml" xlink:show="new" xlink:title="US011_SD_EmployeeMapper_listOfEmployeeToDTO.puml" xlink:type="simple"><rect height="41.4453" style="stroke:#000000;stroke-width:1.5;fill:none;" width="655" x="1098.5" y="623.2734"/><path d="M1098.5,623.2734 L1160.5,623.2734 L1160.5,631.2734 L1150.5,641.2734 L1098.5,641.2734 L1098.5,623.2734 " fill="#EEEEEE" style="stroke:#000000;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="17" x="1111.5" y="638.7686">ref</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="294" x="1279" y="657.7305">US011_SD_EmployeeMapper_listOfEmployeeToDTO</text></a><polygon fill="#181818" points="732.5,688.0703,722.5,692.0703,732.5,696.0703,728.5,692.0703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="726.5" x2="1164.5" y1="692.0703" y2="692.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="738.5" y="687.2139">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="87" x="756.5" y="687.2139">lEmployeeDTO</text><polygon fill="#181818" points="65.5,718.4219,55.5,722.4219,65.5,726.4219,61.5,722.4219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="59.5" x2="438.5" y1="722.4219" y2="722.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="71.5" y="717.5654">14</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="338" x="89.5" y="717.5654">shows the list of Employees according to the selected role</text><!--MD5=[06eb8db8c189803d86a232b5cf9c6775]
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as ADM
+
+participant ":GetListUI" as UI
+participant ":GetListController" as CTRL
+participant ":Company" as ORG
+participant ":RoleMapper" as ROLE_MAPPER
+participant ":EmployeeMapper" as EMPLOYEE_MAPPER
+participant ":lEmployee\n :List <Employee>" as LIST_EMPLOYEE
+participant ":lEmployeeDTO\n :List <EmployeeDTO>" as LIST_EMPLOYEE_DTO
+participant ":employeeDTO: EmployeeDTO" as EMPLOYEE_DTO
+participant "lr\n:List<Role>" as LIST_CRT
+participant "roleDTO\n:RoleDTO" as ROLE_DTO
+participant "lrDTO\n:List<RoleDTO>" as listCRT_DTO
+participant "roleStore\n: RoleStore" as roleStore
+participant "empStore\n: EmployeeStore" as empStore
+
+
+
+activate ADM
+ADM -> UI : asks to get a list of Employees
+activate UI
+
+UI-> CTRL :getRoleList()
+activate CTRL
+CTRL -> ORG: roleStore=getRoleStore()
+activate ORG
+deactivate ORG
+CTRL -> roleStore: lr=getListOfRole()
+activate roleStore
+deactivate roleStore
+CTRL -> ROLE_MAPPER :roleToDTO(lr)
+activate ROLE_MAPPER
+
+ref over EMPLOYEE_MAPPER,ROLE_MAPPER[[US011_SD_roleMapper_roleToDTO.puml]]:US011_SD_roleMapper_roleToDTO
+CTRL <- - ROLE_MAPPER : lrDTO
+deactivate ROLE_MAPPER
+
+
+
+deactivate CTRL
+
+
+UI - -> ADM : requests data (role)
+deactivate UI
+
+ADM -> UI : selects role
+activate UI
+
+UI -> CTRL : getListOfEmployeesByRole(selectedRole)
+activate CTRL
+CTRL -> ORG : empStore=getEmployeeStore()
+activate ORG
+deactivate ORG
+
+
+CTRL -> empStore : listEmployee=getListOfEmployees()
+activate empStore
+deactivate empStore
+
+CTRL -> EMPLOYEE_MAPPER : listOfEmployeeToDTO(listEmployee,selectedRole)
+
+activate EMPLOYEE_MAPPER
+ref over EMPLOYEE_MAPPER,EMPLOYEE_DTO [[US011_SD_EmployeeMapper_listOfEmployeeToDTO.puml]]:US011_SD_EmployeeMapper_listOfEmployeeToDTO
+ CTRL <- - EMPLOYEE_MAPPER : lEmployeeDTO
+deactivate EMPLOYEE_MAPPER
+
+
+
+deactivate CTRL
+
+deactivate ORG
+
+UI - -> ADM : shows the list of Employees according to the selected role
+deactivate UI
+
+
+@enduml
+
+@startuml
+autonumber
+actor "Administrator" as ADM
+
+participant ":GetListUI" as UI
+participant ":GetListController" as CTRL
+participant ":Company" as ORG
+participant ":RoleMapper" as ROLE_MAPPER
+participant ":EmployeeMapper" as EMPLOYEE_MAPPER
+participant ":lEmployee\n :List <Employee>" as LIST_EMPLOYEE
+participant ":lEmployeeDTO\n :List <EmployeeDTO>" as LIST_EMPLOYEE_DTO
+participant ":employeeDTO: EmployeeDTO" as EMPLOYEE_DTO
+participant "lr\n:List<Role>" as LIST_CRT
+participant "roleDTO\n:RoleDTO" as ROLE_DTO
+participant "lrDTO\n:List<RoleDTO>" as listCRT_DTO
+participant "roleStore\n: RoleStore" as roleStore
+participant "empStore\n: EmployeeStore" as empStore
+
+
+
+activate ADM
+ADM -> UI : asks to get a list of Employees
+activate UI
+
+UI-> CTRL :getRoleList()
+activate CTRL
+CTRL -> ORG: roleStore=getRoleStore()
+activate ORG
+deactivate ORG
+CTRL -> roleStore: lr=getListOfRole()
+activate roleStore
+deactivate roleStore
+CTRL -> ROLE_MAPPER :roleToDTO(lr)
+activate ROLE_MAPPER
+
+ref over EMPLOYEE_MAPPER,ROLE_MAPPER[[US011_SD_roleMapper_roleToDTO.puml]]:US011_SD_roleMapper_roleToDTO
+CTRL <- - ROLE_MAPPER : lrDTO
+deactivate ROLE_MAPPER
+
+
+
+deactivate CTRL
+
+
+UI - -> ADM : requests data (role)
+deactivate UI
+
+ADM -> UI : selects role
+activate UI
+
+UI -> CTRL : getListOfEmployeesByRole(selectedRole)
+activate CTRL
+CTRL -> ORG : empStore=getEmployeeStore()
+activate ORG
+deactivate ORG
+
+
+CTRL -> empStore : listEmployee=getListOfEmployees()
+activate empStore
+deactivate empStore
+
+CTRL -> EMPLOYEE_MAPPER : listOfEmployeeToDTO(listEmployee,selectedRole)
+
+activate EMPLOYEE_MAPPER
+ref over EMPLOYEE_MAPPER,EMPLOYEE_DTO [[US011_SD_EmployeeMapper_listOfEmployeeToDTO.puml]]:US011_SD_EmployeeMapper_listOfEmployeeToDTO
+ CTRL <- - EMPLOYEE_MAPPER : lEmployeeDTO
+deactivate EMPLOYEE_MAPPER
+
+
+
+deactivate CTRL
+
+deactivate ORG
+
+UI - -> ADM : shows the list of Employees according to the selected role
+deactivate UI
+
+
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 14:29:17 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

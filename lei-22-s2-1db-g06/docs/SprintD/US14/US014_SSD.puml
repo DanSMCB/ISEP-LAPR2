@@ -1,0 +1,23 @@
+@startuml
+
+autonumber
+
+actor "Administrator" as Admin
+participant ":System" as SYS
+activate Admin
+Admin -> SYS : asks to load a set of SNS Users from a CSV file
+activate SYS
+SYS --> Admin : Requests file's path
+deactivate SYS
+Admin -> SYS : Gives file's path
+activate SYS
+SYS --> Admin : Asks for confirmation
+deactivate SYS
+Admin -> SYS : Confirms file
+activate SYS
+SYS --> Admin : Informs operation success
+deactivate SYS
+
+
+
+@enduml

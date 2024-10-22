@@ -1,0 +1,235 @@
+@startuml
+autonumber
+actor "Administrator" as Admin
+participant "createVaccineUI\n:CreateVaccineUI" as UI
+participant "createVaccineController\n:CreateVaccineController" as Controller
+participant "company\n:Company" as Company
+participant "vtStore\n:VaccineTypeStore" as vtStore
+participant "vt\nVaccineType" as vt
+participant "vtMapper:VaccineTypeMapper" as vtMapper
+participant "vaccineMapper\n:VaccineMapper" as vaccMapper
+participant "vaccStore\n:VaccineStore" as vaccStore
+participant "admpMapper:AdmProcessMapper" as admpMapper
+participant "vaccine\n:Vaccine" as vaccine
+participant "admpStore\n:AdmProcessStore" as admpStore
+'participant "vaccDTO: VaccineDTO" as vaccDTO
+'participant "admpDTO:AdmProcessDTO" as admpDTO
+participant "doseMapper:DoseMapper" as doseMapper
+participant "admp:AdministrationProcess" as admp
+'participant "vtDto\n:VaccineTypeDto" as vtDTO
+'participant "doseDTO:DoseDTO" as doseDTO
+'participant "dose:Dose" as dose
+participant "doseStore\n:DoseStore" as doseStore
+
+
+activate Admin
+Admin -> UI : asks to specify a new vaccine
+activate UI
+
+UI -> Controller : getListOfVaccineTypes()
+activate Controller
+
+Controller -> Company : vtStore=getVTStore()
+activate Company
+deactivate Company
+
+
+Controller -> vtStore : ListVT=getVaccineTypes()
+activate vtStore
+deactivate vtStore
+
+Controller -> vtMapper : toDto(listVT)
+
+activate vtMapper
+
+ref over vtMapper [[US013_SD_vtMapper_ToDto.puml]] : US013_SD_vtMapper_ToDto
+
+vtMapper --> Controller : listVTDto
+
+deactivate vtMapper
+deactivate Controller
+
+UI --> Admin : shows the available vaccine types
+deactivate UI
+Admin -> UI : select the vaccine type of the new vaccine
+
+activate UI
+UI --> Admin : requests general vaccine data (id, name, brand)
+deactivate UI
+
+Admin -> UI : types requested data
+activate UI
+
+UI -> Controller : createVaccine(vaccineDto, vtDto)
+activate Controller
+
+Controller -> vtMapper : toModel(vtDto)
+activate vtMapper
+
+ref over vtMapper [[US013_SD_vtMapper_dtoToVt.puml]] : US013_SD_vtMapper_dtoToVt
+
+vtMapper --> Controller : selectedVt
+deactivate vtMapper
+
+
+Controller -> Company : createVaccine(vaccineDto, selectedVt)
+activate Company
+
+Company -> vtStore : createVaccine(vaccineDto, selectedVt)
+activate vtStore
+
+vtStore -> vtStore : vt=find(selectedVt)
+
+vtStore -> vt : createVaccine(vaccineDto)
+activate vt
+
+
+vt -> vaccMapper : createVaccine(vaccineDTO, vaccStore)
+activate vaccMapper
+
+ref over vaccMapper [[US013_SD_vaccMapper_createVaccine.puml]] : US013_SD_vaccMapper_createVaccine
+
+vaccMapper --> vt : vaccine
+
+deactivate vaccMapper
+
+vt --> vtStore : vaccine
+deactivate vt
+vtStore --> Company : vaccine
+deactivate vtStore
+Company --> Controller : vaccine
+deactivate Company
+
+
+Controller -> Company : validateVaccine(vaccine, selectedVt)
+activate Company
+Company -> vtStore: validateVaccine(vaccine, selectedVt)
+activate vtStore
+vtStore -> vtStore : vt=find(selectedVt)
+vtStore -> vt : validateVaccine(vaccine)
+activate vt
+vt -> vaccStore : validateVaccine(vaccine)
+activate vaccStore
+vaccStore -> vaccStore : validateVaccine(vaccine)
+activate vaccStore
+deactivate vaccStore
+vaccStore --> vt :
+deactivate vaccStore
+vt --> vtStore
+deactivate vt
+vtStore --> Company
+deactivate vtStore
+Company --> Controller
+deactivate Company
+/'
+
+alt if vaccine is validated
+Controller -> Company : addVaccine(vaccine)
+activate Company
+
+Company -> vaccStore : addVaccine(vaccine)
+activate vaccStore
+
+vaccStore -> vaccStore : addVaccine(vaccine)
+activate vaccStore
+deactivate vaccStore
+
+deactivate vaccStore
+
+deactivate Company
+
+end
+'/
+
+
+deactivate Controller
+loop for each administration process the vaccine has
+
+UI --> Admin : request administration process data (ageGroupMinimum, ageGroupMaximum, numberOfDoses)
+deactivate UI
+
+Admin -> UI : types requested data
+activate UI
+
+
+UI -> Controller : createAdmProcess(admpDto)
+activate Controller
+
+Controller -> admpMapper : createAdmProcess(vaccine, admpDto)
+
+activate admpMapper
+
+ref over admpMapper [[US013_SD_AdmProcessMapper_createAdmProcess.puml]] : US013_SD_AdmProcessMapper_createAdmProcess
+
+admpMapper --> Controller : admp
+
+deactivate admpMapper
+
+ref over Controller, admpStore [[US013_SD_createVaccineController_validateAdmp_addAdmp.puml]] : US013_SD_createVaccineController_validateAdmp_addAdmp
+
+Controller --> UI :
+
+deactivate Controller
+
+loop for each dose the administration process administers
+UI --> Admin : request dose information (doseNumber, vaccineDosage, timeBetweenDoses)
+deactivate UI
+
+Admin -> UI : types requested data
+activate UI
+
+UI -> Controller : createDose(doseDto)
+activate Controller
+
+Controller -> doseMapper : createDose(admp, doseDto)
+
+activate doseMapper
+
+ref over doseMapper [[US013_SD_DoseMapper_createDose.puml]] : US013_SD_DoseMapper_createDose.puml
+
+doseMapper --> Controller : dose
+deactivate doseMapper
+
+ref over Controller, doseStore [[US013_SD_createVaccineController_validateDose_addDose.puml]] : US013_SD_createVaccineController_validateDose_addDose
+
+Controller --> UI :
+
+deactivate Controller
+
+end loop
+
+end loop
+
+UI -> Controller : saveVaccine()
+activate Controller
+
+Controller -> Company : saveVaccine(vaccine, selectedVt)
+activate Company
+
+Company -> vtStore : saveVaccine(vaccine, selectedVt)
+activate vtStore
+
+vtStore -> vtStore : vt=find(selectedVt)
+
+vtStore -> vt :saveVaccine(vaccine)
+activate vt
+vt -> vaccStore : saveVaccine(vaccine)
+
+activate vaccStore
+
+vaccStore -> vaccStore : saveVaccine(vaccine)
+activate vaccStore
+deactivate vaccStore
+deactivate vt
+deactivate vaccStore
+deactivate vtStore
+deactivate Company
+
+deactivate Controller
+
+UI --> Admin : informs operation success
+deactivate UI
+
+deactivate Admin
+
+@enduml

@@ -1,0 +1,107 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Company {
+  - String designation
+ + getRoleStore() : RoleStore
+  +getEmployeeStore(): EmployeeStore
+
+}
+class GetListController {
++ getRoleList() : List<RoleDTO>
++ getListOfEmployeesByRole(selectedRole:Role) : List <EmployeeDTO>
+}
+class GetListUI {
+}
+
+class Employee extends User{
+
+-employeeId : String
+-address : String
+-phoneNumber : String
+-ccNumber : String
+
++getRole(): Role
++getName(): String
++getEmployeeId(): String
++getId(): Email
++getAddress(): String
++getPhoneNumber(): String
++getCcNumber(): String
+}
+class EmployeeMapper{
++ listOfEmployeeToDTO(listEmployee:List <Employee>,selectedRole:Role): List <EmployeeDTO>
+}
+class EmployeeDTO{
+-name : String
+-employeeId : String
+-address : String
+-phoneNumber : String
+-emailAdress : Email
+-ccNumber : String
++EmployeeDTO(name : String, id : String, address : String, phoneNumber : String, emailAdress : Email, ccNumber : String, role : RoleDTO)
+
+}
+class RoleMapper{
+
++roleToDTO(lr:List<Role>) : List<RoleDTO>
+}
+class EmployeeStore{
+- lEmployee : List <Employee>
++getListOfEmployees() :List <Employee>
+}
+
+
+class RoleStore{
+-lr : List<Role>
++getListOfRole() :List<Role>
+
+}
+
+
+class RoleDTO{
+-designation : String
+-roleId : String
++ RoleDTO(designation : String, roleId : String)
+}
+class Role {
+-designation : String
+-roleId : String
+}
+
+class User{
+- name : String
+-emailAdress : Email
+-password : Password
++ getId() : Email
++getName() : String
+}
+
+
+GetListUI ..> GetListController
+GetListUI ..> RoleDTO
+GetListUI ..> EmployeeDTO
+GetListController ..> Company
+GetListController ..> RoleStore
+GetListController ..> RoleMapper
+GetListController ..> EmployeeStore
+GetListController ..> EmployeeMapper
+GetListController ..> RoleDTO
+GetListController ..> EmployeeDTO
+
+Company "1"--> "1" EmployeeStore : knows
+EmployeeStore "1" --> "1..*" Employee : saves
+Company "1" --> "1" RoleStore: knows
+RoleStore "1" --> "1..*" Role : saves
+Employee "1" o- "1" Role : has
+EmployeeMapper ..> Employee
+EmployeeMapper ..> EmployeeDTO
+
+RoleMapper ..> Role
+RoleMapper ..> RoleDTO
+EmployeeDTO "1" o- "1" RoleDTO
+
+
+
+
+@enduml

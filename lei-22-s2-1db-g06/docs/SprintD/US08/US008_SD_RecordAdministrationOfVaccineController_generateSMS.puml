@@ -1,0 +1,30 @@
+@startuml
+autonumber
+
+participant ":RecordAdministrationOfVaccineController" as CTRL
+participant "snsUser : SNS User" as SNSUSER
+participant "smsStore : SMSStore" as SMSSTORE
+participant ":SMSMapper" as SMSMAPPER
+participant "smsDto : SMSDTO" as SMSDTO
+participant ":SMS" as SMS
+
+
+[o-> CTRL : smsDto = generateSMS()
+activate CTRL
+CTRL -> SNSUSER: smsStore=getSmsStore()
+activate SNSUSER
+
+deactivate SNSUSER
+CTRL -> SMSSTORE: sms=generateSMS()
+activate SMSSTORE
+SMSSTORE --> SMS ** : create(appointment, vaccinationCenter)
+deactivate SMSSTORE
+CTRL -> SMSMAPPER: smsToDto(sms)
+activate SMSMAPPER
+SMSMAPPER -> SMS : smsContent=getSMSContent()
+activate SMS
+deactivate SMS
+SMSMAPPER --> SMSDTO**: create(smsContent)
+
+
+@enduml

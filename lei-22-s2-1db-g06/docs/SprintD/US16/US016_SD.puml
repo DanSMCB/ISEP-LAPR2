@@ -1,0 +1,110 @@
+@startuml
+autonumber
+actor "Center Coordinator" as CC
+
+participant ":AnalyseCenterPerformanceUI" as UI
+participant ":AnalyseCenterPerformanceController" as Controller
+participant "vaccinationCenter\n:VaccinationCenter" as vaccCenter
+participant "appointmentStore\n:AppointmentStore" as appointmentStore
+participant "appointment\n:Appointment" as appointment
+participant ":MaximumSum" as sum
+participant "alg:MaxSumSublist" as alg
+
+activate CC
+CC -> UI : asks to show the list of difference between the number \n of new clients arriving and the number of clients leaving
+activate UI
+
+UI -> Controller : getCCVaccinationCenter()
+
+activate Controller
+
+ref over Controller [[US016_SD_AnalyseCenterPerformanceController_getCCVaccinationCenter.puml]] :US016_SD_AnalyseCenterPerformance\nController_getCCVaccinationCenter
+
+Controller --> UI
+
+deactivate Controller
+
+UI --> CC : asks the time interval in minutes
+deactivate UI
+
+CC -> UI : types the time interval
+activate UI
+
+UI -> Controller : validateTimeInterval(timeInterval)
+activate Controller
+
+Controller -> vaccCenter : appointmentStore=getAppointmentStore()
+activate vaccCenter
+deactivate vaccCenter
+
+Controller -> appointmentStore : validateTimeInterval(timeInterval)
+activate appointmentStore
+appointmentStore --> Controller : true/false
+deactivate appointmentStore
+Controller --> UI : true/false
+deactivate Controller
+
+UI --> CC : asks the day to check
+deactivate UI
+
+CC -> UI : types the date
+activate UI
+
+UI -> Controller : getArrivalNumberList(dayToCheck)
+
+activate Controller
+
+Controller -> appointmentStore : getArrivalNumberList(dayToCheck)
+activate appointmentStore
+
+ref over appointmentStore [[US016_SD_AppointmentStore_getArrivalNumberList.puml]] : US016_SD_AppointmentStore_getArrivalNumberList
+
+appointmentStore --> Controller : arrivalNumberList
+deactivate appointmentStore
+
+Controller --> UI : arrivalNumberList
+deactivate Controller
+
+UI -> Controller : getMaxSumSublist()
+activate Controller
+
+Controller -> Controller : alg=findAlgorithm()
+
+Controller -> alg : getMaxSumSublist(arrivalNumberList)
+activate alg
+alg --> Controller : maxSumSublist
+deactivate alg
+
+Controller --> UI : maxSumSublist
+
+deactivate Controller
+
+UI -> Controller : findMaxSumSublistIndexes()
+activate Controller
+
+Controller -> sum : findMaxSumSublistIndexes(arrivalNumberList, maxSumSublist)
+activate sum
+
+sum --> Controller : minIndex, maxIndex
+
+deactivate sum
+
+Controller --> UI : minIndex, maxIndex
+deactivate Controller
+
+UI -> Controller : sumSublist()
+activate Controller
+
+Controller -> sum : sum(maxSumSublist)
+activate sum
+sum --> Controller : sum
+deactivate sum
+
+Controller --> UI : sum
+
+deactivate Controller
+
+UI --> CC : shows the list, the maximum sum contiguous sublist,\n its sum and its time interval
+deactivate UI
+
+@enduml

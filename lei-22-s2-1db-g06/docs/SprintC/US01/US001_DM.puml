@@ -1,0 +1,77 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+class Company {
+ -designation
+}
+
+class SNSUser {
+-name
+-address
+-sex
+-phoneNumber
+-email
+-birthDate
+-snsNumber
+-citizenCard
+}
+
+class Appointment{
+-date
+-time
+}
+
+class DaySchedule{
+-openingHour
+-closingHour
+}
+
+class Slot{
+-numberOfVaccinesSlots
+-duration
+}
+
+class SMSNotification {
+}
+
+class VaccineType {
+  -code
+  -description
+  -vaccineTechnology
+}
+
+class VaccinationCenter{
+-name
+-address
+-phoneNumber
+-emailAdress
+-faxNumber
+-websiteAddress
+}
+
+class MassVaccinationCenter extends VaccinationCenter{}
+
+class HealthcareCenter extends VaccinationCenter{}
+
+class ARS{}
+
+class ACES{}
+
+Company "1" -- "*" VaccineType: applies >
+Company "1" -- "*" VaccinationCenter: manages >
+VaccinationCenter "1..*"  -- "*" DaySchedule: has >
+DaySchedule "1*" -- "1..*" Slot: has >
+VaccinationCenter"1" -- "*"Appointment: knows >
+Company "1" -- "*" SMSNotification: sends >
+SNSUser "1" -- "*" SMSNotification: receives >
+Company "1" -- "*" SNSUser: knows >
+MassVaccinationCenter "*" -- "1" VaccineType : administers >
+HealthcareCenter "1..*" -- "*" VaccineType : administers >
+ACES"1" -- "1..*" HealthcareCenter :owns >
+ARS"1" -- "1..*" HealthcareCenter : owns >
+Appointment "1"--"1" SNSUser : requested by >
+
+
+@enduml

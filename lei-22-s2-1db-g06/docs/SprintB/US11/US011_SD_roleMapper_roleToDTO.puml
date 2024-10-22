@@ -1,0 +1,26 @@
+@startuml
+autonumber
+participant ":RoleMapper" as ROLE_MAPPER
+participant "lr\n:List<Role>" as LIST_CRT
+participant "lrDTO\n:List<RoleDTO>" as listCRT_DTO
+participant "roleDTO\n:RoleDTO" as ROLE_DTO
+
+[o-> ROLE_MAPPER:roleToDTO(lr)
+activate ROLE_MAPPER
+ROLE_MAPPER --> listCRT_DTO **: create()
+loop for each role in lr
+
+ROLE_MAPPER -> LIST_CRT:designation=getDesignation()
+activate LIST_CRT
+deactivate LIST_CRT
+ROLE_MAPPER -> LIST_CRT: roleId=getRoleId()
+activate LIST_CRT
+deactivate LIST_CRT
+ROLE_MAPPER --> ROLE_DTO ** : create(designation,roleId)
+
+ROLE_MAPPER -> listCRT_DTO : add(roleDTO)
+activate listCRT_DTO
+deactivate listCRT_DTO
+end loop
+<--ROLE_MAPPER : lrDTO
+@enduml

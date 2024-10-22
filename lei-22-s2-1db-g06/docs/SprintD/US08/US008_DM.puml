@@ -1,0 +1,67 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+
+class Nurse extends Employee {
+}
+
+class VacccineAdministration {
+-lotNumber
+-dateOfAdministration
+}
+
+class Dose {
+-doseNumber
+-dosage
+-timeBetweenDoses
+}
+
+class SNSUser {
+-snsNumber
+-birthdate
+}
+
+class Notification {
+-recoveryPeriod
+}
+
+class SMSNotification extends Notification {
+}
+
+class Vaccine {
+-vacineId
+-name
+-brand
+}
+
+class AdministrationProcess {
+-numberOfDose
+-maximumAge
+-minimumAge
+}
+
+class Employee {
+-employeeId
+-address
+-phoneNumber
+-ccNumber
+}
+
+class Company {
+-designation
+}
+
+
+Nurse "1" -- "*" VacccineAdministration : performs >
+VacccineAdministration "1" -- "1" Dose : uses >
+VacccineAdministration "*" -- "1" SNSUser : administered on >
+SNSUser "1" -- "*" Notification: receives >
+Vaccine "1" -- "1..*" AdministrationProcess: has >
+AdministrationProcess "1" -- "1..*" Dose: has >
+Company "1" -- "*" Employee: employ >
+Company "1" -- "*" Vaccine: applies >
+Company "1" -- "*" SNSUser: knows >
+
+@enduml

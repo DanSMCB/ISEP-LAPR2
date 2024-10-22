@@ -1,0 +1,150 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class CreateMVCenterUI {}
+
+class CreateMVCenterController {
++createMVCenter(mvcDto : MVCDto) : void
++getVaccineTypes() : List<VaccineTypeDto>
++associateVaccineType(vtDto : VaccineTypeDto) : void
++saveMVCenter() : void
+}
+
+class Company {
+-designation : String
++getMVCenterStore() : MVCenterStore
++getVaccineTypeStore() : VaccineTypeStore
+}
+
+class MVCenterStore {
+-List<MassVaccinationCenter>
++createMVCenter(mvcDto : MVCDto) : MassVaccinationCenter
++validateMVCenter(mvc : MassVaccinationCenter) : boolean
++saveMVCenter(mvc : MassVaccinationCenter) : void
++addMVCenter(mvc : MassVaccinationCenter) : void
+}
+
+class MVCenterMapper{
++toModel(mvcDto : MVCDto) : MassVaccinationCenter
+}
+
+class MVCDto{
+-name : String
+-address : String
+-phoneNumber : long
+-emailAdress : String
+-faxNumber : long
+-websiteAddress : String
+-openingHour : Timestamp
+-closingHour : Timestamp
+-slotDuration : int
+-numberOfVaccinesSlot : int
++getName() : String
++getAddress() : String
++getPhoneNumber() : long
++getEmailAddress() : String
++getFaxNumber() : long
++getWebsiteAdress() : String
++getOpeningHour() : Timestamp
++getClosingHour() : Timestamp
++getSlotDuration() : int
++getnumberOfVaccinesSlot() : int
+}
+
+class Schedule{
+-openingHour : Timestamp
+-closingHour : Timestamp
++Schedule(openingHour : Timestamp,closingHour : Timestamp)
+}
+
+class DailySlotList {
+-slotList : List<Slot>
+-openingHour : Timestamp
+-closingHour : Timestamp
+-slotDuration : int
+-numberOfVaccinesSlot : int
++DailySlotList(openingHour : Timestamp, closingHour : Timestamp, slotDuration : int, numberOfVaccinesSlot : int)
++addSlot(sl : Slot)
++calculateNextSlotStartTime(sl : Slot)
+}
+
+class Slot{
+-startTime : Timestamp
+-numberOfVaccinesSlot : int
+-duration : int
++Slot(startTime : Timestamp, slotDuration : int, numberOfVaccinesSlot : int)
++getStartTime() : Timestamp
+}
+
+class MassVaccinationCenter extends VaccinationCenter{
+-vt : VaccineType
++setVaccineType(mvcVT : VaccineType) : void
++MassVaccinationCenter(name : String, address : String, phoneNumber : long, emailAdress : String, faxNumber : long, websiteAddress : String, sc : Schedule, lSL : DailySlotList)
+}
+
+class VaccineTypeDto{
+-code : String
+-description : String
+-vaccineTechnology : String
++VaccineTypeDto(code : String, description : String, vaccineTechnology : String)
++getCode() : String
++getDescription() : String
++getVaccineTechnology() : String
+}
+
+class VaccinationCenter {
+-name : String
+-address : String
+-phoneNumber : long
+-emailAdress : String
+-faxNumber : long
+-websiteAddress : String
+-sc : Schedule
+-lSL : DailySlotList
++VaccinationCenter(name : String, address : String, phoneNumber : long, emailAdress : String, faxNumber : long, websiteAddress : String, sc : Schedule, lSL : DailySlotList)
+}
+
+class VaccineTypeStore {
+-listVT : List<VaccineType>
++getVaccineTypes() : List<VaccineType>
++getVaccineType(vtId : String) : VaccineType
++find(vt : VaccineType) : VaccineType
+}
+
+class VaccineTypeMapper{
++toDto(listVT : List<VaccineType>) : List<VaccineTypeDto>
+}
+
+class VaccineType {
+-code : String
+-description : String
+-vaccineTechnology : String
++VaccineType(code : String, description : String, vaccineTechnology : String)
+}
+
+Company "1" --> "1" MVCenterStore : uses
+MVCenterStore "1" --> "*" MassVaccinationCenter : saves
+VaccinationCenter "1" o-- "1" Schedule : has
+VaccinationCenter "1" o-- "1" DailySlotList : has
+DailySlotList "1" --> "*" Slot : saves
+CreateMVCenterUI ..> CreateMVCenterController
+CreateMVCenterController ..> Company
+CreateMVCenterController ..> MassVaccinationCenter
+Company "1" --> "1" VaccineTypeStore : uses
+VaccineTypeStore "1" --> "*" VaccineType : saves
+MassVaccinationCenter "1" o-- "1" VaccineType : administers
+VaccineTypeMapper ..> VaccineType
+CreateMVCenterController ..> VaccineTypeMapper
+MVCenterMapper ..> MassVaccinationCenter
+CreateMVCenterController ..> MVCenterMapper
+MVCenterMapper ..> MVCDto
+CreateMVCenterUI ..> MVCDto
+CreateMVCenterController ..> VaccineType
+CreateMVCenterController ..> MVCenterStore
+CreateMVCenterController ..> VaccineTypeStore
+VaccineTypeMapper ..> VaccineTypeDto
+MVCenterStore ..> MVCenterMapper
+MVCenterMapper ..> Schedule
+MVCenterMapper ..> DailySlotList
+VaccineTypeStore ..> VaccineTypeMapper
+@enduml

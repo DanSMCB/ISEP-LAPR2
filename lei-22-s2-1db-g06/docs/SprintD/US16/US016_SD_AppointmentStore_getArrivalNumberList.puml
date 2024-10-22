@@ -1,0 +1,45 @@
+@startuml
+autonumber
+
+participant "appointmentStore\n:AppointmentStore" as appStore
+participant "appointment\n:Appointment" as appointment
+participant "leavingCounter\n:Integer" as leavingCounter
+participant "arrivalCounter\n:Integer" as arrivalCounter
+participant "arrivalNumberList\n:List<Integer>" as differenceList
+
+[o-> appStore : getArrivalNumberList(dayToCheck, timeInterval)
+
+activate appStore
+
+loop for each timeInterval from 8 am to 8 pm
+
+loop for each appointment in appointmentStore
+
+opt if date.equals(dayToCheck)
+
+opt if checkStateDone=true and snsUserLeavingTime is in time interval
+
+appStore -> leavingCounter : increment()
+
+end
+
+opt if checkStateToDo=false and snsUserArrivalTime is in time interval
+
+appStore -> arrivalCounter : increment()
+
+end
+
+
+end
+
+
+end loop
+
+appStore -> differenceList : add(arrivalCounter - leavingCounter)
+
+end loop
+
+[<-- appStore : arrivalNumberList
+deactivate appStore
+
+@enduml

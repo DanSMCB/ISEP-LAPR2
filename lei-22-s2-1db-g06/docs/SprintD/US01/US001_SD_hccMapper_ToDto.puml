@@ -1,0 +1,33 @@
+@startuml
+autonumber
+participant ":HCCenterMapper" as vcMapper
+participant "healthcareCenterList\n:List<HealthCareCenter>" as healthcareCenterList
+participant "hhcenterListDTO\n:list<HCCDto>" as hhcenterListDTO
+participant "hccDto\n:HCCDto" as HCCDto
+
+[o->vcMapper : toDto(healthcareCenterList)
+activate vcMapper
+
+vcMapper --> hhcenterListDTO **: create()
+
+loop for each object in healthcareCenters
+
+vcMapper -> healthcareCenters : name = getName()
+activate healthcareCenters
+deactivate healthcareCenters
+vcMapper -> healthcareCenters : phoneNumber = getPhoneNumber()
+activate healthcareCenters
+deactivate healthcareCenters
+vcMapper -> healthcareCenters : emailAddress = getEmailAddress()
+activate healthcareCenters
+deactivate healthcareCenters
+
+vcMapper --> HCCDto **: create(name, phoneNumber, emailAddress)
+
+vcMapper -> hhcenterListDTO : add(hccDto)
+activate hhcenterListDTO
+deactivate hhcenterListDTO
+end loop
+[<-- vcMapper : hccenterListDTO
+
+@enduml

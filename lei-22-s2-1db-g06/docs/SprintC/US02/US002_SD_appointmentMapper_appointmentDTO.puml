@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant ":AppointmentMapper" as APPOINTMENT_MAPPER
+participant "appointmentDTO\n: AppointmentDTO" as APPOINTMENT_DTO
+
+[o-> APPOINTMENT_MAPPER: appointmentToModel(appointmentDTO)
+activate APPOINTMENT_MAPPER
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : snsNumber = getSNSNumber()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : vaccinationCenter = getVaccinationCenter()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : dateOfAppointment = getDateOfAppointment()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : timeOfAppointment = getTimeOfAppointment()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : vaccineType = getVaccineType()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+autonumber
+participant ":VaccineMapper" as vaccMapper
+participant "vaccDto: VaccineDto" as vaccDto
+participant "admpStore\n:AdmProcessStore" as admpStore
+participant "vaccStore\n:VaccineStore" as vaccStore
+participant "vaccine\n:Vaccine" as vaccine
+
+[o->vaccMapper : createVaccine(vaccineDto, vaccStore)
+activate vaccMapper
+
+vaccMapper -> vaccDto : id=getId()
+activate vaccDto
+deactivate vaccDto
+
+vaccMapper -> vaccDto : name=getName()
+activate vaccDto
+deactivate vaccDto
+
+vaccMapper -> vaccDto : brand=getBrand()
+activate vaccDto
+deactivate vaccDto
+
+vaccMapper --> admpStore ** :create()
+
+vaccMapper -> vaccStore : createVaccine(id, name, brand, admpStore)
+activate vaccStore
+vaccStore --> vaccine ** : create(id, name, brand, admpStore)
+deactivate vaccStore
+
+[<-- vaccMapper : vaccine
+deactivate vaccMapper
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+hide methods
+skinparam classAttributeIconSize 0
+
+class Employee
+
+class CenterCoordinator extends Employee
+
+class VaccinationCenter {
+-name
+-address
+-phoneNumber
+-email
+-faxNumber
+-websiteAddress
+}
+
+class MassVaccinationCenter extends VaccinationCenter
+
+class HealthCareCenter extends VaccinationCenter
+
+class Appointments {
+-date
+-time
+-state
+-arrivalTime
+-leavingTime
+}
+
+CenterCoordinator "1" -- "1" VaccinationCenter : works for >
+Employee "*" -- "1" VaccinationCenter : associated with >
+VaccinationCenter "1" -- "*" Appointments : has >
+
+
+
+
+@enduml

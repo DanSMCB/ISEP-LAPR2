@@ -1,0 +1,49 @@
+@startuml
+hide methods
+top to bottom direction
+skinparam classAttributeIconSize 0
+
+class Company
+{
+  -designation
+}
+
+class Schedule{
+-openingHour
+-closingHour
+}
+class VaccinationCenter{
+-name
+-address
+-phoneNumber
+-emailAdress
+-faxNumber
+-websiteAddress
+}
+class Slot{
+-numberOfVaccinesSlot
+-duration
+}
+
+class MassVaccinationCenter extends VaccinationCenter{}
+
+
+class Administrator {
+}
+
+class VaccineType {
+-code
+-description
+-vaccineTechnology
+}
+
+Company "1" -- "*" Administrator : > knows
+Company "1" -- "*" VaccinationCenter : > manages
+Administrator "1..*" -- "*" VaccinationCenter : > registers
+VaccinationCenter "1" -- "*" Slot : > has
+VaccinationCenter "1" -- "1" Schedule : > has
+MassVaccinationCenter "*" -- "1" VaccineType : administers >
+
+
+
+@enduml

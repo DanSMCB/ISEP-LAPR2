@@ -1,0 +1,38 @@
+@startuml
+autonumber
+
+participant ":RecordAdministrationOfVaccineController" as CTRL
+participant "appointmentDTO\n:AppointmentDTO" as APPOINTMENTDTO
+participant "snsUserDTO\n:SnsUserDTO" as SNSUSERDTO
+participant "snsUserStore : SNSUserStore" as SNSUSERSTORE
+participant "snsUser : SNS User" as SNSUSER
+participant "company : Company" as COMP
+
+[o-> CTRL : getSNSUser(appointmentDto)
+activate CTRL
+CTRL -> APPOINTMENTDTO : getSNSUser()
+activate APPOINTMENTDTO
+APPOINTMENTDTO --> CTRL : snsUserDTO
+deactivate APPOINTMENTDTO
+CTRL -> SNSUSERDTO : getSnsNumber()
+activate SNSUSERDTO
+SNSUSERDTO --> CTRL : snsNumberDTO
+deactivate SNSUSERDTO
+CTRL -> COMP : snsUserStore = getSnsUserStore()
+CTRL -> SNSUSERSTORE : findSNSUserByNumber(snsNumber)
+
+activate SNSUSERSTORE
+loop For each user in SnsUserStore until checkUserNumber(snsNumber) is true
+SNSUSERSTORE-> SNSUSER:checkUserNumber(snsNumber)
+
+activate SNSUSER
+SNSUSER --> SNSUSERSTORE:true/false
+
+deactivate SNSUSER
+
+end loop
+SNSUSERSTORE --> CTRL : snsUser
+deactivate SNSUSERSTORE
+
+
+@enduml

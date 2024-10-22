@@ -1,0 +1,141 @@
+@startuml
+autonumber
+'hide footbox
+actor "Nurse" as NURSE
+actor "SNS User" as SNSUSERACTOR
+
+participant ":RecordAdministrationOfVaccineUI" as UI
+participant ":RecordAdministrationOfVaccineController" as CTRL
+participant "vaccinationCenter\n:VaccinationCenter" as VCenter
+participant "snsUser : SNS User" as SNSUSER
+participant ":AppointmentMapper" as APPOINTMAPPER
+participant "appointmentStore:AppointmentStore" as appointmentStore
+participant "snsUserAppointmentStore : SNSUserAppointmentStore" as SNSUSERAPPOINTMENTSTORE
+participant "vaccineStore : VaccineStore" as VACCINESTORE
+participant "waitingList\n:List<Appointment>" as waitingList
+participant ":java.util.Collections" as javaCollections
+
+
+activate NURSE
+NURSE -> UI : asks to record the administration of a vaccine to the SNS user
+activate UI
+
+UI -> CTRL : getWaitingListDTO(vaccinationCenter)
+activate CTRL
+
+CTRL -> VCenter : getWaitingList(dateToCheck)
+activate VCenter
+
+VCenter -> appointmentStore : getWaitingList(dateToCheck)
+activate appointmentStore
+
+appointmentStore --> waitingList ** : create()
+loop for each APPOINTMENT in appointmentStore
+opt if (dateToCheck is equal to appointment date) and (appointment.checkWaitingState=true)
+appointmentStore -> waitingList : add(appointment)
+activate waitingList
+deactivate waitingList
+end
+end
+
+
+appointmentStore -> javaCollections : sort(waitingList)
+activate javaCollections
+deactivate javaCollections
+
+
+appointmentStore --> VCenter : waitingList
+deactivate appointmentStore
+
+VCenter --> CTRL : waitingList
+deactivate VCenter
+
+CTRL -> APPOINTMAPPER : toDto(waitingList)
+activate APPOINTMAPPER
+ref over APPOINTMAPPER [[US008_SD_AppointmentMapper_toDto.puml]] : US008_SD_AppointmentMapper_toDto
+APPOINTMAPPER --> CTRL : waitingListDTO
+deactivate APPOINTMAPPER
+
+CTRL --> UI : waitingListDTO
+deactivate CTRL
+UI --> NURSE : shows a list of every SNS User in waiting state and asks to select one
+deactivate UI
+NURSE -> UI : chooses the SNS User
+activate UI
+UI -> CTRL : getSNSUser(appointmentDto)
+ref over CTRL [[US008_SD_RecordAdministrationOfVaccineController_getSNSUser.puml]] : US008_SD_RecordAdministrationOfVaccineController_getSNSUser
+activate CTRL
+return
+deactivate CTRL
+UI -> CTRL : findAppointment(appointmentDto)
+activate CTRL
+CTRL -> SNSUSER : getAppointmentStore()
+activate SNSUSER
+SNSUSER --> CTRL : appointmentStore
+deactivate SNSUSER
+CTRL -> SNSUSERAPPOINTMENTSTORE : findAppointment(appointmentDto)
+activate SNSUSERAPPOINTMENTSTORE
+return appointment
+deactivate SNSUSERAPPOINTMENTSTORE
+deactivate CTRL
+UI -> CTRL : getCurrentDose()
+activate CTRL
+
+CTRL -> SNSUSERAPPOINTMENTSTORE : getCurrentVaccineDose(vaccineType)
+activate SNSUSERAPPOINTMENTSTORE
+SNSUSERAPPOINTMENTSTORE --> CTRL : currentVaccineDose
+deactivate SNSUSERAPPOINTMENTSTORE
+CTRL --> UI : currentVaccineDose
+deactivate SNSUSERAPPOINTMENTSTORE
+deactivate CTRL
+alt if it currentVaccineDose = 0
+UI -> CTRL : getVaccineList()
+ref over CTRL [[US008_SD_RecordAdministrationOfVaccineController_getVaccineList.puml]] : US008_SD_RecordAdministrationOfVaccineController_getVaccineList
+activate CTRL
+deactivate VACCINESTORE
+CTRL --> UI : lVaccinesDto
+deactivate CTRL
+UI --> NURSE : shows the list of available vaccines for that employee and asks to select one
+deactivate UI
+NURSE -> UI : selects a vaccine
+activate UI
+UI -> CTRL : findVaccine(vaccineDto)
+activate CTRL
+CTRL -> VACCINESTORE : findVaccine(vaccineDto)
+activate VACCINESTORE
+VACCINESTORE --> CTRL : vaccine
+deactivate VACCINESTORE
+deactivate CTRL
+else if currentVaccineDose != 0
+
+UI -> CTRL : getVaccine()
+activate CTRL
+CTRL -> SNSUSERAPPOINTMENTSTORE : getVaccine(vaccineType)
+activate SNSUSERAPPOINTMENTSTORE
+SNSUSERAPPOINTMENTSTORE --> CTRL : vaccine
+deactivate SNSUSERAPPOINTMENTSTORE
+deactivate CTRL
+end alt
+activate UI
+UI --> NURSE: asks the lot number of the vaccine administration
+deactivate UI
+NURSE -> UI : types the lot number
+activate UI
+UI -> CTRL : saveVaccineAdministration(lotNumber, leavingTime)
+ref over CTRL [[US008_SD_RecordAdministrationOfVaccineController_saveVaccineAdministration.puml]] : US008_SD_RecordAdministrationOfVaccineController_saveVaccineAdministration
+activate CTRL
+UI --> NURSE : validates the data and informs the operation success
+deactivate CTRL
+deactivate NURSE
+UI-> CTRL : smsDto = generateSMS()
+ref over CTRL [[US008_SD_RecordAdministrationOfVaccineController_generateSMS.puml]] : US008_SD_RecordAdministrationOfVaccineController_generateSMS
+activate CTRL
+UI-> UI: writeToTXT(smsDto)
+deactivate CTRL
+activate UI
+deactivate UI
+deactivate CTRL
+UI --> SNSUSERACTOR : sends an SMS to the SNS user after their recovery time has finished informing they can leave the center
+deactivate UI
+
+@enduml

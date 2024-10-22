@@ -1,0 +1,44 @@
+@startuml
+autonumber
+actor "Receptionist" as RP
+
+activate RP
+RP -> ":System" : asks to create a new Vaccination appointment
+activate ":System"
+":System" --> RP : suggests vaccine Type according to ongoing outbreak)
+deactivate ":System"
+alt if SNS user does not accept suggestion
+RP -> ":System":asks for the available vaccine types
+activate ":System"
+":System"--> RP: shows available vaccine types
+deactivate ":System"
+end
+RP -> ":System" : selects vaccine type
+activate ":System"
+":System"--> RP : requests data(SNS user number)
+deactivate ":System"
+
+RP -> ":System": types requested data
+activate ":System"
+
+
+alt if the user does not have an appointment
+
+":System"--> RP : shows available vaccination centers
+
+deactivate ":System"
+RP -> ":System":selects vaccination center
+activate ":System"
+":System"--> RP : requests data(time of Vaccination, date of vaccination)
+deactivate ":System"
+RP -> ":System":types requested data
+activate ":System"
+":System" --> RP : requests data(SMS permission)
+deactivate ":System"
+RP -> ":System":types requested data
+activate ":System"
+":System"--> RP : informs operations success and shows selected vaccination center, the scheduled day and time
+end
+deactivate RP
+
+@enduml

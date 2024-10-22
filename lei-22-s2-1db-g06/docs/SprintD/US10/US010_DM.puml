@@ -1,0 +1,39 @@
+@startuml
+hide methods
+top to bottom direction
+skinparam classAttributeIconSize 0
+
+
+class Company {
+   -designation
+}
+
+class Administrator {}
+
+class User {
+  -name
+  -eMail
+  -password
+}
+
+class Role {
+  -designation
+  -roleId
+}
+
+class Employee {
+  -id
+  -address
+  -phoneNumber
+  -ccNumber
+}
+Company "1" -- "1" Employee  : employs >
+Company "1" -- "*" Administrator : has >
+Administrator "1" -- "*" Employee : registers >
+Employee "1" --  "1" User : is a >
+Company "1" -- "*" Role : knows >
+Employee "1*" -- "1" Role : has >
+
+
+
+@enduml

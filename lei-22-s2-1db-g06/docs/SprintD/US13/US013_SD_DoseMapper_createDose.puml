@@ -1,0 +1,37 @@
+@startuml
+autonumber
+participant "doseMapper\n:DoseMapper" as doseMapper
+participant "doseDto\n:DoseDto" as doseDto
+participant "admp\n:AdministrationProcess" as admp
+participant "doseStore\n:DoseStore" as doseStore
+participant "dose\n:Dose" as dose
+[o-> doseMapper : createDose(admp, doseDto)
+
+activate doseMapper
+
+doseMapper -> doseDto : doseNumber=getDoseNumber()
+activate doseDto
+deactivate doseDto
+
+doseMapper -> doseDto : dosage=getDosage()
+activate doseDto
+deactivate doseDto
+
+doseMapper -> doseDto : timeBetweenDoses=getTimeBetweenDoses()
+activate doseDto
+deactivate doseDto
+
+doseMapper -> admp : createDose(doseNumber, dosage, timeBetweenDoses)
+activate admp
+
+admp -> doseStore : createDose(doseNumber, dosage, timeBetweenDoses)
+activate doseStore
+
+doseStore --> dose ** : create(doseNumber, dosage, timeBetweenDoses)
+deactivate doseStore
+deactivate admp
+[<-- doseMapper : dose
+
+deactivate doseMapper
+
+@enduml

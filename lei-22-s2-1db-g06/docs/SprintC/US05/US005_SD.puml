@@ -1,0 +1,61 @@
+@startuml
+autonumber
+actor "Nurse" as Nurse
+
+participant ":ConsultWaitingRoomUI" as UI
+participant ":ConsultWaitingRoomController" as Controller
+participant "vaccinationCenter\n:VaccinationCenter" as VCenter
+participant "appointmentStore:AppointmentStore" as appointmentStore
+participant "waitingList\n:List<Appointment>" as waitingList
+participant ":AppointmentMapper" as appointmentMapper
+participant "appointment\n:Appointment" as appointment
+participant "appointmentDTO\n:AppointmentDTO" as appointmentDTO
+participant ":java.util.Collections" as javaCollections
+
+activate Nurse
+Nurse -> UI : ask to consult the waiting list of SNS Users
+activate UI
+
+UI -> Controller : getWaitingListDTO(vaccinationCenter)
+activate Controller
+
+Controller -> VCenter : getWaitingList(dateToCheck)
+activate VCenter
+
+VCenter -> appointmentStore : getWaitingList(dateToCheck)
+activate appointmentStore
+
+appointmentStore --> waitingList ** : create()
+loop for each appointment in appointmentStore
+opt if (dateToCheck is equal to appointment date) and (appointment.checkWaitingState=true)
+appointmentStore -> waitingList : add(appointment)
+activate waitingList
+deactivate waitingList
+end
+end
+
+
+appointmentStore -> javaCollections : sort(waitingList)
+activate javaCollections
+deactivate javaCollections
+
+
+appointmentStore --> VCenter : waitingList
+deactivate appointmentStore
+
+VCenter --> Controller : waitingList
+deactivate VCenter
+
+Controller -> appointmentMapper : toDto(waitingList)
+activate appointmentMapper
+ref over appointmentMapper [[US005_SD_appointmentMapper_toDto.puml]] : US005_SD_appointmentMapper_toDto
+appointmentMapper --> Controller : waitingListDTO
+deactivate appointmentMapper
+
+Controller --> UI : waitingListDTO
+deactivate Controller
+
+UI --> Nurse : shows the waiting list for Nurse's working vaccination center
+deactivate UI
+
+@enduml

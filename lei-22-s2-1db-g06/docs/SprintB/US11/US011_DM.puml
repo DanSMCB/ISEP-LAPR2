@@ -1,0 +1,40 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+class Company {
+  -designation
+}
+class Role {
+-designation
+-roleId
+}
+
+
+class Employee extends User {
+  -employeeId
+  -phoneNumber
+  -address
+  -ccNumber
+}
+
+class Administrator {
+}
+class User{
+-name
+-emailAdress
+-password
+}
+
+Company "1" --"*" Employee : employ >
+Company "1" -- "*" Administrator : knows >
+Administrator"1" -- "*" Employee : knows >
+Company "1" -- "1..*" Role : knows >
+
+Administrator "*" -- "1..*" Role : knows >
+Role "1" -- "1" Employee: has <
+
+
+
+@enduml

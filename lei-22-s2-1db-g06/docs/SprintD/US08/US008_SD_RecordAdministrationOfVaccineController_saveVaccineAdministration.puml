@@ -1,0 +1,55 @@
+@startuml
+autonumber
+
+participant ":RecordAdministrationOfVaccineController" as CTRL
+participant "vaccine : Vaccine" as VACCINE
+participant "snsUser : SNSUser" as SNSUSER
+participant "admpStore : AdmProcessStore" as ADMPSTORE
+participant "admp : AdministrationProcess" as ADMP
+participant "doseStore : DoseStore" as DOSESTORE
+participant "dose : Dose" as DOSE
+participant "appointment\n:Appointment" as APPOINTMENT
+participant "vaccineAdministration:VaccineAdministration" as VAdministration
+
+[o-> CTRL : saveVaccineAdministration(lotNumber, leavingTime)
+activate CTRL
+activate CTRL
+CTRL -> VACCINE: admpStore = getAdmProcessStore()
+activate VACCINE
+deactivate VACCINE
+CTRL -> SNSUSER : age=getAge()
+activate SNSUSER
+deactivate SNSUSER
+CTRL -> ADMPSTORE : admp = getAdmProcess(age)
+activate ADMPSTORE
+loop For each AdministrationProcess in AdmProcessStore until checkAdmpAge(age) is true
+ADMPSTORE-> ADMP:checkAdmpAge(age)
+activate ADMP
+ADMP --> ADMPSTORE:true/false
+deactivate ADMP
+end loop
+ADMPSTORE --> CTRL : admp
+deactivate ADMPSTORE
+CTRL -> ADMP : dose = findDose(currentVaccineDose+1)
+activate ADMP
+ADMP -> DOSESTORE : findDose(doseNumber)
+activate DOSESTORE
+loop For each dose in doseStore until checkDoseNumber(doseNumber) is true
+DOSESTORE-> DOSE:checkDoseNumber(doseNumber)
+activate DOSE
+DOSE --> DOSESTORE:true/false
+deactivate DOSE
+end loop
+DOSESTORE --> ADMP : dose
+deactivate DOSESTORE
+ADMP --> CTRL : dose
+deactivate ADMP
+CTRL -> APPOINTMENT : addVaccineAdministration(lotNumber, dateOfAdministration, vaccine, admp, dose, leavingTime)
+activate APPOINTMENT
+APPOINTMENT --> VAdministration **: create(lotNumber, dateOfAdministration, vaccine, admp, dose)
+APPOINTMENT -> APPOINTMENT: setVaccineAdministration(vaccineAdministration)
+APPOINTMENT -> APPOINTMENT: setStateDone()
+APPOINTMENT -> APPOINTMENT: setSNSUserLeaveTime(snsUserLeaveTime)
+
+
+@enduml

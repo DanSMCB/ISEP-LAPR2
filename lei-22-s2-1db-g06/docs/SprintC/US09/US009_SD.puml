@@ -1,0 +1,113 @@
+@startuml
+
+autonumber
+actor "Administrator" as ADM
+participant ":CreateMVCenterUI" as UI
+participant ": CreateMVCenterController" as CTRL
+participant ": Company" as COMP
+participant "mvcStore: MVCenterStore" as STORE
+participant "MVCenterMapper" as MVC_MP
+participant "mvcDto: MVCDto" as MVC_DTO
+participant ":sc: Schedule" as SC
+participant "listSL: DailySlotList" as LIST_SL
+participant "mvc: MassVaccinationCenter" as MVC
+participant "vtStore: VaccineTypeStore" as STORE_VT
+participant "vtMapper: VaccineTypeMapper" as MP
+participant "vtDto\n:VaccineTypeDto" as vtDto
+participant "vt: VaccineType" as VT
+participant "listVT: List<VaccineType>" as LIST_VT
+participant "listVTDto: List<VaccineTypeDto>" as LIST_VT_DTO
+
+activate ADM
+ADM -> UI : starts registering new mass vaccination center
+activate UI
+UI --> ADM : requests data (name, address, phoneNumber, emailAddress, faxNumber, websiteAddress, \n openingHour, closingHour, slotDuration, numberOfVaccinesSlot)
+deactivate UI
+ADM -> UI : types requested data
+activate UI
+UI -> CTRL : createMVCenter(mvcDto)
+activate CTRL
+deactivate COMP
+CTRL -> COMP : mvcStore = getMVCenterStore()
+activate COMP
+deactivate COMP
+CTRL -> STORE : mvc = createMVCenter(mvcDto)
+activate STORE
+STORE -> MVC_MP : toModel(mvcDto)
+activate MVC_MP
+ref over MVC_MP, MVC_DTO [[US009_SD_MVCenterMapper_MVCDto.puml]] : US009_SD_MVCenterMapper_MVCDto
+MVC_MP --> SC**: create(openingHour, closingHour)
+MVC_MP --> LIST_SL**: create(openingHour, closingHour, slotDuration, numberOfVaccinesSlot)
+ref over LIST_SL [[US009_SD_DailySlotList_sl.puml]] : US009_SD_DailySlotList_sl
+activate LIST_SL
+LIST_SL --> MVC_MP : lSL
+deactivate LIST_SL
+MVC_MP --> MVC**: create(name, address, phoneNumber, emailAddress, faxNumber, websiteAddress, sc, lSL)
+deactivate MVC_MP
+deactivate STORE
+CTRL -> STORE: validateMVCenter(mvc)
+activate STORE
+deactivate STORE
+deactivate CTRL
+UI -> CTRL : listVTDto = getVaccineTypes()
+activate CTRL
+CTRL -> COMP : vtStore = getVTStore()
+activate COMP
+deactivate COMP
+CTRL -> STORE_VT : listVT = getVaccineTypes()
+activate STORE_VT
+deactivate STORE_VT
+CTRL -> MP : listVTDto = toDto(listVT)
+activate MP
+ref over MP, vtDto [[US009_SD_vtMapper_listVTDto.puml]] : US009_SD_vtMapper_listVTDto
+MP --> CTRL : listVTDto
+deactivate MP
+deactivate CTRL
+UI --> ADM : shows vaccine types to be selected
+deactivate UI
+ADM -> UI : selects one vaccine type
+activate UI
+UI -> CTRL : associateVaccineType(vtDto)
+activate CTRL
+CTRL -> MP : vt = toModel(vtDto)
+activate MP
+MP -> vtDto : code = getCode()
+activate vtDto
+deactivate vtDto
+MP -> vtDto : description = getDescription()
+activate vtDto
+deactivate vtDto
+MP -> vtDto : vaccineTechnology = getVaccineTechnology()
+activate vtDto
+deactivate vtDto
+MP --> VT **: create(code, description, VaccineTechnology)
+deactivate MP
+CTRL -> STORE_VT : mvcVT = find(vt)
+activate STORE_VT
+deactivate STORE_VT
+CTRL -> MVC : setVaccineType(mvcVT)
+activate MVC
+deactivate MVC
+CTRL --> UI : ok
+deactivate CTRL
+UI --> ADM : shows the data and requests a confirmation
+deactivate UI
+ADM -> UI : confirms the data
+activate UI
+UI -> CTRL : saveMVCenter()
+activate CTRL
+CTRL ->STORE :saveMVCenter(mvc)
+activate STORE
+STORE -> STORE: validateMVCenter(mvc)
+activate STORE
+deactivate STORE
+STORE -> STORE: addMVCenter(mvc)
+activate STORE
+deactivate STORE
+deactivate STORE
+deactivate CTRL
+UI --> ADM : informs operation success
+deactivate UI
+deactivate ADM
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml
+autonumber
+hide footbox
+
+participant ":EmployeeMapper" as EMPMAP
+participant "empDto: EmployeeDto" as EMPDTO
+participant "emp:Employee" as EMP
+
+[o-> EMPMAP: createEmployee(empDto)
+activate EMPMAP
+deactivate EMPDTO
+EMPMAP -> EMPDTO : name = getName(roleId)
+activate EMPDTO
+deactivate EMPDTO
+EMPMAP -> EMPDTO : address = getAddress()
+activate EMPDTO
+deactivate EMPDTO
+EMPMAP -> EMPDTO : phoneNumber = getPhoneNumber()
+activate EMPDTO
+deactivate EMPDTO
+EMPMAP -> EMPDTO : eMail = getEmail()
+activate EMPDTO
+deactivate EMPDTO
+EMPMAP -> EMPDTO : ccNum = getCCNum()
+activate EMPDTO
+deactivate EMPDTO
+EMPMAP --> EMP** : create(role, name, email, ...)
+<-- EMPMAP : lRolesDto
+
+
+
+
+@enduml

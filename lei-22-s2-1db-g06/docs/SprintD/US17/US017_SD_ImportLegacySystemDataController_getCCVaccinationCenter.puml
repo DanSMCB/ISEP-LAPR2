@@ -1,0 +1,42 @@
+@startuml
+
+participant ":ImportLegacySystemDataController" as CTRL
+participant "APP" as APP
+participant "app\n:APP" as app
+participant ":UserSession" as userSession
+participant ":Company" as COMP
+participant ":EmployeeStore" as employeeStore
+participant "centerCoordinator\n:CenterCoordinator" as CC
+
+[o-> CTRL : getCCVaccinationCenter()
+
+activate CTRL
+
+CTRL -> APP : app=getInstance()
+activate APP
+deactivate APP
+
+CTRL -> app : userSession=getCurrentUserSession()
+activate app
+deactivate app
+
+CTRL -> userSession : email=getUserID()
+activate userSession
+deactivate userSession
+
+CTRL -> COMP : employeeStore=getEmployeeStore()
+activate COMP
+deactivate COMP
+
+CTRL -> employeeStore : centerCoordinator=findEmployeeByEmail(email)
+activate employeeStore
+deactivate employeeStore
+
+CTRL -> CC : getVaccinationCenter()
+activate CC
+CC --> CTRL : vaccinationCenter
+deactivate CC
+
+deactivate CTRL
+
+@enduml

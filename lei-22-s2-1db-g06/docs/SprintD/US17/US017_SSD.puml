@@ -1,0 +1,20 @@
+@startuml
+autonumber
+actor "Center Coordinator" as CC
+
+activate CC
+CC -> ":System" : asks to import data from a legacy system (file)
+activate ":System"
+":System" --> CC : requests file
+deactivate ":System"
+CC -> ":System" : selects file
+activate ":System"
+":System" --> CC : shows imported data
+deactivate ":System"
+CC -> ":System" : asks to sort data by time (arrival or leaving time) and order (ascending or descending)
+activate ":System"
+":System" --> CC : shows imported data in the selected order
+deactivate ":System"
+deactivate CC
+
+@enduml

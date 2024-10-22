@@ -1,0 +1,69 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+
+
+:Administrator: as Admin
+:Center Coordinator: as CC
+:Receptionist: as RP
+:Nurse: as NS
+:SNS User: as User
+
+(UC? - Obtain Vaccination Certificate) as (UC01)
+(UC01 - Schedule Vaccination) as (UC02)
+(UC02 - Schedule Vaccination) as (UC025)
+(UC? - Check the SNS User Arrival list) as (UC17)
+(UC? - Check SNS User Information) as (UC04)
+(UC? - Check Vaccine Administration Instructions) as (UC05)
+(UC? - Register administered Vaccine Information) as (UC06)
+(UC? - Record Adverse Reaction) as (UC07)
+(UC? - Check Statistics and Charts) as (UC08)
+(UC? - Evaluate Vaccination Process Performance) as (UC18)
+(UC? - Generate Report) as (UC19)
+(UC? - Analyze Data from Other Centers) as (UC20)
+(UC? - Register SNS User as Ready for Vaccine Administration) as (UC22)
+(UC03 - Register a SNS User) as (UC03)
+(UC04 - Register SNS User arrival) as (UC23)
+(UC05 - Consult the Users in the vaccination center´s waiting room) as (UC21)
+(UC09 - Register vaccination center) as (UC09)
+(UC10 - Register an Employee) as (UC10)
+(UC11 - Obtain list of Employess with a given role) as (UC11)
+(UC12 - Specify new vaccine type) as (UC12)
+(UC13 - Specify new vaccine and its administration process) as (UC13)
+(UC14 - Load a set of users from a CSV file) as (UC24)
+(UC18 - Get a list of all vaccines) as (UC25)
+
+
+
+User -- (UC01)
+User -- (UC02)
+
+NS -- (UC01)
+NS -- (UC17)
+NS -- (UC04)
+NS -- (UC05)
+NS -- (UC06)
+NS -- (UC07)
+NS -- (UC21)
+
+CC -- (UC08)
+CC -- (UC18)
+CC -- (UC19)
+CC -- (UC20)
+CC -- (UC25)
+
+RP -- (UC025)
+RP -- (UC22)
+RP -- (UC03)
+RP -- (UC23)
+
+Admin -- (UC09)
+Admin -- (UC10)
+Admin -- (UC11)
+Admin -- (UC12)
+Admin -- (UC13)
+Admin -- (UC03)
+Admin -- (UC24)
+
+
+@enduml

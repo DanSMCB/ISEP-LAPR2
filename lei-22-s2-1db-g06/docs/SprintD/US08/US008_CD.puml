@@ -1,0 +1,147 @@
+@startuml
+
+class RecordAdministrationOfVaccineUI {
+}
+
+class RecordAdministrationOfVaccineController {
++getWaitingListDTO(vaccinationCenter)
++getSNSUser(appointmentDto)
++getCurrentDose()
++getVaccineList()
++findVaccine()
++getVaccine()
++saveVaccineAdministration(lotNumber)
++generateSMS()
+}
+
+class VaccinationCenter {
++getWaitingList(dateToCheck)
+}
+
+class SNSUser {
++getAppointmentStore()
++getSmsStore()
++checkUserNumber(snsNumber)
++getAge()
++getName()
++getAddress()
++getSex()
++getPhoneNumber()
++getEmail()
++getBirthDate()
++getSNSNumber()
++getCitizenCardNumber()
+}
+
+class AppointmentMapper {
++toDto(waitingList)
+}
+
+class AppointmentStore {
++getWaitingList(dateToCheck)
+}
+
+class SNSUserAppointmentStore {
++getCurrentVaccineDose(vaccineType)
++getVaccine(vaccineType)
+}
+
+class SNSUserStore {
++findSNSUserByNumber(snsNumber)
+}
+
+class VaccineStore {
++findVaccine(vaccineDto)
+}
+
+class Appointment {
++getSNSUser()
++getTime()
++getDate()
++setVaccineAdministration(vaccineAdministration)
++setStateDone()
++setSNSUserLeaveTime(snsUserLeaveTime)
++getVaccineType()
++addVaccineAdministration(lotNumber, dateOfAdministration, vaccine, admp, dose)
+}
+
+class VaccineTypeMapper {
++toDto(vaccineType)
+}
+
+class SNSUserMapper {
++toDto(snsUser)
+}
+
+class SMSStore {
++generateSMS()
+}
+
+class SMSMapper {
++smsToDto(sms)
+}
+
+class AppointmentDTO {
++getSNSUser()
++getVaccineType()
+}
+
+class SNSUserDTO {
++getSnsNumber()
+}
+
+class Company {
++getVaccineTypeStore()
+}
+
+class VaccineTypeStore {
++find(vaccineTypeDto)
+}
+
+class VaccineType {
++getVaccineStore()
++getCode()
++getDescription()
++getVaccineTechnology()
+}
+
+class VaccineStore {
++getVaccineList()
+}
+
+class VaccineMapper {
++toDto(lVaccines)
+}
+
+class Vaccine {
++getAdmProcessStore()
+}
+
+class AdministrationProcessStore{
++getAdmProcess(age)
+}
+
+class AdministrationProcess {
++checkAdmpAge(age)
++findDose(currentVaccineDose+1)
+}
+
+class DoseStore{
++findDose(doseNumber)
+}
+
+class Dose {
++checkDoseNumber(doseNumber)
+}
+
+class :java.util.Collections {
++sort(waitingList)
+}
+
+class SMS {
++getSMSContent()
+}
+
+RecordAdministrationOfVaccineUI ..> RecordAdministrationOfVaccineController
+
+@enduml

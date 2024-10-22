@@ -1,0 +1,24 @@
+@startuml
+
+autonumber
+participant ":VaccineTypeMapper" as vtMapper
+participant "vaccineType\n:VaccineType" as vaccineType
+participant "vaccineTypeDto\n:VaccineTypeDto" as vtDto
+
+[o->vtMapper : toDto(vaccineType)
+activate vtMapper
+
+vtMapper -> vaccineType : code=getCode()
+activate vaccineType
+deactivate vaccineType
+vtMapper -> vaccineType : description=getDescription()
+activate vaccineType
+deactivate vaccineType
+vtMapper -> vaccineType : vaccineTechnology=getVaccineTechology()
+activate vaccineType
+deactivate vaccineType
+
+vtMapper --> vtDto **: create(code, description, vaccineTechnology)
+
+[<-- vtMapper : vaccineTypeDto
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+autonumber
+actor "Administrator" as Admin
+
+activate Admin
+Admin -> ":System" : asks to get a list of Employees
+activate ":System"
+":System" --> Admin : requests data(role)
+deactivate ":System"
+
+Admin -> ":System" : selects role
+
+
+activate ":System"
+":System" --> Admin : shows the list of Employees according to the selected role
+deactivate ":System"
+
+deactivate Admin
+
+@enduml

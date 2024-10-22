@@ -1,0 +1,33 @@
+@startuml
+hide methods
+top to bottom direction
+skinparam classAttributeIconSize 0
+
+class Company {
+  -designation
+}
+
+class SNSUser extends User {
+  -snsNumber
+  -birthdate
+  -sex
+  -address
+  -phoneNumber
+  -ccNumber
+}
+
+class Administrator {
+}
+class User{
+-name
+-emailAdress
+-password
+}
+
+Company "1" --"*" SNSUser : knows >
+Company "1" -- "*" Administrator : knows >
+Company "1" -- "*" SNSUser : knows >
+Administrator "1..*"-- "*" SNSUser : registers >
+
+
+@enduml

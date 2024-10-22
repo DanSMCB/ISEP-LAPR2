@@ -1,0 +1,347 @@
+@startuml
+autonumber
+'hide footbox
+actor "SNS User" as SNS
+
+participant ":ScheduleVaccinationUI" as UI
+participant ":ScheduleVaccinationController" as CTRL
+participant ":Company" as COMP
+participant "outbreakVaccineType:VaccineType" as OUTBRK
+participant "snsUserStore: SNSUserStore" as SNS_STORE
+participant "snsUser:SNSUser" as SNS_USER
+participant "snsUserAppointmentStore:SNSUserAppointmentStore" as SNSUser_Appointment_Store
+participant "savedAppointment:Appointment" as SavedAppoinment
+participant "vtStore: VaccineTypeStore" as vtStore
+participant ":VaccineTypeMapper" as VT_MAPPER
+participant "vaccineType:VaccineType" as VaccineType
+participant "mvcStore: MVCenterStore" as MVC_Store
+participant ":MVCenterMapper" as MVC_MAPPER
+participant "hccenterStore :HCCenterStore" as HCC_STORE
+participant ":HCCenterMapper" as HCC_MAPPER
+participant "vaccinationCenter:VaccinationCenter" as VCenter
+participant "appointmentStore:AppointmentStore" as APPOINTMENT_STORE
+participant "appointment:Appointment" as Appointment
+participant "smsStore: SMSStore" as SMS_STORE
+participant ":SmsMapper" as SMS_MAPPER
+participant "sms:SMS" as SMS
+participant "smsDTO:SMSDto"  as SMSDto
+participant ":DayList" as DayList
+participant "day:DaySchedule" as Day
+participant "sl:Slot" as SL
+participant "vcDto:VCDto"
+
+
+activate SNS
+
+
+SNS -> UI : asks to create a new Vaccination appointment
+activate UI
+UI -> CTRL : getOngoingOutbreak()
+activate CTRL
+CTRL -> COMP : outbreakVaccineType=getOngoingOutbreakVaccineType()
+activate COMP
+deactivate COMP
+CTRL -> OUTBRK : outbreak = getDescription()
+activate OUTBRK
+deactivate OUTBRK
+CTRL --> UI : outbreak
+deactivate CTRL
+UI --> SNS : suggests vaccine Type according to ongoing outbreak
+opt if SNS user does not accept suggestion
+SNS -> UI : asks for the available vaccine types
+
+
+
+
+
+
+
+
+
+UI->CTRL :getListOfVaccineTypes()
+activate CTRL
+
+
+CTRL -> COMP : vtStore=getVTStore()
+activate COMP
+deactivate COMP
+
+
+CTRL -> vtStore : listVT=getVaccineTypes()
+activate vtStore
+deactivate vtStore
+
+CTRL -> VT_MAPPER : toDto(listVT)
+
+activate VT_MAPPER
+
+ref over VT_MAPPER [[US001_SD_vtMapper_ToDto.puml]] : US001_SD_vtMapper_ToDto
+
+VT_MAPPER --> CTRL : listVTDto
+deactivate VT_MAPPER
+CTRL --> UI : listVTDto
+
+
+deactivate CTRL
+
+UI --> SNS : shows available vaccine types
+end
+SNS -> UI : selects vaccine type
+UI->CTRL: selectVaccineType(vtDTO)
+activate CTRL
+CTRL -> vtStore: find(vtDTO)
+activate vtStore
+loop For each vaccineType in vtStore until checkVaccineType(vtDTO) is true
+vtStore->VaccineType:checkVaccineType(vtDTO)
+
+activate VaccineType
+VaccineType --> vtStore:true/false
+deactivate VaccineType
+
+end loop
+vtStore --> CTRL:vaccineType
+deactivate vtStore
+deactivate CTRL
+
+
+
+
+UI--> SNS: requests data(SNS User number)
+SNS->UI : types requested data
+
+
+
+UI ->CTRL : checkSnsUserAppointment(snsNumber)
+activate CTRL
+CTRL -> COMP: snsUserStore=getSnsUserStore()
+activate COMP
+deactivate COMP
+CTRL -> SNS_STORE : findSnsUserByNumber(snsNumber)
+
+activate SNS_STORE
+loop For each user in SnsUserStore until checkUserNumber(snsNumber) is true
+SNS_STORE-> SNS_USER:checkUserNumber(snsNumber)
+
+activate SNS_USER
+SNS_USER --> SNS_STORE:true/false
+
+deactivate SNS_USER
+
+end loop
+
+
+SNS_STORE --> CTRL: snsUser
+deactivate SNS_STORE
+
+CTRL -> SNS_USER: appointmentExists(vaccineType)
+activate SNS_USER
+SNS_USER -> SNSUser_Appointment_Store: appointmentExists(vaccineType)
+activate SNSUser_Appointment_Store
+
+loop For each appointment in snsUserAppointmentStore
+
+SNSUser_Appointment_Store -> SavedAppoinment:vaccineTypeMatches(vaccineType)
+activate SavedAppoinment
+
+SavedAppoinment --> SNSUser_Appointment_Store: true/false
+deactivate SavedAppoinment
+end loop
+SNSUser_Appointment_Store --> SNS_USER:true/false
+deactivate SNSUser_Appointment_Store
+deactivate SNSUser_Appointment_Store
+SNS_USER --> CTRL: true/false
+deactivate SNS_USER
+CTRL --> UI: true/false
+deactivate CTRL
+
+opt If the user does not have an appointment for selected vaccine type
+UI ->CTRL : mvcDtoList=getMassVaccinationCenters()
+activate CTRL
+
+
+
+CTRL -> COMP: mvcStore=getMVCenterStore()
+activate COMP
+deactivate COMP
+
+CTRL -> MVC_Store:getMVCenterListWithVt(vaccineType)
+activate MVC_Store
+
+
+MVC_Store --> CTRL:mvcWithVtList
+deactivate MVC_Store
+
+
+
+CTRL->MVC_MAPPER:toDto(mvcWithVtList)
+activate MVC_MAPPER
+ref over MVC_MAPPER [[US001_SD_mvcMapper_ToDto.puml]]:US001_SD_mvcMapper_ToDto
+MVC_MAPPER --> CTRL: mvcWithVtDTOList
+deactivate CTRL
+deactivate MVC_MAPPER
+UI-> CTRL: hccDtoList=getHealthCareCenters()
+activate CTRL
+
+CTRL -> COMP: hccenterStore=getHCCenterStore()
+activate COMP
+deactivate COMP
+CTRL -> HCC_STORE:getHCCenterList()
+activate HCC_STORE
+HCC_STORE --> CTRL: healthCareCenterList
+deactivate HCC_STORE
+CTRL -> HCC_MAPPER: toDto(healthcareCenterList)
+activate HCC_MAPPER
+ref over HCC_MAPPER [[US001_SD_hccMapper_ToDto.puml]]:US001_SD_hccMapper_ToDto
+HCC_MAPPER --> CTRL: hccenterListDTO
+deactivate HCC_MAPPER
+deactivate CTRL
+UI -> UI: addVcDtoList(mvcDtoList,hccDtoList)
+activate UI
+deactivate UI
+
+
+UI --> SNS : shows available vaccination centers
+
+SNS -> UI : selects vaccination center
+UI-> CTRL : toModel(vcDTO)
+activate CTRL
+alt vcDto is of type HCCDto
+CTRL -> HCC_STORE: toModel(vcDTO)
+activate HCC_STORE
+
+loop For each vaccinationCenter in hccenterStore until vcMatches(vcDTO) is true
+HCC_STORE->VCenter:vcMatches(vcDTO)
+
+activate VCenter
+VCenter --> HCC_STORE:true/false
+deactivate VCenter
+
+end loop
+
+HCC_STORE --> CTRL: vaccinationCenter
+deactivate HCC_STORE
+else vcDto is of type MVCDto
+CTRL -> MVC_Store: toModel(vcDTO)
+activate MVC_Store
+
+loop For each vaccinationCenter in mvcStore until vcMatches(vcDTO) is true
+MVC_Store->VCenter:vcMatches(vcDTO)
+
+activate VCenter
+VCenter --> MVC_Store: true/false
+deactivate VCenter
+
+end loop
+
+MVC_Store --> CTRL: vaccinationCenter
+deactivate MVC_Store
+deactivate CTRL
+end
+UI --> SNS : requests data(time of Vaccination, date of vaccination)
+SNS -> UI : types requested data
+
+
+
+UI -> CTRL:createAppointment(date,time)
+activate CTRL
+CTRL ->VCenter:sl=findSlot(date,time)
+activate VCenter
+VCenter -> DayList: day=findDay(date,time)
+activate DayList
+loop For each day in dayList until checkDay(date) is true
+DayList-> Day:checkDay(date)
+
+activate Day
+Day -->DayList:true/false
+
+deactivate Day
+
+end loop
+opt if day does not exist
+activate DayList
+DayList --> Day : create(openingHour, closingHour, slotDuration, numberOfVaccinesSlot, date)
+DayList -> DayList : addDay(day)
+activate DayList
+deactivate DayList
+end
+deactivate DayList
+
+VCenter -> Day: findSlot(time)
+activate Day
+
+loop For each slot in Day until checkSlot(time) is true
+Day -> SL: checkSlot(time)
+activate SL
+SL --> Day:true/false
+deactivate SL
+
+end loop
+
+deactivate Day
+deactivate VCenter
+CTRL -> SL: validateSlot()
+activate SL
+deactivate SL
+
+deactivate COMP
+
+
+
+CTRL -> VCenter : createVaccinationAppointment(vaccineType,snsUser,date,time)
+activate VCenter
+
+VCenter -> APPOINTMENT_STORE: createVaccinationAppointment(vaccineType,snsUser,date,time)
+activate APPOINTMENT_STORE
+APPOINTMENT_STORE --> Appointment ** :create(vaccineType,snsUser,date,time)
+
+
+APPOINTMENT_STORE -->VCenter:appointment
+deactivate APPOINTMENT_STORE
+
+
+VCenter-->CTRL:appointment
+deactivate VCenter
+CTRL -> SNS_USER: addAppointment(appointment)
+activate SNS_USER
+SNS_USER -> SNSUser_Appointment_Store: addAppointment(appointment)
+activate SNSUser_Appointment_Store
+deactivate SNSUser_Appointment_Store
+deactivate SNS_USER
+
+CTRL -> SL: addScheduledVaccine()
+activate SL
+deactivate SL
+
+deactivate CTRL
+
+UI-->SNS: requests data(SMS permission)
+SNS -> UI : types requested data
+opt If user grants permission
+UI-> CTRL : smsDto=generateSMS()
+activate CTRL
+CTRL -> SNS_USER: smsStore=getSmsStore()
+activate SNS_USER
+
+deactivate SNS_USER
+CTRL -> SMS_STORE: sms=generateSMS(appointment, vaccinationCenter)
+activate SMS_STORE
+SMS_STORE -->SMS**: create(appointment, vaccinationCenter)
+deactivate SMS_STORE
+
+CTRL -> SMS_MAPPER: smsToDto(sms)
+activate SMS_MAPPER
+SMS_MAPPER -> SMS : smsContent=getSMSContent()
+activate SMS
+deactivate SMS
+SMS_MAPPER --> SMSDto**: create(smsContent)
+deactivate SMS_MAPPER
+deactivate CTRL
+UI-> UI: writeToTXT(smsDto)
+activate UI
+deactivate UI
+end
+UI --> SNS: informs operations success and shows selected vaccination center, the scheduled day and time
+
+deactivate SNS
+end
+@enduml

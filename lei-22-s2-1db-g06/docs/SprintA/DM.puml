@@ -1,0 +1,113 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+class Company{}
+
+class VaccineSchedule{
+-location
+-date
+-time
+}
+
+class VaccineAdministration{}
+
+class VaccinationProcess{
+-ageGroup
+}
+
+
+class VaccinationCenter{
+-name
+-address
+-phoneNumber
+-emailAdress
+-faxNumber
+-websiteAddress
+-schedule
+-capacity
+-slotDuration
+-slotnumberOfVaccinesSlot
+}
+
+class HealthcareCenter extends VaccinationCenter{
+-ars
+-ages
+}
+
+class MassVaccinationCenter extends VaccinationCenter{}
+
+class CenterCoordinator extends Employee{}
+
+class SNSUser{
+-snsNumber
+-birthdate
+-healthConditions
+-vaccinationHistory
+}
+
+class AdverseReaction{}
+
+class Nurse extends Employee{}
+
+class Receptionist extends Employee{}
+
+class Administrator{}
+
+class VaccineDose{
+-lotNumber
+-doseNumber
+-timeInterval
+-dosage
+}
+
+class PerformanceReport{}
+
+class VaccinationCertificate{}
+
+class VaccineType{
+-diseaseName
+-vaccineName
+-numberOfDoses
+}
+class Notification {
+-typeOfNotification
+-delay
+}
+
+class SMSNotification extends Notification{}
+
+class EmailNotification extends Notification{}
+
+class Employee{}
+
+Receptionist "1" -- "*" SNSUser : registers >
+Receptionist "1"-- "1..*" VaccineSchedule : checks >
+SNSUser "1" -- "*" AdverseReaction : has >
+SNSUser "1" -- "*" Notification : receives >
+VaccineDose "1" -- "1" VaccineSchedule : is administered during >
+Company "1" -- "*" VaccinationCenter : manages >
+MassVaccinationCenter "*" -- "1" VaccineType : administers >
+HealthcareCenter "1..*" -- "*" VaccineType : administers >
+VaccinationCenter "1" -- "1" CenterCoordinator : has >
+CenterCoordinator "1..*" -- "*" PerformanceReport : creates >
+VaccinationCertificate "1" -- "1" SNSUser : requested by >
+VaccinationCertificate "1" -- "1" Nurse : requested by >
+Nurse "1..*" -- "*" AdverseReaction : registers >
+Nurse "1" -- "*" VaccineAdministration : performs >
+VaccineAdministration "1" -- "1" VaccineSchedule : fulfills >
+VaccineSchedule "1"--"1" Receptionist : requested by >
+VaccineSchedule "1"--"1" SNSUser : requested by >
+Company "1"-- "1..*" VaccinationProcess : manages >
+VaccineAdministration "*" -- "1" SNSUser : administered on >
+VaccinationProcess "1..*" -- "1" VaccineType : has <
+VaccinationProcess "1"-- "*" VaccineAdministration : follows <
+VaccineDose "1" -- "1" VaccineAdministration: is administered during >
+Administrator "1..*" -- "*" Nurse : registers >
+Administrator "1..*"-- "*" Receptionist : registers >
+Administrator "1..*"-- "*" VaccinationCenter : registers >
+Administrator "1..*"-- "*"  CenterCoordinator : registers >
+Administrator "1..*"-- "*" SNSUser : registers >
+VaccineDose "1..*" -- "1" VaccineType : is of >
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+autonumber
+hide footbox
+
+
+participant ":RolesMapper" as RMAP
+participant "lRoles : List<OrgRole>" as LROLES
+participant "lRolesDto :List<RoleDTO>" as LROLESDTO
+participant "role:OrgRole" as ORG
+participant "dto: RoleDTO" as ROLEDTO
+
+[o-> RMAP : toDTO(lRoles)
+activate RMAP
+RMAP --> LROLESDTO** : create()
+loop for each object in rRoles
+RMAP -> LROLES : role = get(i)
+activate LROLES
+deactivate LROLES
+RMAP -> ORG : id = getld()
+activate ORG
+deactivate ORG
+RMAP -> ORG : designation = getDesignation()
+activate ORG
+deactivate ORG
+RMAP --> ROLEDTO** : create(id, designation)
+RMAP -> LROLESDTO : add(dto)
+activate LROLESDTO
+deactivate LROLESDTO
+end
+<-- RMAP : return emp
+deactivate RMAP
+
+
+
+
+@enduml

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="499px" preserveAspectRatio="none" style="width:634px;height:499px;background:#FFFFFF;" version="1.1" viewBox="0 0 634 499" width="634px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="413.7188" style="stroke:#181818;stroke-width:1.0;" width="10" x="185" y="69.9609"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="429" y="130.3125"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="429" y="190.6641"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="429" y="251.0156"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="429" y="311.3672"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="429" y="371.7188"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="190" x2="190" y1="37.6094" y2="492.6797"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="433.5" x2="433.5" y1="37.6094" y2="492.6797"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="574.5" x2="574.5" y1="441.0234" y2="492.6797"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="128" x="126" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="133" y="26.5332">:EmployeeMapper</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="155" x="356.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="363.5" y="26.5332">empDto: EmployeeDto</text><rect fill="#FFFFFF" height="413.7188" style="stroke:#181818;stroke-width:1.0;" width="10" x="185" y="69.9609"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="429" y="130.3125"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="429" y="190.6641"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="429" y="251.0156"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="429" y="311.3672"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="429" y="371.7188"/><ellipse cx="7.5" cy="69.2109" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.5;"/><polygon fill="#181818" points="173,65.9609,183,69.9609,173,73.9609,177,69.9609" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="12" x2="179" y1="69.9609" y2="69.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="15" y="65.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="147" x="26" y="65.1045">createEmployee(empDto)</text><polygon fill="#181818" points="417,126.3125,427,130.3125,417,134.3125,421,130.3125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="195" x2="423" y1="130.3125" y2="130.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="202" y="125.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="139" x="213" y="125.4561">name = getName(roleId)</text><polygon fill="#181818" points="417,186.6641,427,190.6641,417,194.6641,421,190.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="195" x2="423" y1="190.6641" y2="190.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="202" y="185.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="136" x="213" y="185.8076">address = getAddress()</text><polygon fill="#181818" points="417,247.0156,427,251.0156,417,255.0156,421,251.0156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="195" x2="423" y1="251.0156" y2="251.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="202" y="246.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="204" x="213" y="246.1592">phoneNumber = getPhoneNumber()</text><polygon fill="#181818" points="417,307.3672,427,311.3672,417,315.3672,421,311.3672" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="195" x2="423" y1="311.3672" y2="311.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="202" y="306.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="213" y="306.5107">eMail = getEmail()</text><polygon fill="#181818" points="417,367.7188,427,371.7188,417,375.7188,421,371.7188" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="195" x2="423" y1="371.7188" y2="371.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="202" y="366.8623">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="128" x="213" y="366.8623">ccNum = getCCNum()</text><polygon fill="#181818" points="509.5,428.0703,519.5,432.0703,509.5,436.0703,513.5,432.0703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="195" x2="515.5" y1="432.0703" y2="432.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="202" y="427.2139">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="164" x="213" y="427.2139">create(role, name, email, ...)</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="107" x="521.5" y="409.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="528.5" y="431.252">emp:Employee</text><polygon fill="#181818" points="11,470.6797,1,474.6797,11,478.6797,7,474.6797" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="5" x2="184" y1="474.6797" y2="474.6797"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="17" y="469.8232">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="56" x="28" y="469.8232">lRolesDto</text><!--MD5=[42525e4b771ca8d95c2f0cf405dec63c]
+@startuml
+autonumber
+hide footbox
+
+participant ":EmployeeMapper" as EMPMAP
+participant "empDto: EmployeeDto" as EMPDTO
+participant "emp:Employee" as EMP
+
+[o-> EMPMAP: createEmployee(empDto)
+activate EMPMAP
+deactivate EMPDTO
+EMPMAP -> EMPDTO : name = getName(roleId)
+activate EMPDTO
+deactivate EMPDTO
+EMPMAP -> EMPDTO : address = getAddress()
+activate EMPDTO
+deactivate EMPDTO
+EMPMAP -> EMPDTO : phoneNumber = getPhoneNumber()
+activate EMPDTO
+deactivate EMPDTO
+EMPMAP -> EMPDTO : eMail = getEmail()
+activate EMPDTO
+deactivate EMPDTO
+EMPMAP -> EMPDTO : ccNum = getCCNum()
+activate EMPDTO
+deactivate EMPDTO
+EMPMAP - -> EMP** : create(role, name, email, ...)
+<- - EMPMAP : lRolesDto
+
+
+
+
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 14:29:17 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

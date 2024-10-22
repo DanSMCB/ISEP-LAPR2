@@ -1,0 +1,58 @@
+@startuml
+skinparam classAttributeIconSize 0
+top to bottom direction
+
+class Company {
+-designation : String
++getVTStore() : VaccineTypeStore
+}
+
+class VaccineType {
+-code : String
+-description : String
+-vaccineTechnology : String
++VaccineType(code : String, description : String, vaccineTechnology : String)
+}
+
+class VaccineTypeMapper{
++toModel(vtDto : VaccineTypeDto) : VaccineType
+}
+
+class VaccineTypeStore {
++createVaccineType(vtDto : VaccineTypeDto) : VaccineType
++validateVaccineType(vt : VaccineType) : boolean
++saveVaccineType(vt : VaccineType) : void
++addVaccineType(vt : VaccineType) : void
+}
+
+class VaccineTypeDto {
+-code : String
+-description : String
+-vaccineTechnology : String
++VaccineTypeDto(code : String, description : String, vaccineTechnology : String)
++getCode() : String
++getDescription() : String
++getVaccineTechnology() : String
+}
+
+class SpecifyNewVaccineTypeUI {}
+
+class SpecifyNewVaccineTypeController {
++createVaccineType(vtDto : VaccineTypeDto) : void
++saveVaccineType() : void
+}
+
+Company "1" --> "*" VaccineType : > promotes administration
+SpecifyNewVaccineTypeUI ..> SpecifyNewVaccineTypeController
+SpecifyNewVaccineTypeController ..> Company
+SpecifyNewVaccineTypeController ..> VaccineType
+Company "1" --> "1" VaccineTypeStore : uses
+VaccineTypeStore "1" --> "*" VaccineType : has
+SpecifyNewVaccineTypeController ..> VaccineTypeMapper
+VaccineTypeMapper ..> VaccineType
+SpecifyNewVaccineTypeUI ..> VaccineTypeDto
+VaccineTypeMapper ..> VaccineTypeDto
+SpecifyNewVaccineTypeController ..> VaccineTypeDto
+SpecifyNewVaccineTypeController ..> VaccineTypeStore
+VaccineTypeStore ..> VaccineTypeMapper
+@enduml

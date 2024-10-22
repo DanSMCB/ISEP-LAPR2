@@ -1,0 +1,69 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as ADM
+
+participant ":SpecifyNewVaccineTypeUI" as UI
+participant ":SpecifyNewVaccineTypeController" as CTRL
+participant "Company" as CMP
+participant "vtStore: VaccineTypeStore" as STORE_VT
+participant "vtMapper: VaccineTypeMapper" as MP
+participant "vtDto: VaccineTypeDto" as DTO
+participant "vt: VaccineType" as VT
+
+activate ADM
+ADM -> UI : starts specifying a new vaccine type
+activate UI
+UI --> ADM : requests data (code, designation, vaccineTechnology)
+deactivate UI
+
+ADM -> UI : types requested data
+activate UI
+
+UI -> CTRL : createVaccineType(vtDto)
+activate CTRL
+CTRL -> CMP : vtStore = getVTStore()
+activate CMP
+deactivate CMP
+
+CTRL -> STORE_VT : vt = createVaccineType(vtDto)
+activate STORE_VT
+STORE_VT -> MP : toModel(vtDtO)
+activate MP
+
+MP -> DTO : code = getCode()
+activate DTO
+deactivate DTO
+MP -> DTO : description = getDescription()
+activate DTO
+deactivate DTO
+MP --> VT** : create(code, designation, vaccineDescription)
+deactivate MP
+deactivate STORE_VT
+
+CTRL -> STORE_VT : validateVaccineType(vt)
+activate STORE_VT
+deactivate STORE_VT
+deactivate CTRL
+
+UI --> ADM : shows the data and requests a confirmation
+deactivate UI
+
+ADM -> UI : confirms the data
+activate UI
+UI -> CTRL : saveVaccineType()
+activate CTRL
+CTRL -> STORE_VT : saveVaccineType(vt)
+activate STORE_VT
+STORE_VT -> STORE_VT : validateVaccineType(vt)
+activate STORE_VT
+deactivate STORE_VT
+STORE_VT -> STORE_VT : addVaccineType(vt)
+activate STORE_VT
+deactivate STORE_VT
+deactivate STORE_VT
+UI --> ADM : informs of operation success
+deactivate UI
+deactivate ADM
+
+@enduml

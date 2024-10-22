@@ -1,0 +1,44 @@
+@startuml
+autonumber
+participant "admProcessMapper\n:AdmProcessMapper" as admpMapper
+participant "admpDto\n:AdmProcessDto" as admpDto
+participant "doseStore\n:DoseStore" as doseStore
+participant "vaccine\n:Vaccine" as vaccine
+participant "admpStore\n:AdmProcessStore" as admpStore
+participant "admp\n:AdministrationProcess" as admp
+
+
+[o-> admpMapper : createAdmProcess(vaccine, admpDto)
+
+activate admpMapper
+
+admpMapper -> admpDto : numberOfDoses=getNumberOfDoses()
+activate admpDto
+deactivate admpDto
+
+admpMapper -> admpDto : maximumAge=getMaximumAge()
+activate admpDto
+deactivate admpDto
+
+admpMapper -> admpDto : minumumAge=getMinumumAge()
+activate admpDto
+deactivate admpDto
+
+admpMapper --> doseStore : create()
+activate doseStore
+deactivate doseStore
+
+admpMapper -> vaccine : createAdmProcess(doseStore, numberOfDoses, maximumAge, minumumAge)
+activate vaccine
+vaccine -> admpStore : createAdmProcess(doseStore, numberOfDoses, maximumAge, minumumAge)
+
+activate admpStore
+admpStore --> admp ** : create(doseStore, numberOfDoses, maximumAge, minumumAge)
+deactivate admpStore
+deactivate vaccine
+
+[<-- admpMapper : admp
+
+deactivate admpMapper
+
+@enduml

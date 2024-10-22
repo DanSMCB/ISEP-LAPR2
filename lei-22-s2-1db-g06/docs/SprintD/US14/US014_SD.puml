@@ -1,0 +1,53 @@
+@startuml
+
+autonumber
+
+actor "Administrator" as Admin
+
+participant ":LoadSetOfUsersGUI" as UI
+participant ":LoadfromFileController" as CTRL
+participant ":FileReader" as FR
+participant ":Company" as COMP
+participant "snsUserStore:\nSNSUserStore" as SNS_ST
+participant "snsUser:\nSNSUser"
+participant "content:\nString[]"
+
+
+
+activate Admin
+Admin -> UI : asks to load a set of SNS Users from a CSV file
+activate UI
+UI --> Admin : asks for file's path
+deactivate UI
+Admin -> UI : gives file's path
+activate UI
+UI --> Admin : asks for confirmation
+deactivate UI
+Admin -> UI : confirms file
+activate UI
+UI -> CTRL : readFile(filePath)
+activate CTRL
+CTRL -> FR : importFile(filePath)
+activate FR
+FR -> FR : line = getLineFromFile(line)
+activate FR
+deactivate FR
+FR -> FR : content = split(line)
+activate FR
+deactivate FR
+FR -> COMP : snsUserStore = getSNSUserStore()
+activate COMP
+deactivate COMP
+
+FR -> SNS_ST : validateUser(snsUser)
+activate SNS_ST
+deactivate SNS_ST
+FR -> SNS_ST : addUser(snsUser)
+activate SNS_ST
+deactivate SNS_ST
+deactivate FR
+deactivate CTRL
+UI --> Admin : informs operation success
+deactivate UI
+
+@enduml

@@ -1,0 +1,52 @@
+@startuml
+
+participant ":ImportLegacySystemDataUI" as UI
+participant ":ImportLegacySystemDataController" as CTRL
+participant "BubbleSort" as BS
+participant "QuickStort" as QS
+
+
+activate UI
+alt order = arrivalDateTime and algorithm=BubbleSort
+UI -> CTRL: orderedOutputList = sortByArrivalTime(sortingOrder)
+activate CTRL
+CTRL -> BS: bubbleSort(importedList,arrivalTime)
+activate BS
+BS --> CTRL : orderedOutputList
+deactivate BS
+CTRL --> UI : orderedOutputList
+deactivate CTRL
+else order = arrivalDateTime and algorithm=QuickSort
+UI -> CTRL: orderedOutputList = sortByArrivalTime(sortingOrder))
+activate CTRL
+CTRL -> QS: quickSort(importedList,low,high,arrivalTime)
+activate QS
+QS --> CTRL : orderedOutputList
+deactivate QS
+CTRL --> UI : orderedOutputList
+deactivate CTRL
+
+else order = leavingDateTime and algorithm=BubbleSort
+UI -> CTRL: orderedOutputList = sortByLeavingTime(sortingOrder))
+activate CTRL
+CTRL -> BS: bubbleSort(importedList,leavingTime)
+activate BS
+BS --> CTRL : orderedOutputList
+deactivate BS
+CTRL --> UI : orderedOutputList
+deactivate CTRL
+
+else order = leavingDateTime and algorithm=QuickSort
+UI -> CTRL: orderedOutputList = sortByLeavingTime(sortingOrder)
+activate CTRL
+CTRL -> QS: quickSort(importedList,low,high,leavingTime)
+activate QS
+QS --> CTRL : orderedOutputList
+deactivate QS
+CTRL --> UI: orderedOutputList
+deactivate CTRL
+
+deactivate CTRL
+end
+
+@enduml

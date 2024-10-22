@@ -1,0 +1,24 @@
+@startuml
+autonumber
+participant "vtMapper:VaccineTypeMapper" as vtMapper
+participant "vtDto\n:VaccineTypeDto" as vtDTO
+participant "vt\n:VaccineType" as vt
+[o-> vtMapper : toModel(vtDto)
+
+activate vtMapper
+
+vtMapper -> vtDTO : code=getCode()
+activate vtDTO
+deactivate vtDTO
+
+vtMapper -> vtDTO : designation=getDesignation()
+activate vtDTO
+deactivate vtDTO
+
+vtMapper --> vt ** : create(code, designation)
+
+<-- vtMapper : vt
+
+deactivate vtMapper
+
+@enduml

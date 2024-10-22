@@ -1,0 +1,194 @@
+@startuml
+class ConsultWaitingRoomUI {}
+
+class ConsultWaitingRoomController {
++getWaitingListDTO(vaccinationCenter : VaccinationCenter) : List<AppointmentDTO>
+}
+
+
+class Appointment {
+-date : Date
+-time : Date
+-vaccineType : VaccineType
+-state : State
+-snsUser : SNSUser
++getDate() : Date
++getTime() : Date
++getVaccineType() : VaccineType
++getSNSUser() : SNSUser
++setDate(date : Date) : void
++setTime(time : Date) : void
++setVaccineType(vaccineType : VaccineType) : void
++setSNSUser(snsUser : SNSUser) : void
++checkStateToDo() : boolean
++checkStateWaiting() : boolean
++checkStateDone() : boolean
++setStateToDo() : void
++setStateWaiting() : void
++setStateDone() : void
+}
+
+class AppointmentDTO {
+-date : Date
+-time : Date
+-vaccineType : VaccineTypeDTO
+-snsUser : SNSUserDTO
++getDate() : Date
++getTime() : Date
++getVaccineType() : VaccineTypeDTO
++getSNSUser() : SNSUserDTO
++setDate(date : Date) : void
++setTime(time : Date) : void
++setVaccineType(vaccineType : VaccineTypeDTO) : void
++setSNSUser(snsUser : SNSUserDTO) : void
+}
+
+class State <<enumeration>> {
+-TODO
+-WAITING
+-DONE
+}
+
+class AppointmentStore {
+-listAppointments : List<Appointment>
++getWaitingList(dateToCheck : Date) : List<Appointment>
+}
+
+class VaccinationCenter {
++getWaitingList(dateToCheck : Date) : List<Appointment>
+}
+
+class MassVaccinationCenter extends VaccinationCenter{
+-vaccineType : VaccineType
+}
+
+class HealhcareCenter extends VaccinationCenter{
+}
+
+class java.util.Collections {
++sort()
+}
+
+class AppointmentMapper {
++toDto(waitingList : List<Appointment>) : List<AppointmentDTO>
+}
+
+class SNSUserMapper {
++toDto(snsUser : SNSUser) : SNSUserDTO
+}
+
+class VaccineTypeMapper {
++toDto(vaccineType : VaccineType) : VaccineTypeDTO
+}
+
+class SNSUser {
+-name : String
+-address : String
+-sex : String
+-phoneNumber : long
+-email : Email
+-birthDate : Date
+-snsNumber : long
+-citizenCard : long
++getName() : String
++getAdress() : String
++getSex() : String
++getPhoneNumber() : long
++getEmail() : Email
++getBirthDate() : Date
++getSNSNumber() : long
++getCitizenCard() : long
++setName(name : String) : void
++setAddress(address : String) : void
++setSex(sex : String) : void
++setPhoneNumber(phoneNumber : long) : void
++setEmail(email : Email) : void
++setBirthDate(birthDate : Date) : void
++setSNSNumber(snsNumber : long) : void
++setCitizenCard(citizenCard : long) : void
+}
+
+class SNSUserDTO {
+-name : String
+-address : String
+-sex : String
+-phoneNumber : long
+-email : Email
+-birthDate : Date
+-snsNumber : long
+-citizenCard : long
++getName() : String
++getAdress() : String
++getSex() : String
++getPhoneNumber() : long
++getEmail() : Email
++getBirthDate() : Date
++getSNSNumber() : long
++getCitizenCard() : long
++setName(name : String) : void
++setAddress(address : String) : void
++setSex(sex : String) : void
++setPhoneNumber(phoneNumber : long) : void
++setEmail(email : Email) : void
++setBirthDate(birthDate : Date) : void
++setSNSNumber(snsNumber : long) : void
++setCitizenCard(citizenCard : long) : void
+}
+
+class VaccineType {
+-code : String
+-description : String
+-vaccineTechnology : String
++getCode() : String
++getDescription() : String
++getVaccineTechnology() : String
++setCode(code : String) : void
++setDescription(description : String) : void
++setVaccineTechnology(vaccineTechnology : String) : void
+}
+
+class VaccineTypeDTO {
+-code : String
+-description : String
+-vaccineTechnology : String
++VaccineTypeDto(code : String, description : String, vaccineTechnology : String)
++getCode() : String
++getDescription() : String
++getVaccineTechnology() : String
++setCode(code : String) : void
++setDescription(description : String) : void
++setVaccineTechnology(vaccineTechnology : String) : void
+}
+
+
+ConsultWaitingRoomUI ..> ConsultWaitingRoomController
+ConsultWaitingRoomController ..> VaccinationCenter
+VaccinationCenter "1" --> "1" AppointmentStore : uses
+AppointmentStore "1" --> "*" Appointment : saves
+AppointmentStore ..> java.util.Collections
+AppointmentMapper ..> Appointment
+AppointmentMapper ..> SNSUserMapper
+AppointmentMapper ..> VaccineTypeMapper
+AppointmentMapper ..> AppointmentDTO
+SNSUserMapper ..> SNSUser
+SNSUserMapper ..> SNSUserDTO
+VaccineTypeMapper ..> VaccineType
+VaccineTypeMapper ..> VaccineTypeDTO
+AppointmentDTO "1" --> "1" VaccineTypeDTO : is associated with
+AppointmentDTO "1" --> "1" SNSUserDTO : requested by
+Appointment "1" --> "1" VaccineType : is associated with
+Appointment "1" --> "1" SNSUser : requested by
+MassVaccinationCenter "1" --> "1" VaccineType : is associated with
+ConsultWaitingRoomController ..> AppointmentDTO
+VaccinationCenter ..> Appointment
+ConsultWaitingRoomUI ..> AppointmentDTO
+AppointmentMapper ..> SNSUserDTO
+AppointmentMapper ..> VaccineTypeDTO
+AppointmentStore ..> VaccineType
+AppointmentStore ..> SNSUser
+ConsultWaitingRoomController ..> AppointmentMapper
+Appointment ..> State
+
+
+
+@enduml

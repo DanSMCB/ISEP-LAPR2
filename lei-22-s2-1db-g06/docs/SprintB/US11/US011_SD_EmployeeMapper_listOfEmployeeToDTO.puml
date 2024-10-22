@@ -1,0 +1,49 @@
+@startuml
+autonumber
+participant ":EmployeeMapper" as EMPLOYEE_MAPPER
+participant ":lEmployee\n :List <Employee>" as LIST_EMPLOYEE
+participant ":lEmployeeDTO\n :List <EmployeeDTO>" as LIST_EMPLOYEE_DTO
+participant "employee: Employee" as EMPLOYEE
+participant "employeeDTO: EmployeeDTO" as EMPLOYEE_DTO
+
+
+[o->EMPLOYEE_MAPPER: listOfEmployeeToDTO(listEmployee,selectedRole)
+activate EMPLOYEE_MAPPER
+EMPLOYEE_MAPPER --> LIST_EMPLOYEE_DTO **: create()
+loop for each Employee in listEmployee
+
+EMPLOYEE_MAPPER -> EMPLOYEE:role=getRole()
+activate EMPLOYEE
+deactivate EMPLOYEE
+alt If selectedRole=role
+EMPLOYEE_MAPPER -> EMPLOYEE: name=getName()
+activate EMPLOYEE
+deactivate EMPLOYEE
+EMPLOYEE_MAPPER -> EMPLOYEE:employeeId=getEmployeeId()
+activate EMPLOYEE
+deactivate EMPLOYEE
+EMPLOYEE_MAPPER -> EMPLOYEE:address=getAdress()
+activate EMPLOYEE
+deactivate EMPLOYEE
+EMPLOYEE_MAPPER -> EMPLOYEE:phoneNumber=getPhoneNumber()
+activate EMPLOYEE
+deactivate EMPLOYEE
+EMPLOYEE_MAPPER -> EMPLOYEE:emailAdress=getEmailAddress()
+activate EMPLOYEE
+deactivate EMPLOYEE
+EMPLOYEE_MAPPER -> EMPLOYEE:ccNumber=getCcNumber()
+
+activate EMPLOYEE
+deactivate EMPLOYEE
+
+EMPLOYEE_MAPPER --> EMPLOYEE_DTO ** : create(name,id,address,phoneNumber, emailAdress,ccNumber,role)
+EMPLOYEE_MAPPER -> LIST_EMPLOYEE_DTO : add(employeeDTO)
+activate LIST_EMPLOYEE_DTO
+deactivate LIST_EMPLOYEE_DTO
+end
+end loop
+
+<--EMPLOYEE_MAPPER : lEmployeeDTO
+deactivate EMPLOYEE_MAPPER
+
+@enduml

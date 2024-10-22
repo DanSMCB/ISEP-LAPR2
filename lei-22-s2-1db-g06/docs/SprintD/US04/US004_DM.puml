@@ -1,0 +1,32 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+
+class SNSUser {
+  -snsNumber
+}
+
+class Appointment {
+  -date
+  -time
+}
+
+class Receptionist {
+}
+
+class VaccineType {
+}
+
+
+
+Receptionist "1" -- "1..*" SNSUser : registers arrival of >
+Receptionist "1" -- "1..*" Appointment : checks >
+Appointment "1..*" -- "1" Receptionist : requested by >
+Appointment "1" -- "1" SNSUser : requested by >
+Appointment "*" -- "1" VaccineType : is associated with >
+
+
+
+@enduml

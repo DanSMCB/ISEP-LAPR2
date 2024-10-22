@@ -1,0 +1,21 @@
+@startuml
+autonumber
+actor "Center Coordinator" as CC
+activate CC
+CC -> ":System": asks to check vaccination statistics
+activate ":System"
+":System" --> CC: requests data (date interval)
+deactivate ":System"
+CC -> ":System": types requested data
+activate ":System"
+":System" --> CC:asks the file name
+deactivate ":System"
+CC-> ":System": types the file name
+activate ":System"
+":System" --> CC : confirms operation success
+deactivate ":System"
+
+
+
+
+@enduml

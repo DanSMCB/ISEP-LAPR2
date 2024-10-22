@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1550.0" scaleShape="false" style="-fx-background-color: #91a65f;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.menuOptions.centerCoordinator.ImportLegacySystemDataGUI">
+    <children>
+        <VBox layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="300.0" scaleShape="false" style="-fx-background-color: #91a65f;">
+            <children>
+                <Pane prefHeight="371.0" prefWidth="300.0">
+               <children>
+                      <Button fx:id="choose_file_button" layoutX="73.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #dddea0;" text="Choose File" textFill="#333333" />
+                  <Text fill="#333333" layoutX="48.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Import Tests from CSV File">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="file_path_field" layoutX="25.0" layoutY="131.0" prefHeight="39.0" prefWidth="267.0" />
+                  <Label layoutX="127.0" layoutY="106.0" prefHeight="17.0" prefWidth="61.0" text="File Path">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="confirm_button" layoutX="73.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #dddea0;" text="Confirm &amp; Load" textFill="#333333" />
+               </children>
+                </Pane>
+                <Pane prefHeight="371.0" prefWidth="300.0">
+                    <VBox.margin>
+                        <Insets top="140.0" />
+                    </VBox.margin>
+               <children>
+                  <Text fill="#333333" layoutX="124.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort by ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="sort_data_btn1" layoutX="34.0" layoutY="51.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #dddea0;" text="Arrival/Ascending" textFill="#333333">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="sort_data_btn2" layoutX="34.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #dddea0;" text="Arrival/Descending" textFill="#333333">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="sort_data_btn3" layoutX="34.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #dddea0;" text="Leaving/Ascending" textFill="#333333">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="sort_data_btn4" layoutX="34.0" layoutY="216.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #dddea0;" text="Leaving/Descending" textFill="#333333">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Text fx:id="loading1" fill="#333333" layoutX="216.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading..." visible="false" />
+                  <Text fx:id="loading4" fill="#333333" layoutX="216.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading..." visible="false" />
+                  <Text fx:id="loading3" fill="#333333" layoutX="216.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading..." visible="false" />
+                  <Text fx:id="loading2" fill="#333333" layoutX="216.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading..." visible="false" />
+               </children>
+                </Pane>
+            </children>
+        </VBox>
+        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="1550.0" scaleShape="false" style="-fx-background-color: #dddea0;">
+         <children>
+                  <Label alignment="CENTER" layoutX="647.0" layoutY="9.0" prefHeight="30.0" prefWidth="256.0" text="Import Legacy Data" textAlignment="CENTER" textFill="#333333">
+                      <font>
+                          <Font size="20.0" />
+                      </font>
+                  </Label>
+         </children>
+        </Pane>
+        <Pane layoutX="300.0" layoutY="50.0" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #91a65f;" />
+        <TableView fx:id="data_table" layoutX="318.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1213.0" scaleShape="false">
+            <columns>
+                <TableColumn fx:id="snsUserNumberCol" prefWidth="100.0" sortable="false" text="SNS User Nº" />
+                <TableColumn fx:id="snsUserNameCol" prefWidth="180.0" sortable="false" text="SNS User Name" />
+                <TableColumn fx:id="vaccineTypeCol" prefWidth="105.0" sortable="false" text="Vaccine Type" />
+                <TableColumn fx:id="vaccineNameCol" prefWidth="110.0" sortable="false" text="Vaccine Name" />
+                <TableColumn fx:id="doseNumberCol" prefWidth="75.0" sortable="false" text="Dose Nº" />
+                <TableColumn fx:id="lotNumberCol" prefWidth="105.0" sortable="false" text="Lot Nº" />
+                <TableColumn fx:id="scheduledDateTimeCol" prefWidth="135.0" sortable="false" text="Scheduled Date/Time" />
+                <TableColumn fx:id="arrivalDateTimeCol" prefWidth="130.0" sortable="false" text="Arrival Date/Time" />
+                <TableColumn fx:id="dateOfAdministrationCol" prefWidth="135.0" sortable="false" text="Scheduled Date/Time" />
+                <TableColumn fx:id="leavingDateTimeCol" prefWidth="135.0" text="Leaving Date/Time" />
+            </columns>
+        </TableView>
+      <Button fx:id="cancelBt" layoutX="1391.0" layoutY="764.0" mnemonicParsing="false" onAction="#cancelPressed" prefHeight="20.0" prefWidth="140.0" style="-fx-background-color: #dddea0;" text="Cancel" textFill="#333333">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

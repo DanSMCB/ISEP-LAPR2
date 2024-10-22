@@ -1,0 +1,44 @@
+@startuml
+autonumber
+
+participant ":RecordAdministrationOfVaccineController" as CTRL
+participant "appointmentDTO\n:AppointmentDTO" as APPOINTMENTDTO
+participant "company :Company" as COMPANY
+participant "vaccineTypeStore : VaccineTypeStore" as VACCINETYPESTORE
+participant "vaccineType : VaccineType" as VACCINETYPE
+participant "vaccineStore : VaccineStore" as VACCINESTORE
+participant ":VaccineMapper" as VACCINEMAPPER
+
+[o-> CTRL : getVaccineList()
+activate CTRL
+CTRL -> APPOINTMENTDTO : getVaccineType()
+activate APPOINTMENTDTO
+APPOINTMENTDTO --> CTRL : vaccineTypeDto
+deactivate APPOINTMENTDTO
+CTRL -> COMPANY : getVaccineTypeStore()
+activate COMPANY
+deactivate COMPANY
+CTRL -> VACCINETYPESTORE :  find(vaccineTypeDto)
+activate VACCINETYPESTORE
+VACCINETYPESTORE --> CTRL : vaccineType
+deactivate VACCINETYPESTORE
+CTRL -> VACCINETYPE : getVaccineStore()
+activate VACCINETYPE
+VACCINETYPE --> CTRL  : vaccineStore
+deactivate VACCINETYPE
+CTRL -> VACCINESTORE : getVaccineList()
+activate VACCINESTORE
+VACCINESTORE --> CTRL : lVaccines
+deactivate VACCINESTORE
+CTRL -> VACCINEMAPPER : toDto(lVaccines)
+activate VACCINEMAPPER
+ref over VACCINEMAPPER [[US008_SD_vaccineMapper_toDto.puml]] : US008_SD_vaccineMapper_toDto
+VACCINEMAPPER --> CTRL : lVaccinesDto
+deactivate VACCINEMAPPER
+deactivate VACCINESTORE
+deactivate APPOINTMENTDTO
+<-- CTRL : lVaccinesDto
+deactivate CTRL
+
+
+@enduml

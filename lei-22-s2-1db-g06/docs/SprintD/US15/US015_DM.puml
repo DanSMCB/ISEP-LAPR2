@@ -1,0 +1,33 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+class Company {
+}
+class VaccinationCenter {
+}
+class Appointment{
+-listAppointment
+}
+class CenterCoordinator extends Employee{
+}
+class SNSUser{
+-birthdate
+}
+class AdministrationProcess{
+-numberOfDoses
+}
+class Vaccine{
+}
+class Employee{}
+
+Company"1" --> "*"Vaccine: applies
+Vaccine"1" --> "1..*" AdministrationProcess: has
+Company"1"--> "*"VaccinationCenter: manages
+VaccinationCenter"1" --> "1..*" CenterCoordinator: has
+Company"1" --> "*"Employee: employ
+Company"1" --> "*" SNSUser: knows
+VaccinationCenter"1" --> "*"Appointment: has
+
+@enduml

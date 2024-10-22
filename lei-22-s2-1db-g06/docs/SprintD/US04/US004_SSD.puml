@@ -1,0 +1,22 @@
+@startuml
+autonumber
+actor "Receptionist" as Recep
+
+activate Recep
+Recep -> ":System" : asks to register the arrival of an SNS user to take the vaccine
+activate ":System"
+":System" --> Recep : requests the SNS user number
+deactivate ":System"
+
+Recep -> ":System" : types requested data
+activate ":System"
+":System" --> Recep : shows the SNS user appointments and asks to confirm the arrival of one of those appointments
+deactivate ":System"
+
+Recep -> ":System" : confirms the user's time of arrival
+activate ":System"
+":System" --> Recep : informs operation success
+deactivate ":System"
+
+deactivate Recep
+@enduml

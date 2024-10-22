@@ -1,0 +1,164 @@
+@startuml
+
+class RegisterSNSUserArrivalUI {
+}
+
+class RegisterSNSUserArrivalController {
++checkSNSAppointment(snsNumber : long) : List <AppointmentDTO>
++changeAppointmentStateToWaiting(appointmentDto : AppointmentDTO) : void
+}
+
+class Company {
+-snsUserStore : SNSUserStore
++getSnsUserStore() : SNSUserStore
+}
+
+class SNSUser {
++checkUserNumber(snsNumber : long) : boolean
++getTodayAppointment() : List<Appointment>
++getSnsUserAppointmentStore() : SNSUserAppointmentStore
+}
+
+class SNSUserAppointmentStore {
+-snsUserAppointmentStore : List<Appointment>
++getTodayAppointment() : List<Appointment>
++findAppointment(appointmentDto : AppointmentDTO) : Appointment
+}
+
+class AppointmentMapper {
++toDTO(lTodayAppointment : List<Appointment>) : List<AppointmentDto>
+}
+
+class Appointment {
+-date : Date
+-time : Date
+-vaccineType : VaccineType
+-state : State
+-snsUser : SNSUser
+-snsUserArrivalTime : Date
++setStateWaiting() : void
++setSNSTimeOfArrival(SNSTimeOfArrival : Date) : void
++getVaccineType() : void
++getSNSUser() : SNSUser
++getTime() : Date
++getDate() : Date
+}
+
+class VaccineTypeMapper {
++toDto(vaccineType : VaccineType) : VaccineTypeDTO
+}
+
+class SNSUserMapper {
++toDto(snsUser : SNSUser) : SNSUserDTO
+}
+
+class VaccineType {
+-code : String
+-description : String
+-vaccineTechnology : String
++getCode() : String
++getDescription() : String
++getVaccineTechnology() : String
+}
+
+class SNSUser {
+-name : String
+-address : String
+-sex : String
+-phoneNumber : long
+-email : Email
+-birthDate : Date
+-snsNumber : long
+-citizenCard : long
++getName() : String
++getAddress() : String
++getSex() : String
++getPhoneNumber() : long
++getEmail() : Email
++getBirthDate() : Date
++getSNSNumber() : long
++getCitizenCardNumber() : long
+}
+
+class SNSUserStore {
+-snsUserList : List<SNSUser>
++findSnsUserByNumber(snsNumber : long ) : SNSUser
+}
+
+class AppointmentDTO {
+-date : Date
+-time : Date
+-vaccineType : VaccineTypeDTO
+-snsUser : SNSUserDTO
++getDate() : Date
++getTime() : Date
++getVaccineType() : VaccineTypeDTO
++getSNSUser() : SNSUserDTO
++setDate(date : Date) : void
++setTime(time : Date) : void
++setVaccineType(vaccineType : VaccineTypeDTO) : void
++setSNSUser(snsUser : SNSUserDTO) : void
+}
+
+class SNSUserDTO {
+-name : String
+-address : String
+-sex : String
+-phoneNumber : long
+-email : Email
+-birthDate : Date
+-snsNumber : long
+-citizenCard : long
++getName() : String
++getAdress() : String
++getSex() : String
++getPhoneNumber() : long
++getEmail() : Email
++getBirthDate() : Date
++getSNSNumber() : long
++getCitizenCard() : long
++setName(name : String) : void
++setAddress(address : String) : void
++setSex(sex : String) : void
++setPhoneNumber(phoneNumber : long) : void
++setEmail(email : Email) : void
++setBirthDate(birthDate : Date) : void
++setSNSNumber(snsNumber : long) : void
++setCitizenCard(citizenCard : long) : void
+}
+
+class VaccineTypeDTO {
+-code : String
+-description : String
+-vaccineTechnology : String
++VaccineTypeDto(code : String, description : String, vaccineTechnology : String)
++getCode() : String
++getDescription() : String
++getVaccineTechnology() : String
++setCode(code : String) : void
++setDescription(description : String) : void
++setVaccineTechnology(vaccineTechnology : String) : void
+}
+
+RegisterSNSUserArrivalUI ..> RegisterSNSUserArrivalController
+RegisterSNSUserArrivalUI ..> AppointmentDTO
+RegisterSNSUserArrivalController ..> Company
+RegisterSNSUserArrivalController ..> AppointmentMapper
+RegisterSNSUserArrivalController ..> SNSUser
+RegisterSNSUserArrivalController ..> AppointmentDTO
+Company "1" --> "1" SNSUserStore : uses
+SNSUserStore "1" --> "*" SNSUser : knows
+SNSUser "1" --> "1" SNSUserAppointmentStore : uses
+SNSUserAppointmentStore "1" --> "*" Appointment : knows
+AppointmentMapper ..> Appointment
+AppointmentMapper ..> AppointmentDTO
+AppointmentMapper ..> SNSUserDTO
+AppointmentMapper ..> VaccineTypeDTO
+AppointmentMapper ..> VaccineTypeMapper
+AppointmentMapper ..> SNSUserMapper
+SNSUserMapper ..> SNSUser
+SNSUserMapper ..> SNSUserDTO
+VaccineTypeMapper ..> VaccineType
+VaccineTypeMapper ..> VaccineTypeDTO
+RegisterSNSUserArrivalController ..> Appointment
+@enduml

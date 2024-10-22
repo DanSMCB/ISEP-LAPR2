@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+
+
+:Administrator: as Admin
+:Center Coordinator: as CC
+:Receptionist: as RP
+:Nurse: as NS
+:SNS User: as User
+
+(UC1 - Obtain Vaccination Certificate) as (UC1)
+(UC2 - Schedule Vaccination) as (UC2)
+(UC3- Check the SNS User Arrival list) as (UC3)
+(UC4 - Check SNS User Information ) as (UC4)
+(UC5- Check Vaccine Administration Instructions) as (UC5)
+(UC6 - Register administered Vaccine Information) as (UC6)
+(UC7 - Record Adverse Reaction) as (UC7)
+(UC8 - Check Statistics and Charts) as (UC8)
+(UC9 - Evaluate Vaccination Process Performance) as (UC9)
+(UC10 - Generate Reports) as (UC10)
+(UC11 - Analyze Data from Other Centers) as (UC11)
+(UC12 - Check Arriving SNS User's Vaccine Schedule) as (UC12)
+(UC13 - Register SNS User as Ready for Vaccine Administration) as (UC13)
+(UC14 - Register Vaccination Centers) as (UC14)
+(UC15 - Register Employees) as (UC15)
+(UC16 - Register SNS Users) as (UC16)
+(UC17 - Manage Core Information) as (UC17)
+
+
+
+User -- (UC1)
+User -- (UC2)
+
+NS -- (UC1)
+NS -- (UC3)
+NS -- (UC4)
+NS -- (UC5)
+NS -- (UC6)
+NS -- (UC7)
+
+CC -- (UC8)
+CC -- (UC9)
+CC -- (UC10)
+CC -- (UC11)
+
+RP -- (UC2)
+RP -- (UC12)
+RP -- (UC13)
+
+Admin -- (UC14)
+Admin -- (UC15)
+Admin -- (UC16)
+Admin -- (UC17)
+@enduml

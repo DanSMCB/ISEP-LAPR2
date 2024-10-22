@@ -1,0 +1,35 @@
+@startuml
+
+autonumber
+participant ":VaccineMapper" as VACCINEMAPPER
+participant "lVaccines\n:List<Vaccine>" as LVACCINES
+participant "lVaccinesDto\n:list<VaccineDto>" as lVaccinesDto
+participant "VaccineDto\n:VaccineDto" as VACCINEDTO
+
+[o->VACCINEMAPPER : toDto(lVaccines)
+activate VACCINEMAPPER
+
+VACCINEMAPPER --> lVaccinesDto **: create()
+
+loop for each object in lVaccines
+
+VACCINEMAPPER -> LVACCINES : vacineId=getId()
+activate LVACCINES
+deactivate LVACCINES
+VACCINEMAPPER -> LVACCINES : name=getName()
+activate LVACCINES
+deactivate LVACCINES
+VACCINEMAPPER -> LVACCINES : brand=getBrand()
+activate LVACCINES
+deactivate LVACCINES
+
+VACCINEMAPPER --> VACCINEDTO **: create(vaccineId, name, brand)
+
+VACCINEMAPPER -> lVaccinesDto : add(vaccineDto)
+activate lVaccinesDto
+deactivate lVaccinesDto
+end loop
+[<-- VACCINEMAPPER : lVaccinesDto
+
+
+@enduml

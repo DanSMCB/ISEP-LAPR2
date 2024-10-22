@@ -1,0 +1,99 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class RegisterEmployeeUI {}
+
+class RegisterEmployeeController {
+  +createEmployee(empDto : EmployeeDto) : void
+  +saveEmployee() : void
+  +getRoles() : List<RoleDTO>
+}
+
+class Company {
+  -designation : String
+  -List <OrgRoles> lRoles
+  +saveEmployee(emp : Employee) : void
+  +createEmployee(empDto : EmployeeDto) : void
+  +getRoles() : List <Roles>
+}
+
+class RoleMapper {
+  -lRolesDto List<RoleDTO>
+  +toDTO(lRoles : List<Role>) : List <RoleDTO>
+}
+
+class EmployeeDto {
+  -name : String
+  -employeeId : String
+  -address : String
+  -phoneNumber : String
+  -emailAddress : String
+  -ccNumber : String
+  +EmployeeDTO(name : String, id : String, address : String, phoneNumber : String, emailAdress : Email, ccNumber : String, role : RoleDTO)
+}
+
+class User {
+  -name : String
+  -emailAddress : Email
+  -password : Password
+  +getId() : Email
+}
+
+class OrgRole{
+  -designation : String
+  -roleId : String
+  +getId() : String
+  +getDesignation() : String
+}
+
+class EmployeeMapper {
+  +createEmployee(empDto : EmployeeDto) : Employee
+
+}
+
+class Employee extends User {
+  -employeeId : String
+  -address : String
+  -phoneNumber : String
+  -ccNumber : String
+  +getRole() : Role
+  +getName() : String
+  +getId() : String
+  +getAddress() : String
+  +getPhoneNumber() : String
+  +getEmail() : String
+  +getCcNumber(): String
+  +Employee(name : String, id : String, address : String, phoneNumber : String, emailAdress : Email, ccNumber : String, role : RoleDTO)
+}
+
+class RoleDTO{
+  -designation : String
+  -roleId : String
+  +getId() : String
+  +getDesignation() : String
+}
+
+class EmployeeStore {
+  -listEmployee : List<Employee>
+  +saveEmployee(emp : Employee) : void
+  +validateEmployee(emp : Employee) : boolean
+  +addEmployee(emp : Employee) : void
+}
+
+
+
+RegisterEmployeeUI ..> RegisterEmployeeController
+RegisterEmployeeUI ..> EmployeeDto
+RegisterEmployeeController ..> Company
+RegisterEmployeeController ..> RolesMapper
+RegisterEmployeeController ..> Employee
+RegisterEmployeeController ..> EmployeeStore
+RegisterEmployeeController ..> EmployeeMapper
+Company -> EmployeeStore : uses
+EmployeeMapper ..> EmployeeDto
+RolesMapper ..> RoleDTO
+Company -> OrgRole : saves
+
+
+
+@enduml

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="448px" preserveAspectRatio="none" style="width:736px;height:448px;background:#FFFFFF;" version="1.1" viewBox="0 0 736 448" width="736px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="304.6641" style="stroke:#181818;stroke-width:1.0;" width="10" x="299" y="83.7266"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="652" y="112.8594"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="652" y="171.9922"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="652" y="231.125"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="652" y="290.2578"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="652" y="349.3906"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="303.5" x2="303.5" y1="52.5938" y2="397.3906"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="657" x2="657" y1="52.5938" y2="397.3906"/><rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="165" x="221.5" y="21.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="228.5" y="41.292">:AppointmentMapper</text><rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="165" x="221.5" y="396.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="228.5" y="416.3857">:AppointmentMapper</text><rect fill="#E2E2F0" height="46.5938" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="146" x="584" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="596" y="24.9951">appointmentDTO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="591" y="41.292">: AppointmentDTO</text><rect fill="#E2E2F0" height="46.5938" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="146" x="584" y="396.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="596" y="416.3857">appointmentDTO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="591" y="432.6826">: AppointmentDTO</text><rect fill="#FFFFFF" height="304.6641" style="stroke:#181818;stroke-width:1.0;" width="10" x="299" y="83.7266"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="652" y="112.8594"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="652" y="171.9922"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="652" y="231.125"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="652" y="290.2578"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="652" y="349.3906"/><ellipse cx="7.5" cy="82.9766" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.5;"/><polygon fill="#181818" points="287,79.7266,297,83.7266,287,87.7266,291,83.7266" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="12" x2="293" y1="83.7266" y2="83.7266"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="15" y="78.6606">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="259" x="28" y="78.6606">appointmentToModel(appointmentDTO)</text><polygon fill="#181818" points="640,108.8594,650,112.8594,640,116.8594,644,112.8594" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="309" x2="646" y1="112.8594" y2="112.8594"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="316" y="107.7935">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="202" x="329" y="107.7935">snsNumber = getSNSNumber()</text><polygon fill="#181818" points="640,167.9922,650,171.9922,640,175.9922,644,171.9922" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="309" x2="646" y1="171.9922" y2="171.9922"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="316" y="166.9263">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="287" x="329" y="166.9263">vaccinationCenter = getVaccinationCenter()</text><polygon fill="#181818" points="640,227.125,650,231.125,640,235.125,644,231.125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="309" x2="646" y1="231.125" y2="231.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="316" y="226.0591">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="308" x="329" y="226.0591">dateOfAppointment = getDateOfAppointment()</text><polygon fill="#181818" points="640,286.2578,650,290.2578,640,294.2578,644,290.2578" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="309" x2="646" y1="290.2578" y2="290.2578"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="316" y="285.1919">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="311" x="329" y="285.1919">timeOfAppointment = getTimeOfAppointment()</text><polygon fill="#181818" points="640,345.3906,650,349.3906,640,353.3906,644,349.3906" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="309" x2="646" y1="349.3906" y2="349.3906"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="316" y="344.3247">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="215" x="329" y="344.3247">vaccineType = getVaccineType()</text><!--MD5=[5b5d66a48a0cd9137786c6c255fe3410]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant ":AppointmentMapper" as APPOINTMENT_MAPPER
+participant "appointmentDTO\n: AppointmentDTO" as APPOINTMENT_DTO
+
+[o-> APPOINTMENT_MAPPER: appointmentToModel(appointmentDTO)
+activate APPOINTMENT_MAPPER
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : snsNumber = getSNSNumber()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : vaccinationCenter = getVaccinationCenter()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : dateOfAppointment = getDateOfAppointment()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : timeOfAppointment = getTimeOfAppointment()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : vaccineType = getVaccineType()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+@enduml
+
+@startuml
+
+autonumber
+participant ":AppointmentMapper" as APPOINTMENT_MAPPER
+participant "appointmentDTO\n: AppointmentDTO" as APPOINTMENT_DTO
+
+[o-> APPOINTMENT_MAPPER: appointmentToModel(appointmentDTO)
+activate APPOINTMENT_MAPPER
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : snsNumber = getSNSNumber()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : vaccinationCenter = getVaccinationCenter()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : dateOfAppointment = getDateOfAppointment()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : timeOfAppointment = getTimeOfAppointment()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+APPOINTMENT_MAPPER -> APPOINTMENT_DTO : vaccineType = getVaccineType()
+activate APPOINTMENT_DTO
+deactivate APPOINTMENT_DTO
+@enduml
+
+PlantUML version 1.2022.5(Sat Apr 30 11:55:52 WEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

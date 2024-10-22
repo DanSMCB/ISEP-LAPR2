@@ -1,0 +1,227 @@
+@startuml
+autonumber
+'hide footbox
+actor "CenterCoordinator" as CC
+
+participant ":ImportLegacySystemDataGUI" as UI
+participant ":ImportLegacySystemDataController" as CTRL
+participant ":Company" as COMP
+participant "snsUserStore: SNSUserStore" as SNS_STORE
+participant "snsUser:SNSUser" as SNS_USER
+participant "snsUserAppointmentStore:SNSUserAppointmentStore" as SNSUser_Appointment_Store
+participant "vtStore\n:VaccineTypeStore" as vtStore
+participant "vt\n:VaccineType" as vt
+participant "vaccStore\n:VaccineStore" as vaccStore
+participant "vaccine\n:Vaccine" as vaccine
+participant "admpStore\n:AdmProcessStore" as admpStore
+participant "admp:AdministrationProcess" as admp
+participant "doseStore\n:DoseStore" as doseStore
+participant "dose:Dose" as dose
+participant "vaccinationCenter:VaccinationCenter" as VCenter
+participant "appointmentStore:AppointmentStore" as APPOINTMENT_STORE
+participant "appointment:Appointment" as Appointment
+participant ":DayList" as DayList
+participant "day:DaySchedule" as Day
+participant "sl:Slot" as SL
+participant "vaccineAdministration:VaccineAdministration" as VAdministration
+
+
+activate CC
+CC -> UI : asks to import data from a legacy system (file)
+activate UI
+UI -> CTRL : getCCVaccinationCenter()
+
+activate CTRL
+
+ref over CTRL, COMP [[US017_SD_ImportLegacySystemDataController_getCCVaccinationCenter.puml]] :US017_SD_ImportLegacySystemDataController\nController_getCCVaccinationCenter
+CTRL --> UI
+deactivate CTRL
+
+UI --> CC : requests file
+deactivate UI
+CC -> UI : selects file
+activate UI
+
+
+UI -> CTRL : saveFileContent(file)
+activate CTRL
+deactivate CTRL
+UI -> CTRL : saveData()
+
+activate CTRL
+CTRL -> COMP : getSnsUserStore()
+activate COMP
+COMP --> CTRL : snsUserStore
+deactivate COMP
+
+CTRL -> COMP : getVTStore()
+activate COMP
+COMP --> CTRL : vtStore
+deactivate COMP
+
+loop For each line in fileContentList
+
+CTRL -> SNS_STORE : snsUser = findSnsUserByNumber(snsNumber)
+
+activate SNS_STORE
+loop For each user in SnsUserStore until checkUserNumber(snsNumber) is true
+SNS_STORE-> SNS_USER:checkUserNumber(snsNumber)
+
+activate SNS_USER
+SNS_USER --> SNS_STORE:true/false
+
+deactivate SNS_USER
+
+end loop
+
+
+SNS_STORE --> CTRL: snsUser
+deactivate SNS_STORE
+
+CTRL -> vtStore: vaccine = findVaccine(vaccineName)
+loop For each vaccineType in vtStore until checkVaccineName(vaccineName) is true
+activate vtStore
+vtStore -> vt: vaccStore = getVaccineStore()
+activate vt
+deactivate vt
+vtStore -> vaccStore : findVaccine(vaccineName)
+loop For each vaccine in vaccStore until checkVaccineName(vaccineName) is true
+activate vaccStore
+vaccStore-> vaccine:checkVaccineName(vaccineName)
+activate vaccine
+vaccine --> vaccStore:true/false
+deactivate vaccine
+end loop
+
+
+
+end loop
+vaccStore --> vtStore:vaccine
+deactivate vaccStore
+vtStore --> CTRL: vaccine
+deactivate vtStore
+
+
+CTRL -> vaccine: admpStore = getAdmProcessStore()
+activate vaccine
+deactivate vaccine
+CTRL -> SNS_USER : age=getAge()
+activate SNS_USER
+deactivate SNS_USER
+CTRL -> admpStore : admp = getAdmProcess(age)
+activate admpStore
+
+admpStore --> CTRL : admp
+deactivate admpStore
+
+CTRL -> admp : dose = findDose(doseNumber)
+activate admp
+admp -> doseStore : findDose(doseNumber)
+activate doseStore
+loop For each dose in doseStore until checkDoseNumber(doseNumber) is true
+doseStore-> dose:checkDoseNumber(doseNumber)
+activate dose
+dose --> doseStore:true/false
+deactivate dose
+end loop
+doseStore --> admp : dose
+deactivate doseStore
+admp --> CTRL : dose
+deactivate admp
+
+
+CTRL ->VCenter:sl=findSlot(scheduledDate, scheduledTime)
+activate VCenter
+VCenter -> DayList: day=findDay(scheduledDate, scheduledTime)
+activate DayList
+loop For each day in dayList until checkDay(scheduledDate, scheduledTime) is true
+DayList-> Day:checkDay(scheduledDate,scheduledTime)
+
+activate Day
+Day -->DayList:true/false
+
+deactivate Day
+
+end loop
+opt if day does not exist
+activate DayList
+DayList --> Day : create(openingHour, closingHour, slotDuration, numberOfVaccinesSlot, date)
+DayList -> DayList : addDay(day)
+activate DayList
+deactivate DayList
+end
+deactivate DayList
+
+VCenter -> Day: findSlot(scheduledTime)
+activate Day
+
+loop For each slot in Day until checkSlot(scheduledTime) is true
+Day -> SL: checkSlot(scheduledTime)
+activate SL
+SL --> Day:true/false
+deactivate SL
+
+end loop
+
+deactivate Day
+deactivate VCenter
+CTRL -> SL: validateSlot()
+activate SL
+deactivate SL
+
+CTRL -> VCenter : appointment = createVaccinationAppointment(vaccineType,snsUser,scheduledDate,scheduledTime,arrivalTime,leavingTime))
+activate VCenter
+
+VCenter -> APPOINTMENT_STORE: createVaccinationAppointment(vaccineType,snsUser,scheduledDate,scheduledTime,arrivalTime,leavingTime)
+activate APPOINTMENT_STORE
+APPOINTMENT_STORE --> Appointment ** :create(vaccineType,snsUser,scheduledDate,scheduledTime,arrivalTime,leavingTime)
+
+
+APPOINTMENT_STORE -->VCenter:appointment
+deactivate APPOINTMENT_STORE
+
+
+VCenter-->CTRL:appointment
+deactivate VCenter
+
+CTRL -> Appointment: addVaccineAdministration(lotNumber, dateOfAdministration, vaccine, admp, dose)
+activate Appointment
+Appointment --> VAdministration **: create(lotNumber, dateOfAdministration, vaccine, admp, dose)
+Appointment -> Appointment: setVaccineAdministration(vaccineAdministration)
+activate Appointment
+deactivate Appointment
+deactivate Appointment
+
+CTRL -> SNS_USER: addAppointment(appointment)
+activate SNS_USER
+SNS_USER -> SNSUser_Appointment_Store: addAppointment(appointment)
+activate SNSUser_Appointment_Store
+deactivate SNSUser_Appointment_Store
+deactivate SNS_USER
+
+CTRL -> SL: addScheduledVaccine()
+activate SL
+deactivate SL
+CTRL -> CTRL : addToImportedList(snsNumber,snsUserName,vaccineType,vaccineName,doseNumber,lotNumber,scheduledDateTime,arrivalDateTime,dateOfAdministration,leavingDateTime)
+activate CTRL
+deactivate CTRL
+deactivate CTRL
+
+end loop
+UI -> CTRL: data = getImportedDataAuxList()
+activate CTRL
+deactivate CTRL
+UI --> CC : shows imported data
+deactivate UI
+CC->UI: asks to sort data by time (arrival or leaving time) and order (ascending or descending)
+
+activate UI
+
+ref over UI, CTRL [[US017_SD_ImportLegacySystemDataUI_sortByOrder.puml]] :US017_SD_ImportLegacySystemDataUI_sortByOrder
+
+UI --> CC : shows imported data in the selected order
+
+deactivate UI
+deactivate CC
+
+@enduml

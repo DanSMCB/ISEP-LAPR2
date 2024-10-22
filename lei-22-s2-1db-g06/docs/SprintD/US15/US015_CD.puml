@@ -1,0 +1,74 @@
+@startuml
+skinparam classAttributeIconSize 0
+class UserSession{
+  +getUserID(): String
+}
+
+class APP {
+  +getInstance(): APP
+  +getCurrentUserSession(): UserSession
+}
+
+class AppointmentStore {
+  -listAppointment: List<Appointment>
+  +getNumberOfFullyVaccinated(initialDate:LocalDate,finalDate:LocalDate): List<Integer>
+}
+
+class Company {
+ +getEmployeeStore(): EmployeeStore
+}
+class EmployeeStore{
++findEmployeeByEmail(email:Email): Employee
+}
+class VaccinationCenter {
+  + getNumberOfFullyVaccinated(initialDate:LocalDate,finalDate:LocalDate):List<Integer>
+}
+class CenterCoordinator{
++getVaccinationCenter():VaccinationCenter
+}
+
+class CheckAndExportVaccinationStatisticsController {
+  +getVaccinationStatistics(initialDate:LocalDate,finalDate:LocalDate): List<Integer>
+}
+
+class CheckAndExportVaccinationStatisticsUI {
++ exportToCSVFile(fullVaccinatedArray: List<Integer>, fileName:String):void
+}
+class SNSUser{
++getAge():int
+}
+class Appointment{}
+class AdministrationProcess{
+-numberOfDoses:int
++getTotalNumberOfDoses():int
+}
+
+class Vaccine{
++getAdmProcess(age:int):AdministrationProcess
+}
+
+
+CheckAndExportVaccinationStatisticsUI ..> CheckAndExportVaccinationStatisticsController
+CheckAndExportVaccinationStatisticsController ..> VaccinationCenter
+CheckAndExportVaccinationStatisticsController ..> AppointmentStore
+Appointment "1..*" -> "1" SNSUser: knows
+CheckAndExportVaccinationStatisticsController ..> APP
+CheckAndExportVaccinationStatisticsController ..> Company
+CheckAndExportVaccinationStatisticsController ..> EmployeeStore
+CheckAndExportVaccinationStatisticsController ..> CenterCoordinator
+CheckAndExportVaccinationStatisticsController ..> UserSession
+CheckAndExportVaccinationStatisticsController ..> SNSUser
+CheckAndExportVaccinationStatisticsController ..> AdministrationProcess
+CheckAndExportVaccinationStatisticsController ..> Vaccine
+Appointment "1..*" -> "1" AdministrationProcess: has
+APP "1" -> "1" UserSession: has
+Company "1" ->  "1" EmployeeStore: uses
+EmployeeStore "1" -> "*" CenterCoordinator: knows
+CenterCoordinator "1" -> "1" VaccinationCenter: works on
+
+VaccinationCenter "1" ->  "1" AppointmentStore: has
+
+Appointment "1..*" -> "1" Vaccine: knows
+
+
+@enduml

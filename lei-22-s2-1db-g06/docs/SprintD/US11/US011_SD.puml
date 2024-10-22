@@ -1,0 +1,80 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as ADM
+
+participant ":GetListUI" as UI
+participant ":GetListController" as CTRL
+participant ":Company" as ORG
+participant ":RoleMapper" as ROLE_MAPPER
+participant ":EmployeeMapper" as EMPLOYEE_MAPPER
+participant ":lEmployee\n :List <Employee>" as LIST_EMPLOYEE
+participant ":lEmployeeDTO\n :List <EmployeeDTO>" as LIST_EMPLOYEE_DTO
+participant ":employeeDTO: EmployeeDTO" as EMPLOYEE_DTO
+participant "lr\n:List<Role>" as LIST_CRT
+participant "roleDTO\n:RoleDTO" as ROLE_DTO
+participant "lrDTO\n:List<RoleDTO>" as listCRT_DTO
+participant "roleStore\n: RoleStore" as roleStore
+participant "empStore\n: EmployeeStore" as empStore
+
+
+
+activate ADM
+ADM -> UI : asks to get a list of Employees
+activate UI
+
+UI-> CTRL :getRoleList()
+activate CTRL
+CTRL -> ORG: roleStore=getRoleStore()
+activate ORG
+deactivate ORG
+CTRL -> roleStore: lr=getListOfRole()
+activate roleStore
+deactivate roleStore
+CTRL -> ROLE_MAPPER :roleToDTO(lr)
+activate ROLE_MAPPER
+
+ref over EMPLOYEE_MAPPER,ROLE_MAPPER[[US011_SD_roleMapper_roleToDTO.puml]]:US011_SD_roleMapper_roleToDTO
+CTRL <-- ROLE_MAPPER : lrDTO
+deactivate ROLE_MAPPER
+
+
+
+deactivate CTRL
+
+
+UI --> ADM : requests data (role)
+deactivate UI
+
+ADM -> UI : selects role
+activate UI
+
+UI -> CTRL : getListOfEmployeesByRole(selectedRole)
+activate CTRL
+CTRL -> ORG : empStore=getEmployeeStore()
+activate ORG
+deactivate ORG
+
+
+CTRL -> empStore : listEmployee=getListOfEmployees()
+activate empStore
+deactivate empStore
+
+CTRL -> EMPLOYEE_MAPPER : listOfEmployeeToDTO(listEmployee,selectedRole)
+
+activate EMPLOYEE_MAPPER
+ref over EMPLOYEE_MAPPER,EMPLOYEE_DTO [[US011_SD_EmployeeMapper_listOfEmployeeToDTO.puml]]:US011_SD_EmployeeMapper_listOfEmployeeToDTO
+ CTRL <-- EMPLOYEE_MAPPER : lEmployeeDTO
+deactivate EMPLOYEE_MAPPER
+
+
+
+deactivate CTRL
+
+deactivate ORG
+
+UI --> ADM : shows the list of Employees according to the selected role
+deactivate UI
+
+
+@enduml

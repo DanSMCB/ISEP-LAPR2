@@ -1,0 +1,61 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ":AppointmentStore" as AppointmentStore
+
+participant "listAppointment\n:list<Appointment>" as appointments
+participant "snsUser:SNSUser" as SNSUser
+participant "admProcess:AdministrationProcess" as ADMP
+participant "fullVaccinatedCounter:Integer" as counter
+participant "fullVaccinatedArray:List<Integer>" as IntegerArray
+participant "vaccine:Vaccine" as Vaccine
+
+
+
+
+[o-> AppointmentStore:getNumberOfFullyVaccinated(initialDate,finalDate)
+activate AppointmentStore
+
+loop for each day from initialDate to finalDate
+loop for each object in listAppointment
+opt if state=done
+AppointmentStore -> appointments : snsUser=getSnsUser()
+activate appointments
+deactivate appointments
+AppointmentStore -> SNSUser: age=getAge()
+activate SNSUser
+deactivate SNSUser
+AppointmentStore -> appointments : date=getDate()
+activate appointments
+deactivate appointments
+AppointmentStore -> appointments : numberOfDose=getNumberOfDose()
+activate appointments
+deactivate appointments
+AppointmentStore -> appointments: vaccine=getVaccine()
+activate appointments
+deactivate appointments
+AppointmentStore -> Vaccine:admProcess= getAdmprocess(age)
+activate Vaccine
+deactivate Vaccine
+AppointmentStore -> ADMP:totalNumberOfDoses=getNumberOfDose()
+activate ADMP
+deactivate ADMP
+opt if numberOfDose=totalNumberOfDoses
+opt if date = day
+AppointmentStore-> counter **:increament()
+
+end
+end
+end loop
+AppointmentStore -> IntegerArray: add(fullVaccinatedCounter)
+activate IntegerArray
+deactivate IntegerArray
+end
+end loop
+[<-- AppointmentStore : fullVaccinatedArray
+deactivate AppointmentStore
+
+
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+
+autonumber
+participant ":snsUserMapper" as snsMapper
+participant "snsUser\n:SNSUser" as snsUser
+participant "snsUserDto\n:SNSUserDto" as snsUserDto
+
+[o->snsMapper : toDto(snsUser)
+
+activate snsMapper
+
+snsMapper -> snsUser : name=getName()
+activate snsUser
+deactivate snsUser
+snsMapper -> snsUser : address=getAddress()
+activate snsUser
+deactivate snsUser
+snsMapper -> snsUser : sex=getSex()
+activate snsUser
+deactivate snsUser
+snsMapper -> snsUser : phoneNumber=getPhoneNumber()
+activate snsUser
+deactivate snsUser
+snsMapper -> snsUser : email=getEmail()
+activate snsUser
+deactivate snsUser
+snsMapper -> snsUser : birthDate=getBirthDate()
+activate snsUser
+deactivate snsUser
+snsMapper -> snsUser : snsNumber=getSNSNumber()
+activate snsUser
+deactivate snsUser
+snsMapper -> snsUser : citizenCardNumber=getCitizenCardNumber()
+activate snsUser
+deactivate snsUser
+
+snsMapper --> snsUserDto **: create(name, address, sex, phoneNumber, email,\nbirthDate, snsNumber, citizenCardNumber)
+
+[<-- snsMapper : snsUserDto
+
+@enduml

@@ -1,0 +1,96 @@
+@startuml
+autonumber
+'hide footbox
+actor "Receptionist" as RECEP
+
+participant ":RegisterSNSUserArrivalUI" as UI
+participant ":RegisterSNSUserArrivalController" as CTRL
+participant ":Company" as COMP
+participant "snsUserStore: SNSUserStore" as SNSUSERSTORE
+participant "snsUser: SNSUser" as SNSUSER
+participant ":AppointmentMapper" as APPOINTMAPPER
+participant ":Appointment" as APOINT
+participant "snsUserAppointmentStore: SNSUserAppointmentStore" as SNSUSERAPPSTORE
+participant "lTodayAppointment :List<Appointment>" as LAPPOINTMENT
+
+activate RECEP
+RECEP -> UI : asks to register the arrival of an SNS user to take the vaccine
+activate UI
+
+UI --> RECEP : requests the SNS user number
+deactivate UI
+
+RECEP -> UI : types requested data
+activate UI
+UI -> CTRL : AppointmentDto = checkSNSAppointment(snsNumber)
+activate CTRL
+CTRL -> COMP : snsUserStore=getSnsUserStore()
+activate COMP
+deactivate COMP
+CTRL -> SNSUSERSTORE : findSnsUserByNumber(snsNumber)
+activate SNSUSERSTORE
+activate SNSUSERSTORE
+loop For each user in SnsUserStore until checkUserNumber(snsNumber) is true
+SNSUSERSTORE-> SNSUSER:checkUserNumber(snsNumber)
+
+activate SNSUSER
+SNSUSER --> SNSUSERSTORE:true/false
+
+deactivate SNSUSER
+
+end loop
+
+SNSUSERSTORE--> CTRL: snsUser
+deactivate SNSUSERSTORE
+deactivate SNSUSERSTORE
+CTRL -> SNSUSER : getTodayAppointment()
+deactivate COMP
+activate SNSUSER
+SNSUSER -> SNSUSERAPPSTORE : getTodayAppointment()
+activate SNSUSERAPPSTORE
+SNSUSERAPPSTORE--> LAPPOINTMENT**: create()
+loop for each appointment in snsUserAppointmentStore
+opt if checkStateToDo==true and checkIfToday==true
+SNSUSERAPPSTORE -> LAPPOINTMENT : add(appointment)
+activate LAPPOINTMENT
+deactivate LAPPOINTMENT
+end
+end loop
+SNSUSERAPPSTORE --> SNSUSER : lTodayAppointment
+deactivate SNSUSERAPPSTORE
+SNSUSER --> CTRL : lTodayAppointment
+deactivate SNSUSER
+CTRL -> APPOINTMAPPER : toDTO(lTodayAppointment)
+activate APPOINTMAPPER
+ref over APPOINTMAPPER [[US004_SD_appointmentMapper_toDto.puml]] : US004_SD_appointmentMapper_toDto
+APPOINTMAPPER --> CTRL : lAppointmentDto
+deactivate APPOINTMAPPER
+deactivate CTRL
+deactivate APOINT
+UI --> RECEP : shows the SNS user appointments and asks to confirm the arrival of one of those appointments
+deactivate UI
+
+RECEP -> UI : choose the appointment
+activate UI
+UI -> CTRL : changeAppointmentStateToWaiting(appointmentDto)
+activate CTRL
+CTRL -> SNSUSER : getSnsUserAppointmentStore()
+activate SNSUSER
+deactivate SNSUSER
+CTRL -> SNSUSERAPPSTORE : findAppointment(appointmentDto)
+activate SNSUSERAPPSTORE
+SNSUSERAPPSTORE --> CTRL : appointment
+deactivate SNSUSERAPPSTORE
+CTRL -> APOINT : setStateWaiting()
+activate APOINT
+deactivate APOINT
+CTRL -> APOINT : setSNSTimeOfArrival(SNSTimeOfArrival)
+activate APOINT
+deactivate APOINT
+deactivate CTRL
+UI --> RECEP : informs operation success
+deactivate UI
+
+
+
+@enduml

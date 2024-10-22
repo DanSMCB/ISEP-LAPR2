@@ -1,0 +1,44 @@
+@startuml
+autonumber
+actor "SNS user" as SNS
+
+activate SNS
+SNS -> ":System" : asks to create a new Vaccination appointment
+activate ":System"
+":System" --> SNS : suggests vaccine Type according to ongoing outbreak)
+deactivate ":System"
+alt if SNS user does not accept suggestion
+SNS -> ":System":asks for the available vaccine types
+activate ":System"
+":System"--> SNS: shows available vaccine types
+deactivate ":System"
+end
+SNS -> ":System" : selects vaccine type
+activate ":System"
+":System"--> SNS : requests data(SNS user number)
+deactivate ":System"
+
+SNS -> ":System": types requested data
+activate ":System"
+
+
+alt if the user does not have an appointment
+
+":System"--> SNS : shows available vaccination centers
+
+deactivate ":System"
+SNS -> ":System":selects vaccination center
+activate ":System"
+":System"--> SNS : requests data(time of Vaccination, date of vaccination)
+deactivate ":System"
+SNS -> ":System":types requested data
+activate ":System"
+":System" --> SNS : requests data(SMS permission)
+deactivate ":System"
+SNS -> ":System":types requested data
+activate ":System"
+":System"--> SNS : informs operations success and shows selected vaccination center, the scheduled day and time
+end
+deactivate SNS
+
+@enduml

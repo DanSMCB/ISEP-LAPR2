@@ -1,0 +1,47 @@
+@startuml
+autonumber
+actor "Center Coordinator" as CC
+participant "CheckAndExportVaccinationStatisticsUI" as UI
+participant "CheckAndExportVaccinationStatisticsController" as CTRL
+participant "VaccinationCenter" as VC
+participant "AppointmentStore" as AppointmentStore
+
+
+activate CC
+CC -> UI: ask to check vaccination statistics
+activate UI
+UI --> CC: requests date interval
+CC -> UI: types requested data
+UI-> CTRL:getCCVaccinationCenter()
+activate CTRL
+ref over CTRL [[US015_SD_CheckAndExportVaccinationStatisticsController_getCCVaccinationCenter.puml]]:US015_SD_CheckAndExportVaccination\nStatisticsController_getCCVaccinationCenter
+CTRL-->UI
+deactivate CTRL
+UI -> CTRL: getVaccinationStatistics(initialDate, finalDate)
+activate CTRL
+
+
+
+
+CTRL -> VC: getNumberOfFullyVaccinated(initialDate, finalDate)
+activate VC
+
+VC -> AppointmentStore : getNumberOfFullyVaccinated(initialDate, finalDate)
+ref over AppointmentStore [[US015_SD_AppointmentStore_getNumberOfFullyVaccinated.puml]] : US015_SD_AppointmentStore_getNumberOfFullyVaccinated
+activate AppointmentStore
+AppointmentStore --> VC:fullVaccinatedArray
+VC --> CTRL:fullVaccinatedArray
+deactivate AppointmentStore
+deactivate VC
+CTRL --> UI: fullVaccinatedArray
+UI--> CC: asks the file name
+CC->UI: types the file name
+UI->UI:exportToCSVFile(fullVaccinatedArray,fileName)
+activate UI
+deactivate UI
+
+deactivate CTRL
+UI--> CC: confirms operation success
+deactivate UI
+deactivate CC
+@enduml

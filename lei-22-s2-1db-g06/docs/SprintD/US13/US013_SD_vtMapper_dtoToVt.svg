@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="371px" preserveAspectRatio="none" style="width:513px;height:371px;background:#FFFFFF;" version="1.1" viewBox="0 0 513 371" width="513px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="211.2734" style="stroke:#181818;stroke-width:1.0;" width="10" x="123" y="87.5703"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="331" y="117.9219"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="331" y="178.2734"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="127.5" x2="127.5" y1="55.2188" y2="316.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="336" x2="336" y1="55.2188" y2="316.8438"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="457" x2="457" y1="256.3828" y2="316.8438"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="207" x="24.5" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="31.5" y="44.1426">vtMapper:VaccineTypeMapper</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="207" x="24.5" y="315.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="31.5" y="337.377">vtMapper:VaccineTypeMapper</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="122" x="275" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="319.5" y="26.5332">vtDto</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="282" y="44.1426">:VaccineTypeDto</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="122" x="275" y="315.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="319.5" y="337.377">vtDto</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="282" y="354.9863">:VaccineTypeDto</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="100" x="407" y="315.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="11" x="451.5" y="337.377">vt</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="414" y="354.9863">:VaccineType</text><rect fill="#FFFFFF" height="211.2734" style="stroke:#181818;stroke-width:1.0;" width="10" x="123" y="87.5703"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="331" y="117.9219"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="331" y="178.2734"/><ellipse cx="7.5" cy="86.8203" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.5;"/><polygon fill="#181818" points="111,83.5703,121,87.5703,111,91.5703,115,87.5703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="12" x2="117" y1="87.5703" y2="87.5703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="15" y="82.7139">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="85" x="26" y="82.7139">dtoToVT(vtDto)</text><polygon fill="#181818" points="319,113.9219,329,117.9219,319,121.9219,323,117.9219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="133" x2="325" y1="117.9219" y2="117.9219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="140" y="113.0654">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="92" x="151" y="113.0654">code=getCode()</text><polygon fill="#181818" points="319,174.2734,329,178.2734,319,182.2734,323,178.2734" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="133" x2="325" y1="178.2734" y2="178.2734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="140" y="173.417">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="168" x="151" y="173.417">designation=getDesignation()</text><polygon fill="#181818" points="395,234.625,405,238.625,395,242.625,399,238.625" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="133" x2="401" y1="238.625" y2="238.625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="140" y="233.7686">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="146" x="151" y="233.7686">create(code, designation)</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="100" x="407" y="216.2734"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="11" x="451.5" y="237.8066">vt</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="414" y="255.416">:VaccineType</text><polygon fill="#181818" points="11,294.8438,1,298.8438,11,302.8438,7,298.8438" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="5" x2="127" y1="298.8438" y2="298.8438"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="17" y="293.9873">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="9" x="28" y="293.9873">vt</text><!--MD5=[2567e90043a9b54633dd01bd31cc969a]
+@startuml
+autonumber
+participant "vtMapper:VaccineTypeMapper" as vtMapper
+participant "vtDto\n:VaccineTypeDto" as vtDTO
+participant "vt\n:VaccineType" as vt
+[o-> vtMapper : dtoToVT(vtDto)
+
+activate vtMapper
+
+vtMapper -> vtDTO : code=getCode()
+activate vtDTO
+deactivate vtDTO
+
+vtMapper -> vtDTO : designation=getDesignation()
+activate vtDTO
+deactivate vtDTO
+
+vtMapper - -> vt ** : create(code, designation)
+
+<- - vtMapper : vt
+
+deactivate vtMapper
+
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 14:29:17 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

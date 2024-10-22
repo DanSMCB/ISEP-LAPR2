@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="877px" preserveAspectRatio="none" style="width:1630px;height:877px;background:#FFFFFF;" version="1.1" viewBox="0 0 1630 877" width="1630px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="717.5313" style="stroke:#181818;stroke-width:1.0;" width="10" x="326" y="87.5703"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="574" y="193.9766"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="574" y="314.6797"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="574" y="375.0313"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="574" y="435.3828"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="711.5" y="254.3281"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="902" y="556.0859"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="1352" y="730.75"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="1531" y="495.7344"/><rect height="673.1797" style="stroke:#000000;stroke-width:1.5;fill:none;" width="1408.5" x="215.5" y="102.5703"/><rect height="640.8281" style="stroke:#000000;stroke-width:1.5;fill:none;" width="1388.5" x="225.5" y="127.9219"/><rect height="548.125" style="stroke:#000000;stroke-width:1.5;fill:none;" width="1368.5" x="235.5" y="153.2734"/><rect height="93.3125" style="stroke:#000000;stroke-width:1.5;fill:none;" width="1010.5" x="245.5" y="601.0859"/><rect height="60.9609" style="stroke:#000000;stroke-width:1.5;fill:none;" width="990.5" x="255.5" y="626.4375"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="330.5" x2="330.5" y1="55.2188" y2="823.1016"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="579" x2="579" y1="55.2188" y2="823.1016"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="716" x2="716" y1="55.2188" y2="823.1016"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="907" x2="907" y1="55.2188" y2="823.1016"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="1135" x2="1135" y1="676.0938" y2="823.1016"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="1357" x2="1357" y1="55.2188" y2="823.1016"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="1536" x2="1536" y1="55.2188" y2="823.1016"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="131" x="265.5" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="272.5" y="44.1426">:AppointmentStore</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="131" x="265.5" y="822.1016"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="272.5" y="843.6348">:AppointmentStore</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="130" x="514" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="531" y="26.5332">listAppointment</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="521" y="44.1426">:list&lt;Appointment&gt;</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="130" x="514" y="822.1016"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="531" y="843.6348">listAppointment</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="521" y="861.2441">:list&lt;Appointment&gt;</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="125" x="654" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="661" y="44.1426">snsUser:SNSUser</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="125" x="654" y="822.1016"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="661" y="843.6348">snsUser:SNSUser</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="236" x="789" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="222" x="796" y="44.1426">admProcess:AdministrationProcess</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="236" x="789" y="822.1016"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="222" x="796" y="843.6348">admProcess:AdministrationProcess</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="201" x="1035" y="822.1016"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="187" x="1042" y="843.6348">fullVaccinatedCounter:Integer</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="222" x="1246" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="208" x="1253" y="44.1426">fullVaccinatedArray:List&lt;Integer&gt;</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="222" x="1246" y="822.1016"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="208" x="1253" y="843.6348">fullVaccinatedArray:List&lt;Integer&gt;</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="116" x="1478" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="1485" y="44.1426">vaccine:Vaccine</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="116" x="1478" y="822.1016"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="1485" y="843.6348">vaccine:Vaccine</text><rect fill="#FFFFFF" height="717.5313" style="stroke:#181818;stroke-width:1.0;" width="10" x="326" y="87.5703"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="574" y="193.9766"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="574" y="314.6797"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="574" y="375.0313"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="574" y="435.3828"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="711.5" y="254.3281"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="902" y="556.0859"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="1352" y="730.75"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="1531" y="495.7344"/><ellipse cx="7.5" cy="86.8203" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.5;"/><polygon fill="#181818" points="314,83.5703,324,87.5703,314,91.5703,318,87.5703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="12" x2="320" y1="87.5703" y2="87.5703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="15" y="82.7139">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="288" x="26" y="82.7139">getNumberOfFullyVaccinated(initialDate,finalDate)</text><path d="M215.5,102.5703 L288.5,102.5703 L288.5,110.9219 L278.5,120.9219 L215.5,120.9219 L215.5,102.5703 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="673.1797" style="stroke:#000000;stroke-width:1.5;" width="1408.5" x="215.5" y="102.5703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="28" x="230.5" y="117.0654">loop</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="225" x="303.5" y="115.9893">[for each day from initialDate to finalDate]</text><path d="M225.5,127.9219 L298.5,127.9219 L298.5,136.2734 L288.5,146.2734 L225.5,146.2734 L225.5,127.9219 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="640.8281" style="stroke:#000000;stroke-width:1.5;" width="1388.5" x="225.5" y="127.9219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="28" x="240.5" y="142.417">loop</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="195" x="313.5" y="141.3408">[for each object in listAppointment]</text><path d="M235.5,153.2734 L300.5,153.2734 L300.5,161.625 L290.5,171.625 L235.5,171.625 L235.5,153.2734 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="548.125" style="stroke:#000000;stroke-width:1.5;" width="1368.5" x="235.5" y="153.2734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="20" x="250.5" y="167.7686">opt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="80" x="315.5" y="166.6924">[if state=done]</text><polygon fill="#181818" points="562,189.9766,572,193.9766,562,197.9766,566,193.9766" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="336" x2="568" y1="193.9766" y2="193.9766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="343" y="189.1201">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="132" x="354" y="189.1201">snsUser=getSnsUser()</text><polygon fill="#181818" points="699.5,250.3281,709.5,254.3281,699.5,258.3281,703.5,254.3281" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="336" x2="705.5" y1="254.3281" y2="254.3281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="343" y="249.4717">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="354" y="249.4717">age=getAge()</text><polygon fill="#181818" points="562,310.6797,572,314.6797,562,318.6797,566,314.6797" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="336" x2="568" y1="314.6797" y2="314.6797"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="343" y="309.8232">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="86" x="354" y="309.8232">date=getDate()</text><polygon fill="#181818" points="562,371.0313,572,375.0313,562,379.0313,566,375.0313" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="336" x2="568" y1="375.0313" y2="375.0313"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="343" y="370.1748">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="208" x="354" y="370.1748">numberOfDose=getNumberOfDose()</text><polygon fill="#181818" points="562,431.3828,572,435.3828,562,439.3828,566,435.3828" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="336" x2="568" y1="435.3828" y2="435.3828"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="343" y="430.5264">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="124" x="354" y="430.5264">vaccine=getVaccine()</text><polygon fill="#181818" points="1519,491.7344,1529,495.7344,1519,499.7344,1523,495.7344" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="336" x2="1525" y1="495.7344" y2="495.7344"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="343" y="490.8779">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="205" x="354" y="490.8779">admProcess= getAdmprocess(age)</text><polygon fill="#181818" points="890,552.0859,900,556.0859,890,560.0859,894,556.0859" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="336" x2="896" y1="556.0859" y2="556.0859"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="343" y="551.2295">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="242" x="354" y="551.2295">totalNumberOfDoses=getNumberOfDose()</text><path d="M245.5,601.0859 L310.5,601.0859 L310.5,609.4375 L300.5,619.4375 L245.5,619.4375 L245.5,601.0859 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="93.3125" style="stroke:#000000;stroke-width:1.5;" width="1010.5" x="245.5" y="601.0859"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="20" x="260.5" y="615.5811">opt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="223" x="325.5" y="614.5049">[if numberOfDose=totalNumberOfDoses]</text><path d="M255.5,626.4375 L320.5,626.4375 L320.5,634.7891 L310.5,644.7891 L255.5,644.7891 L255.5,626.4375 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="60.9609" style="stroke:#000000;stroke-width:1.5;" width="990.5" x="255.5" y="626.4375"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="20" x="270.5" y="640.9326">opt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="73" x="335.5" y="639.8564">[if date = day]</text><polygon fill="#181818" points="1023,663.1406,1033,667.1406,1023,671.1406,1027,667.1406" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="336" x2="1029" y1="667.1406" y2="667.1406"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="343" y="662.2842">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="72" x="354" y="662.2842">increament()</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="201" x="1035" y="644.7891"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="187" x="1042" y="666.3223">fullVaccinatedCounter:Integer</text><polygon fill="#181818" points="1340,726.75,1350,730.75,1340,734.75,1344,730.75" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="336" x2="1346" y1="730.75" y2="730.75"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="343" y="725.8936">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="155" x="361" y="725.8936">add(fullVaccinatedCounter)</text><polygon fill="#181818" points="11,801.1016,1,805.1016,11,809.1016,7,805.1016" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="5" x2="330" y1="805.1016" y2="805.1016"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="17" y="800.2451">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="112" x="35" y="800.2451">fullVaccinatedArray</text><!--MD5=[56e75eee9e9f3343ac69f796035b6268]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ":AppointmentStore" as AppointmentStore
+
+participant "listAppointment\n:list<Appointment>" as appointments
+participant "snsUser:SNSUser" as SNSUser
+participant "admProcess:AdministrationProcess" as ADMP
+participant "fullVaccinatedCounter:Integer" as counter
+participant "fullVaccinatedArray:List<Integer>" as IntegerArray
+participant "vaccine:Vaccine" as Vaccine
+
+
+
+
+[o-> AppointmentStore:getNumberOfFullyVaccinated(initialDate,finalDate)
+activate AppointmentStore
+
+loop for each day from initialDate to finalDate
+loop for each object in listAppointment
+opt if state=done
+AppointmentStore -> appointments : snsUser=getSnsUser()
+activate appointments
+deactivate appointments
+AppointmentStore -> SNSUser: age=getAge()
+activate SNSUser
+deactivate SNSUser
+AppointmentStore -> appointments : date=getDate()
+activate appointments
+deactivate appointments
+AppointmentStore -> appointments : numberOfDose=getNumberOfDose()
+activate appointments
+deactivate appointments
+AppointmentStore -> appointments: vaccine=getVaccine()
+activate appointments
+deactivate appointments
+AppointmentStore -> Vaccine:admProcess= getAdmprocess(age)
+activate Vaccine
+deactivate Vaccine
+AppointmentStore -> ADMP:totalNumberOfDoses=getNumberOfDose()
+activate ADMP
+deactivate ADMP
+opt if numberOfDose=totalNumberOfDoses
+opt if date = day
+AppointmentStore-> counter **:increament()
+
+end
+end
+end loop
+AppointmentStore -> IntegerArray: add(fullVaccinatedCounter)
+activate IntegerArray
+deactivate IntegerArray
+end
+end loop
+[<- - AppointmentStore : fullVaccinatedArray
+deactivate AppointmentStore
+
+
+@enduml
+
+@startuml
+
+autonumber
+
+participant ":AppointmentStore" as AppointmentStore
+
+participant "listAppointment\n:list<Appointment>" as appointments
+participant "snsUser:SNSUser" as SNSUser
+participant "admProcess:AdministrationProcess" as ADMP
+participant "fullVaccinatedCounter:Integer" as counter
+participant "fullVaccinatedArray:List<Integer>" as IntegerArray
+participant "vaccine:Vaccine" as Vaccine
+
+
+
+
+[o-> AppointmentStore:getNumberOfFullyVaccinated(initialDate,finalDate)
+activate AppointmentStore
+
+loop for each day from initialDate to finalDate
+loop for each object in listAppointment
+opt if state=done
+AppointmentStore -> appointments : snsUser=getSnsUser()
+activate appointments
+deactivate appointments
+AppointmentStore -> SNSUser: age=getAge()
+activate SNSUser
+deactivate SNSUser
+AppointmentStore -> appointments : date=getDate()
+activate appointments
+deactivate appointments
+AppointmentStore -> appointments : numberOfDose=getNumberOfDose()
+activate appointments
+deactivate appointments
+AppointmentStore -> appointments: vaccine=getVaccine()
+activate appointments
+deactivate appointments
+AppointmentStore -> Vaccine:admProcess= getAdmprocess(age)
+activate Vaccine
+deactivate Vaccine
+AppointmentStore -> ADMP:totalNumberOfDoses=getNumberOfDose()
+activate ADMP
+deactivate ADMP
+opt if numberOfDose=totalNumberOfDoses
+opt if date = day
+AppointmentStore-> counter **:increament()
+
+end
+end
+end loop
+AppointmentStore -> IntegerArray: add(fullVaccinatedCounter)
+activate IntegerArray
+deactivate IntegerArray
+end
+end loop
+[<- - AppointmentStore : fullVaccinatedArray
+deactivate AppointmentStore
+
+
+@enduml
+
+PlantUML version 1.2022.5(Sat Apr 30 11:55:52 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

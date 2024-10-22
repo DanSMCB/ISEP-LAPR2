@@ -1,0 +1,28 @@
+@startuml
+
+autonumber
+participant "lSL: DailySlotList" as LIST_SL
+participant "sl: Slot" as SL
+participant "slotList : List<Slot>" as SLOT_LIST
+
+[o--> LIST_SL**: create(openingHour, closingHour, slotDuration, numberOfVaccinesSlot)
+
+activate LIST_SL
+LIST_SL --> SLOT_LIST**:create()
+LIST_SL --> SL**: create(openingHour, slotDuration, numberOfVaccinesSlot)
+LIST_SL -> SLOT_LIST: addSlot(sl)
+activate SLOT_LIST
+deactivate SLOT_LIST
+loop populating Slot list
+alt If startTime>=closingHour
+LIST_SL -> LIST_SL: startTime = calculateNextSlotStartTime(sl)
+activate LIST_SL
+deactivate LIST_SL
+LIST_SL --> SL**: create(startTime, slotDuration, numberOfVaccinesSlot)
+LIST_SL -> SLOT_LIST: addSlot(sl)
+activate SLOT_LIST
+deactivate SLOT_LIST
+deactivate LIST_SL
+end
+end loop
+@enduml

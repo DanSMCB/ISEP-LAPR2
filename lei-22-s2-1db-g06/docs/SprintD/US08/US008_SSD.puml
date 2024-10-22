@@ -1,0 +1,31 @@
+@startuml
+autonumber
+actor "Nurse" as NURSE
+actor "SNS User" as SNSUSER
+
+activate NURSE
+NURSE -> ":System" : asks to record the administration of a vaccine to the SNS user
+activate ":System"
+":System" --> NURSE : shows a list of every SNS User in waiting state and asks to select one
+deactivate ":System"
+
+NURSE -> ":System" : chooses the SNS User
+activate ":System"
+":System" --> NURSE : shows the list of available vaccines for that employee and asks to select one
+deactivate ":System"
+
+NURSE -> ":System" : selects a vaccine
+activate ":System"
+":System" --> NURSE : asks the lot number of the vaccine administration
+deactivate ":System"
+
+NURSE -> ":System" : types the lot number
+activate ":System"
+":System" --> NURSE : validates the data and informs the operation success
+
+deactivate NURSE
+
+activate SNSUSER
+":System" --> SNSUSER : sends an SMS to the SNS user after their recovery time has finished informing they can leave the center
+deactivate ":System"
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+
+participant ":AnalyseCenterPerformanceController" as Controller
+participant "APP" as APP
+participant "app\n:APP" as app
+participant ":UserSession" as userSession
+participant ":Company" as Company
+participant ":EmployeeStore" as employeeStore
+participant "centerCoordinator\n:CenterCoordinator" as cc
+
+[o-> Controller : getCCVaccinationCenter()
+
+activate Controller
+
+Controller -> APP : app=getInstance()
+activate APP
+deactivate APP
+
+Controller -> app : userSession=getCurrentUserSession()
+activate app
+deactivate app
+
+Controller -> userSession : email=getUserID()
+activate userSession
+deactivate userSession
+
+Controller -> Company : employeeStore=getEmployeeStore()
+activate Company
+deactivate Company
+
+Controller -> employeeStore : centerCoordinator=findEmployeeByEmail(email)
+activate employeeStore
+deactivate employeeStore
+
+Controller -> cc : vaccinationCenter=getVaccinationCenter()
+activate cc
+deactivate cc
+
+deactivate Controller
+
+@enduml

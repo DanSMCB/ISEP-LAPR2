@@ -1,0 +1,26 @@
+@startuml
+autonumber
+actor "Center Coordinator" as CC
+participant ":System" as System
+
+activate CC
+CC -> System : asks to show the list of difference between the number \n of new clients arriving and the number of clients leaving
+activate System
+System --> CC : asks the time interval in minutes
+deactivate System
+
+CC -> System : types the time interval
+
+activate System
+System --> CC : asks the day to check
+deactivate System
+
+CC -> System : types the date
+
+
+activate System
+System --> CC : shows the list, the maximum sum contiguous sublist,\n its sum and its time interval
+
+deactivate System
+
+@enduml

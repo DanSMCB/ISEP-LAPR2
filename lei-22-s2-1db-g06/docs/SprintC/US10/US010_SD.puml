@@ -1,0 +1,73 @@
+@startuml
+autonumber
+hide footbox
+actor "Administrator" as ADM
+
+participant ":RegisterEmployeeUI" as UI
+participant ":RegisterEmployeeController" as CTRL
+participant ":Company" as COMP
+participant "eStore : EmployeeStore" as EMPSTORE
+participant ":RolesMapper" as RMAP
+participant "lRolesDto :List<RoleDTO>" as IROLESDTO
+participant ":EmployeeMapper" as EMPMAP
+participant "empDto: EmployeeDto" as EMPDTO
+participant "role:OrgRole" as ROLE
+participant "emp:Employee" as EMP
+
+
+activate ADM
+ADM -> UI : starts registering a new employee
+activate UI
+UI -> CTRL : lRolesDto = getRoles()
+activate CTRL
+CTRL -> COMP : lRoles = getRoles()
+activate COMP
+deactivate COMP
+CTRL -> RMAP : toDTO(lRoles)
+activate RMAP
+ref over RMAP, ROLE [[US010_SD_RolesMapper_toDTO.puml]]: US010_SD_RolesMapper_toDTO
+RMAP --> CTRL : lRolesDto
+deactivate RMAP
+deactivate CTRL
+UI --> ADM : ask to select the employee role
+deactivate UI
+ADM -> UI : select the intended role
+activate UI
+UI --> ADM : request data (i.e., name, address, phoneNumber, emailAddress, ...)
+deactivate UI
+ADM -> UI : types requested data
+activate UI
+UI -> CTRL : createEmployee(empDto)
+activate CTRL
+CTRL -> COMP : emp = createEmployee(empDto)
+activate COMP
+COMP -> EMPMAP : createEmployee(empDto)
+activate EMPMAP
+ref over EMPMAP, ROLE [[US010_SD_EmployeeMapper_createEmployee.puml]]: US010_SD_EmployeeMapper_createEmployee.puml
+EMPMAP --> COMP : return emp
+deactivate COMP
+deactivate EMPMAP
+deactivate CTRL
+deactivate ROLE
+UI --> ADM : shows the data and requests a confirmation
+deactivate UI
+ADM -> UI : confirms the data
+activate UI
+UI -> CTRL : saveEmployee()
+activate CTRL
+CTRL -> COMP : saveEmployee(emp)
+activate COMP
+COMP -> EMPSTORE : saveEmployee(emp)
+activate EMPSTORE
+EMPSTORE -> EMPSTORE : validateEmployee(emp)
+activate EMPSTORE
+deactivate EMPSTORE
+EMPSTORE -> EMPSTORE : addEmployee(emp)
+activate EMPSTORE
+deactivate EMPSTORE
+deactivate COMP
+deactivate EMPSTORE
+deactivate CTRL
+deactivate COMP
+UI --> ADM : informs the operation's sucess
+@enduml

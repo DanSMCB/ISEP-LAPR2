@@ -1,0 +1,38 @@
+@startuml
+autonumber
+participant ":MVcenterMapper" as VcMapper
+participant "mvcWithVtList\n:List<MassVaccinationCenter>" as mvcWithVtList
+participant "mvcWithVtDTOList\n:list<MVCDto>" as mvcWithVtDtoList
+participant "mvcDto\n:MVCDto" as MVCDto
+
+[o->VcMapper : toDto(mvcWithVtList)
+activate VcMapper
+
+VcMapper --> mvcWithVtDtoList **: create()
+
+loop for each object in mvcWithVtList
+
+VcMapper -> mvcWithVtList : name = getName()
+activate mvcWithVtList
+deactivate mvcWithVtList
+VcMapper -> mvcWithVtList : phoneNumber = getPhoneNumber()
+activate mvcWithVtList
+deactivate mvcWithVtList
+VcMapper -> mvcWithVtList : emailAddress = getEmailAddress()
+activate mvcWithVtList
+deactivate mvcWithVtList
+VcMapper -> mvcWithVtList : vaccineType=getVaccineType()
+activate mvcWithVtList
+deactivate mvcWithVtList
+
+
+
+VcMapper --> MVCDto **: create(name, phoneNumber, emailAddress, vaccineType)
+
+VcMapper -> mvcWithVtDtoList : add(mvcDto)
+activate mvcWithVtDtoList
+deactivate mvcWithVtDtoList
+end loop
+[<-- VcMapper : mvcWithVtDTOList
+
+@enduml

@@ -1,0 +1,87 @@
+@startuml
+
+class AnalyseCenterPerformanceUI
+
+class AnalyseCenterPerformanceController {
++getCCVaccinationCenter() : VaccinationCenter
++setTimeInterval(timeInterval : int) : boolean
++getArrivaNumberList(dayToCheck : LocalDate) : List<Integer>
++getMaxSumSublist() : List<Integer>
++findMaxSumSublistIndexes() : List<Integer>
+}
+
+class VaccinationCenter {
++getAppointmentStore() : AppointmentStore
+}
+
+class AppointmentStore {
+-listAppointment : List<Appointment>
++validateTimeInterval(timeInterval : int) : boolean
++getArrivalNumberList((dayToCheck : LocalDate), (timeInterval : int)) : List<Integer>
+}
+
+class Appointment {
+-state : State
+-snsUserArrivalTime : LocalTime
+-snsUserLeavingTime  LocalTime
+-date : LocalDate
++checkStateDone() : boolean
++checkStateToDo() : boolean
++checkStateWaiting() : boolean
++getSnsUserArrivalTime() : LocalTime
++getSnsUserLeavingTime() : LocalTime
++getDate() : LocalDate
+}
+
+class State <<enumeration>> {
+-TODO
+-WAITING
+-DONE
+}
+
+class MaximumSum {
++getMaxSumSublist(arrivalNumberList : List<Integer>) : List<Integer>
++findMaxSumSublistIndexes((arrivalNumberList : List<Integer>), (maxSumSublist : List<Integer>)) : List<Integer>
+}
+
+class APP {
++getInstance() : APP
++getCurrentUserSession() : UserSession
+}
+
+class UserSession {
++getUserID() : Email
+}
+
+class Company {
++getEmployeeStore() : EmployeeStore
+}
+
+class EmployeeStore {
+-employeeList : List<Employee>
++findEmployeeByEmail(email : Email) : Employee
+}
+
+class CenterCoordinator extends Employee {
++getVaccinationcenter() : VaccinationCenter
+}
+
+class Employee
+
+AnalyseCenterPerformanceUI ..> AnalyseCenterPerformanceController
+AnalyseCenterPerformanceController ..> APP
+APP ..> UserSession
+AnalyseCenterPerformanceController ..> Company
+AnalyseCenterPerformanceController ..> EmployeeStore
+AnalyseCenterPerformanceController ..> CenterCoordinator
+AnalyseCenterPerformanceController ..> VaccinationCenter
+AnalyseCenterPerformanceController ..> AppointmentStore
+AnalyseCenterPerformanceController ..> MaximumSum
+AppointmentStore "1" --> "*" Appointment : stores
+Appointment ..> State
+Company "1" --> "1" AppointmentStore : uses
+Company "1" --> "1" EmployeeStore : uses
+EmployeeStore "1" --> "*" Employee : stores
+CenterCoordinator "1" --> "1" VaccinationCenter : works for
+
+@enduml

@@ -1,0 +1,39 @@
+@startuml
+
+autonumber
+participant "MVCenterMapper" as MVC_MP
+participant "mvcDto: MVCDto" as MVC_DTO
+
+[o-> MVC_MP : toModel(mvcDto)
+activate MVC_MP
+MVC_MP -> MVC_DTO : name = getName()
+activate MVC_DTO
+deactivate MVC_DTO
+MVC_MP -> MVC_DTO : address = getAddress()
+activate MVC_DTO
+deactivate MVC_DTO
+MVC_MP -> MVC_DTO : phoneNumber = getPhoneNumber()
+activate MVC_DTO
+deactivate MVC_DTO
+MVC_MP -> MVC_DTO : emailAddress = getEmailAddress()
+activate MVC_DTO
+deactivate MVC_DTO
+MVC_MP -> MVC_DTO : faxNumber = getFaxNumber()
+activate MVC_DTO
+deactivate MVC_DTO
+MVC_MP -> MVC_DTO : websiteAddress = getWebsiteAddress()
+activate MVC_DTO
+deactivate MVC_DTO
+MVC_MP -> MVC_DTO : openingHour = getOpeningHour()
+activate MVC_DTO
+deactivate MVC_DTO
+MVC_MP -> MVC_DTO : closingHour = getClosingHour()
+activate MVC_DTO
+deactivate MVC_DTO
+MVC_MP -> MVC_DTO : slotDuration = getSlotDuration)
+activate MVC_DTO
+deactivate MVC_DTO
+MVC_MP -> MVC_DTO : numberOfVaccinesSlot = getnumberOfVaccinesSlot()
+activate MVC_DTO
+deactivate MVC_DTO
+@enduml

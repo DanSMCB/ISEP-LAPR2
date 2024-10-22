@@ -1,0 +1,256 @@
+@startuml
+
+
+class ScheduleVaccinationUI {
++addVcDtoList(mvcDtoList : List<MVCDto>,hccDtoList : List<HCCDto>) : List<MVCDto>
++writeToTXT(smsDto : SMSDto) : void
+}
+
+class ScheduleVaccinationController {
++getOngoingOutbreak(): String
++getListOfVaccineTypes() : List<VaccineTypeDto>
++selectVaccineType(vtDto : VTDto) : void
++checkSNSUserAppointment(snsNumber : long) : boolean
++getMassVaccinationCenters() : List<MVCDto>
++getHealthCareCenters() : List<HCCDto>
++toModel(vcDto : VCDto) : void
++createAppointment(date : Date,time : Date) : void
++generateSMS() : SMSDto
+}
+
+class Company {
+-designation : String
++getOngoingOutbreakVaccineType() : String
++getVTStore() : VaccineTypeStore
++getSNSUserStore() : SNSUserStore
++getMVCenterStore() : MVCenterStore
++getHCCenterStore() : HCCenterStore
+}
+
+class SNSUserStore {
+-snsuserStore : List<SNSUser>
++findSnsUserByNumber(snsNumber : long) : SNSUser
+}
+
+class SNSUser {
+-snsNumber : long
++checkUserNumber(snsNumber : long) : boolean
++appointmentExists(vaccineType : VaccineType) : boolean
++getSMSStore() : List<SMS>
++addAppointment(appointment : Appointment):void
+}
+
+class SNSUserAppointmentStore {
+-listSNSUserAppointments : List<Appointment>
++appointmentExists(vaccineType : VaccineType) : boolean
++addAppointment(appointment : Appointment) : void
+}
+
+class Appointment {
+-vaccineType : VaccineType
+-snsUser : SNSUser
+-date : Date
+-time : Date
++Appointment(vaccineType : VaccineType,snsUser : long,date : Date,time : Date)
++vaccineTypeMatches(vaccineType : VaccineType) : boolean
+}
+
+class Slot {
+-startTime : Date
+-endTime : Date
+-slotDuration : int
+-numberOfVaccinesSlot : int
++addScheduledVaccine() : void
++validateSlot() : boolean
++checkSlot(time : Date) : boolean
+}
+
+class VCDto {
+-name : String
+-phoneNumber : long
+-email : String
++VCDto(name : String, phoneNumber : long, email : String)
+}
+
+class DayList {
+-openingHour : Date
+-closingHour : Date
+-date : Date
+-slotDuration : int
+-numberOfVaccinesSlot : int
+-dayList : List<DaySchedule>
++addDay(day : DaySchedule) : void
++findDay(date : Date) : DaySchedule
+}
+class MVCDto extends VCDto{
+-vaccineType : VaccineType
++MVCDto(name : String, phoneNumber : long, email : String, vaccineType : VaccineType)
+}
+
+class HCCDto extends VCDto{
++HCCDto(name : String, phoneNumber : long, email : String)
+}
+
+class HealthCareCenter extends VaccinationCenter{
++vcMatches(vcDto : VCDto) : boolean
+}
+
+class MassVaccinationCenter extends VaccinationCenter{
+-vaccineType : VaccineType
++vcMatches(vcDto : VCDto) : boolean
+}
+
+class VaccineTypeStore {
+-listVT : List<VaccineType>
++getVaccineTypes() : List<VaccineType>
++find(vtDto : VTDto) : VaccineType
+}
+
+class VaccineTypeDto {
+-code : String
+-description : String
+-vaccineTechnology : String
++VaccineTypeDto(code : String, description : String, vaccineTechnology : String)
++getCode() : String
++getDescription() : String
++getVaccineTechnology() : String
+}
+
+class VaccineTypeMapper {
++toDto(listVT : List<VaccineType>):List<VaccineTypeDto>
+}
+
+class VaccineType {
+-description : String
++getDescription() : String
++checkVaccineType(vtDto : VTDto) : boolean
+}
+
+class MVCenterStore {
+-massVaccinationCenters : List<MassVaccinationCenter>
++getMVCenterListWithVt(vaccineType : VaccineType) : List<MassVaccinationCenter>
++toModel(VCDto vcDto): VaccinationCenter
+}
+
+class MVCenterMapper {
++toDto(mvcWithVtList : List<MassVaccinationCenter) : List<MVCDto>
+}
+
+class HCCenterStore {
+-healthcareCenters : List<HealthCareCenter>
++getHCCenterList(): List<HealthCareCenter>
++toModel(VCDto vcDto): VaccinationCenter
+}
+
+class VaccinationCenter {
+-name : String
+-phoneNumber : long
+-email : String
+-openingHour : Date
+-closingHour : Date
+-slotDuration : int
+-numberOfVaccinesSlot : int
++vcMatches(vcDto : VCDto) : boolean
++findSlot(date : Date,time : Date) : Slot
++createVaccinationAppointment(vaccineType : VaccineType, snsUser : long, time : Date, date : Date) : void
+}
+
+class AppointmentStore {
+-listAppointment : List<Appointment>
++createVaccinationAppointment(vaccineType : VaccineType, snsUser : long, time : Date,date : Date) : Appointment
+}
+
+class SMSStore {
+-listSMS : List<SMS>
++generateSMS(appointment : Appointment, vaccinationCenter : VaccinationCenter) : SMSDto
+}
+
+class SMS {
+-smsContent : String
++SMS(appointment : Appointment, vaccinationCenter : VaccinationCenter)
++getSMSContent() : String
+}
+
+class SMSMapper {
++smsToDto(sms : SMS) : SMSDto
+}
+
+class DaySchedule {
+-openingHour : Date
+-closingHour : Date
+-slotDuration : int
+-numberOfVaccinesSlot : int
+-date : Date
+-slotList : List<Slot>
++DaySchedule(openingHour : Date, closingHour : Date, slotDuration : int, numberOfVaccinesSlot : int, date : Date)
++findSlot(time : Date) : Slot
++checkDay(date : Date,time : Date) : boolean
+}
+
+class HCCenterMapper {
++toDto(healthcareCenterList : List<HealthCareCenter>) : List<HCCDto>
+}
+
+class SMSDto {
+-smsContent : String
++SMSDto(smsContent : String)
+}
+
+
+ScheduleVaccinationUI ..> ScheduleVaccinationController
+ScheduleVaccinationController ..> Company
+ScheduleVaccinationController ..> VaccineTypeStore
+ScheduleVaccinationController ..> VaccineTypeMapper
+ScheduleVaccinationController ..> SNSUserStore
+ScheduleVaccinationController ..> SNSUser
+ScheduleVaccinationController ..> MVCenterStore
+ScheduleVaccinationController ..> MVCenterMapper
+ScheduleVaccinationController ..> HCCenterStore
+ScheduleVaccinationController ..> HCCenterMapper
+ScheduleVaccinationController ..> VaccinationCenter
+ScheduleVaccinationController ..> Slot
+ScheduleVaccinationController ..> SMSStore
+ScheduleVaccinationController ..> SMSMapper
+ScheduleVaccinationController ..> VaccineType
+ScheduleVaccinationUI ..> VCDto
+ScheduleVaccinationUI ..> VaccineTypeDto
+ScheduleVaccinationUI ..> SMSDto
+ScheduleVaccinationUI ..> MVCDto
+ScheduleVaccinationUI ..> HCCDto
+Company ..> VaccineType
+Company "1" --> "1" VaccineTypeStore : uses
+Company "1" --> "1" SNSUserStore : uses
+Company "1" --> "1" MVCenterStore : uses
+Company "1" --> "1" HCCenterStore : uses
+SNSUserStore "1" --> "*" SNSUser : saves
+SNSUser "1" --> "1" SNSUserAppointmentStore : uses
+SNSUserAppointmentStore "1" --> "*" Appointment : saves
+VaccineTypeStore "1" --> "*" VaccineType : saves
+MVCenterStore "1" --> "*" MassVaccinationCenter : saves
+MVCenterStore ..> VaccineType
+MVCenterMapper ..> MassVaccinationCenter
+MVCenterMapper ..> MVCDto
+HCCenterStore "1" --> "*" HealthCareCenter : saves
+HCCenterMapper ..> HealthCareCenter
+HCCenterMapper ..> HCCDto
+VaccinationCenter "1" --> "1" DayList : has
+DayList "1" --> "*" DaySchedule : saves
+VaccinationCenter ..> DaySchedule
+MassVaccinationCenter "1" --> "1" VaccineType : has
+DaySchedule "1" --> "1..*" Slot : has
+VaccinationCenter "1" --> "1" AppointmentStore : uses
+VaccinationCenter ..> SNSUser
+VaccinationCenter ..> VaccineType
+VaccinationCenter ..> Appointment
+AppointmentStore "1" --> "*" Appointment : saves
+Appointment "*" --> "1" SNSUser : requested by
+Appointment "1" --> "1" VaccineType : to administer
+SMSStore "1" --> "*" SMS : saves
+SMSStore ..> Appointment
+SMSMapper ..> SMSDto
+SMSMapper ..> SMS
+DayList ..> Slot
+SMS ..> Appointment
+VaccineTypeMapper ..> VaccineTypeDto
+
+@enduml

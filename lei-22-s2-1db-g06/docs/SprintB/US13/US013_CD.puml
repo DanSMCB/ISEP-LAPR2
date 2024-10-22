@@ -1,0 +1,182 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class CreateVaccineUI {}
+
+class CreateVaccineController {
++getListOfVaccineTypes() : List<VaccineTypeDto>
++createVaccine((vaccineDto : VaccineDto), (vtDto : VaccineTypeDto)) : boolean
++createAdmProcess(admpDto : AdmProcessDto) : boolean
++createDose((admp : AdministrationProcess), (doseDto : DoseDto)) : boolean
++saveVaccine() : void
+}
+
+class Company {
+-designation : Designation
++getVTStore() : VaccineTypeStore
++createVaccine((vaccineDto : VaccineDto), (vt : VaccineType)) : Vaccine
++validateVaccine(vaccine : Vaccine) : boolean
++saveVaccine((vaccine : Vaccine), (vt : VaccineType)) : void
+}
+
+class VaccineTypeStore {
+-listVT : List<VaccineType>
++getVaccineTypes() : List<VaccineType>
++find(vt : VaccineType) : VaccineType
++saveVaccine((vaccine : Vaccine), (vt : VaccineType))) : void
++createVaccine((vaccineDto : VaccineDto), (vt : VaccineType)) : Vaccine
++validateVaccine((vaccine : Vaccine), (vt : VaccineType)) : boolean
+}
+
+class VaccineTypeMapper {
++toDto(listVT : List<VaccineType>) : List<VaccineTypeDto>
++toModel(vtDto : VaccineTypeDto) : VaccineType
+}
+
+class VaccineStore {
+-listVaccine : List<Vaccine>
++validateVaccine(vaccine : Vaccine) : boolean
++saveVaccine(vaccine : Vaccine) : void
++createVaccine((id : String), (name : String), (brand : String), (admpStore : AdmProcessStore)) : Vaccine
+}
+
+class AdmProcessMapper {
++createAdmProcess((vaccine : Vaccine), (admpDto : AdmProcessDto)) : AdministrationProcessA
+}
+
+class Vaccine {
+-id : String
+-name : String
+-brand : String
++Vaccine((id : String),(name : String),(brand : String),(admpStore : AdmProcessStore)) : void
++getAdmProcessStore() : AdmProcessStore
++validateAdmProcess(admp : AdministrationProcess) : boolean
++saveAdmProcess(admp : AdministrationProcess) : void
++createAdmProcess((doseStore : DoseStore), (numberOfDoses : int), (maximumAge : int), (minimumAge : int)) : AdministrationProcess
+}
+
+class AdmProcessStore {
+-listAdmp : List<AdministrationProcess>
++AdmProcessStore() : void
++validateAdmProcess(admp : AdministrationProcess) : boolean
++saveAdmProcess(admp : AdministrationProcess) : void
++createAdmProcess((doseStore : DoseStore), (numberOfDoses : int), (maximumAge : int), (minimumAge : int)) : AdministrationProcess
+}
+
+class DoseMapper {
++createDose((admp : AdministrationProcess), (doseDto : DoseDto)) : Dose
+}
+
+class AdministrationProcess {
+-numberOfDoses : int
+-maximumAge : int
+-minimumAge : int
++AdministrationProcess((doseStore : DoseStore), (numberOfDoses : int), (maximumAge : int), (minimumAge : int)) : void
++createDose((doseNumber : int), (dosage : double), (timeBetweenDoses : int)) : Dose
++validateDose(dose : Dose) : boolean
++saveDose(dose : Dose) : void
+}
+
+class DoseStore {
+-listDoses : List<Dose>
++DoseStore() : void
++validateDose(dose : Dose) : boolean
++saveDose(dose : Dose) : void
++createDose((doseNumber : int), (dosage : double), (timeBetweenDoses : int)) : Dose
+}
+
+class VaccineType {
+-code : String
+-description : String
+-vaccineTechnology : String
++VaccineType((code : String), (description : String), (vaccineTechnology : String)) : void
++getCode() : String
++getDescription() : String
++getVaccineTechology() : String
++createVaccine(vaccineDto : VaccineDto) : Vaccine
+}
+
+class VaccineTypeDto {
+-code : String
+-description : String
+-vaccineTechnology : String
++VaccineTypeDto((code : String), (description : String), (vaccineTechnology : String)) : void
++getCode() : String
++getDescription() : String
++getVaccineTechology() : String
+}
+
+class VaccineDto {
+-id : String
+-name : String
+-brand : String
++VaccineDto((id : String),(name : String),(brand : String),(admpStore : AdmProcessStore)) : void
++getId() : String
++getName() : String
++getBrand() : String
+}
+
+class VaccineMapper {
++createVaccine((vaccineDto : VaccineDto), (vaccStore : VaccineStore)) : vaccine
+}
+
+class DoseDto {
+-doseNumber : int
+-dosage : double
+-timeBetweenDoses : int
++DoseDto((doseNumber : int), (dosage : double), (timeBetweenDoses : int))
++getDoseNumber() : int
++getDosage() : double
++getTimeBetweenDoses() : int
+}
+
+class Dose {
+-doseNumber : int
+-dosage : double
+-timeBetweenDoses : int
++Dose((doseNumber : int), (dosage : double), (timeBetweenDoses : int))
+}
+
+class AdmProcessDto {
+-numberOfDoses : int
+-maximumAge : int
+-minimumAge : int
++AdmProcessDto((doseStore : DoseStore), (numberOfDoses : int), (maximumAge : int), (minimumAge : int)) : void
++getNumberOfDoses() : int
++getMaximumAge() : int
++getMinimumAge() : int
+}
+
+CreateVaccineUI ..> CreateVaccineController
+CreateVaccineController ..> Company
+CreateVaccineController ..> VaccineTypeStore
+Company "1" --> "1" VaccineTypeStore : uses
+VaccineTypeStore "1" --> "*" VaccineType : saves
+CreateVaccineController ..> VaccineTypeMapper
+VaccineTypeMapper ..> VaccineType
+VaccineTypeMapper ..> VaccineTypeDto
+Company ..> VaccineMapper
+VaccineMapper ..> Vaccine
+VaccineMapper ..> VaccineDto
+VaccineMapper ..> AdmProcessStore
+VaccineMapper ..> VaccineStore
+VaccineStore "1" --> "*" Vaccine : saves
+VaccineType "1" --> "1" VaccineStore : uses
+CreateVaccineController ..> AdmProcessMapper
+AdmProcessMapper ..> AdministrationProcess
+AdmProcessMapper ..> AdmProcessDto
+AdmProcessMapper ..> DoseStore
+AdmProcessMapper ..> Vaccine
+Vaccine "1" --> "1" AdmProcessStore : uses
+AdmProcessStore "1" --> "*" AdministrationProcess: saves
+CreateVaccineController ..> Vaccine
+CreateVaccineController ..> DoseMapper
+DoseMapper ..> Dose
+DoseMapper ..> DoseDto
+DoseMapper ..> AdministrationProcess
+AdministrationProcess "1" --> "1" DoseStore : uses
+DoseStore "1" --> "*" Dose : saves
+CreateVaccineController ..> AdministrationProcess
+
+
+@enduml

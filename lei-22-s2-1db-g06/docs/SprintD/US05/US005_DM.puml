@@ -1,0 +1,39 @@
+@startuml
+hide methods
+skinparam classAttributeIconSize 0
+
+class Employee {
+}
+
+class SNSUser {
+}
+
+class Appointment {
+-date
+-time
+-state
+}
+
+class Nurse extends Employee{
+}
+
+class VaccinationCenter {
+}
+
+class MassVaccinationCenter extends VaccinationCenter{
+}
+
+class HealhcareCenter extends VaccinationCenter{
+}
+
+class VaccineType {
+}
+
+Appointment "*" -- "1" SNSUser : requested by >
+VaccinationCenter "1" -- "*" Appointment : has >
+Nurse "*" -- "1" VaccinationCenter : works for >
+VaccinationCenter "1" -- "*" Employee : associated with <
+Appointment "*" -- "1" VaccineType : is associated with >
+MassVaccinationCenter "*" -- "1" VaccineType : is associated with >
+
+@enduml

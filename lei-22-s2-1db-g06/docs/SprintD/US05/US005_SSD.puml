@@ -1,0 +1,12 @@
+@startuml
+autonumber
+actor "Nurse" as Nurse
+participant ":System" as System
+
+activate Nurse
+Nurse -> System : ask to consult the waiting list of SNS Users
+activate System
+System --> Nurse : shows the waiting list for Nurse's working vaccination center
+deactivate System
+
+@enduml

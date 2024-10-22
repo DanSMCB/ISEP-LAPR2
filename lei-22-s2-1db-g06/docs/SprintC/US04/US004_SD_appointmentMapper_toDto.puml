@@ -1,0 +1,56 @@
+@startuml
+autonumber
+participant ":AppointmentMapper" as appointmentMapper
+participant "appointment\n:Appointment" as appointment
+participant ":VaccineTypeMapper" as vaccineTypeMapper
+participant ":SNSUserMapper" as snsUserMapper
+participant "appointmentDTO\n:AppointmentDTO" as appointmentDTO
+participant "lAppointmentDTO\n:List<AppointmentDTO>" as lAppointment
+
+
+[o-> appointmentMapper : toDto(lAppointment)
+activate appointmentMapper
+
+appointmentMapper --> appointmentDTO ** : create()
+
+loop for each appointment in waitingList
+
+appointmentMapper -> appointment : vaccineType=getVaccineType()
+activate appointment
+deactivate appointment
+
+appointmentMapper -> vaccineTypeMapper : vaccineTypeDTO=toDto(vaccineType)
+activate vaccineTypeMapper
+ref over vaccineTypeMapper [[US004_SD_vtMapper_ToDto.puml]] : US004_SD_vtMapper_ToDto
+vaccineTypeMapper --> appointmentMapper : vaccineTypeDTO
+deactivate vaccineTypeMapper
+
+appointmentMapper -> appointment : snsUser=getSNSUser()
+activate appointment
+deactivate appointment
+
+appointmentMapper -> snsUserMapper : snsUserDTO=toDto(snsUser)
+activate snsUserMapper
+ref over snsUserMapper [[US004_SD_snsUserMapper_ToDto.puml]] : US004_SD_snsUserMapper_ToDto
+snsUserMapper --> appointmentMapper : snsUserDTO
+deactivate snsUserMapper
+
+appointmentMapper -> appointment : time=getTime()
+activate appointment
+deactivate appointment
+
+appointmentMapper -> appointment : date=getDate()
+activate appointment
+deactivate appointment
+
+appointmentMapper --> appointmentDTO ** : create(vaccineTypeDTO, snsUserDTO, date, time)
+
+appointmentMapper -> lAppointment : add(appointmentDTO)
+activate lAppointment
+deactivate lAppointment
+
+end
+
+<- appointmentMapper : lAppointmentDTO
+deactivate appointmentMapper
+@enduml

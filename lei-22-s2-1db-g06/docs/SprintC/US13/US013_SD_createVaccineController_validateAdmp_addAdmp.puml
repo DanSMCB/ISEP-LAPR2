@@ -1,0 +1,36 @@
+@startuml
+autonumber
+participant "createVaccineController\n:CreateVaccineController" as Controller
+participant "vaccine\n:Vaccine" as vaccine
+participant "admpStore\n:AdmProcessStore" as admpStore
+
+activate Controller
+Controller -> vaccine : validateAdmProcess(admp)
+activate vaccine
+vaccine -> admpStore: validateAdmProcess(admp)
+activate admpStore
+admpStore -> admpStore : validateAdmProcess(admp)
+activate admpStore
+deactivate admpStore
+deactivate admpStore
+deactivate vaccine
+
+alt if admp is validated
+Controller -> vaccine : saveAdmProcess(admp)
+activate vaccine
+
+vaccine -> admpStore : saveAdmProcess(admp)
+activate admpStore
+
+admpStore -> admpStore : saveAdmProcess(admp)
+activate admpStore
+deactivate admpStore
+
+deactivate admpStore
+
+deactivate vaccine
+
+end
+
+
+@enduml
