@@ -1,2 +1,2 @@
 # ISEP-LAPR2
-Final Project of the Laboratory/Project II unit course.
+LAPR2 unit course final project. (2021/2022)
